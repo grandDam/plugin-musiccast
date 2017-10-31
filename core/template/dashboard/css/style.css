@@ -1,0 +1,334 @@
+.musiccast_widget {
+    width: 220px;
+    height: 330px;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.musiccast_widget .uppart {
+    height: 257px;
+    width: 250px;
+    z-index: 2;
+}
+
+.musiccast_widget .downpart {
+    height: 70px;
+    width: 250px;
+    z-index: 2;
+}
+
+.musiccast_widget .volumeDownpart {
+    height: 70px;
+    width: 250px;
+    z-index: 2;
+}
+
+.musiccast_widget .power {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.musiccast_widget .cercle_downpart {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    margin: 6.5px 99px 6.5px;
+    border: 2px solid black;
+    border-radius: 50%;
+    z-index: 3;
+    opacity: 0.6;
+}
+
+.musiccast_widget .cercle_downpart:hover {
+    border-radius: 20%;
+    border: 2px solid #679403;
+    opacity: 1;
+}
+
+.musiccast_widget .play_in_cercle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-left: -11px;
+    margin-top: 9px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.musiccast_widget .pause_in_cercle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-left: -14px;
+    margin-top: 9px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.musiccast_widget .previous {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 22px;
+    left: 25px;
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.6;
+}
+
+.musiccast_widget .previous:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .next {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 22px;
+    right: 25px;
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.6;
+}
+
+.musiccast_widget .next:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .shuffle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 16px;
+    left: 48px;
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.6;
+    color: black;
+    font-size: 1.8em;
+}
+
+.musiccast_widget .shuffle:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .repeat {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 15px;
+    left: 75px;
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.6;
+    color: black;
+    font-size: 1.8em;
+}
+
+.musiccast_widget .repeat:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .mute {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 12px;
+    left: 180px;
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.6;
+    color: black;
+    font-size: 2em;
+}
+
+.musiccast_widget .mute:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .rightRafter {
+    width: 15px;
+    height: 40px;
+    position: absolute;
+    top: 143.5px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.1;
+}
+
+.musiccast_widget .rightRafter:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .rightpanel .rightRafter {
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.musiccast_widget .leftRafter {
+    width: 15px;
+    height: 40px;
+    position: absolute;
+    top: 143.5px;
+    left: 5px;
+    cursor: pointer;
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    z-index: 4;
+    opacity: 0.1;
+}
+
+.musiccast_widget .leftRafter:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .leftpanel .leftRafter {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.musiccast_widget .rightpanel {
+    width: 200px;
+    height: 327px;
+    float: left;
+    position: absolute;
+    z-index: 10;
+    right: -200px;
+    background-color: #4a89dc;
+}
+
+.musiccast_widget .leftpanel {
+    text-align: left;
+    width: 200px;
+    height: 327px;
+    float: left;
+    position: absolute;
+    z-index: 10;
+    left: -200px;
+    background-color: #4a89dc;
+}
+
+.musiccast_widget .title_downpart {
+    text-align: center;
+    width: 220px;
+    position: absolute;
+    margin-left: 15px;
+}
+
+.musiccast_widget .title {
+    font-size: 1em;
+}
+
+.musiccast_widget .subtitle {
+    font-size: 0.8em;
+}
+
+.musiccast_widget .jaquette_musiccast {
+    width: 250px;
+    height: 155px;
+}
+
+.musiccast_widget .affiche_premiere_musiccast {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    margin-left: -80px;
+    z-index: 7;
+    border-radius: 10%;
+}
+
+.musiccast_widget .affiche_deuxieme_musiccast {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    margin-left: -100px;
+    margin-top: 10px;
+    z-index: 6;
+    opacity: 0.22;
+    border-radius: 10%;
+}
+
+.musiccast_widget .affiche_troisieme_musiccast {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    margin-left: -40px;
+    margin-top: 10px;
+    z-index: 6;
+    opacity: 0.22;
+    border-radius: 10%;
+}
+
+.musiccast_widget .shadow_fenetre_musiccast {
+    -moz-box-shadow: 0px 0px 40px 0px #330001;
+    -webkit-box-shadow: 0px 0px 40px 0px #330001;
+    -o-box-shadow: 0px 0px 40px 0px #330001;
+    box-shadow: 0px 0px 40px 0px #330001;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#330001, Direction=NaN, Strength=40);
+}
+
+.musiccast_widget .stop_musiccast_widget {
+    height: 22px;
+    width: 22px;
+    background-color: black;
+    position: absolute;
+    margin-top: 21px;
+    right: 73px;
+    cursor: pointer;
+    z-index: 4;
+    opacity: 0.6;
+    border-radius: 2px;
+}
+
+.musiccast_widget .stop_musiccast_widget:hover {
+    background-color: #DA4453;
+    opacity: 0.9;
+}
+
+.musiccast_widget .title_uppart {
+    font-size: 1em;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.musiccast_widget .volume_musiccast_widget {
+    position: absolute;
+    width: 250px;
+    bottom: 25px;
+}
+
+.musiccast_widget .bouton_sup_volume {
+    opacity: 0.5;
+    cursor: pointer;
+    position: absolute;
+    bottom: 75px;
+    left: 5px;
+}
+
+.musiccast_widget .bouton_sup_volume:hover {
+    opacity: 1;
+}
+
+.musiccast_widget .type_media {
+    position: absolute;
+    margin-top: 5px;
+    left: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: default;
+    z-index: 4;
+    opacity: 0.3;
+}

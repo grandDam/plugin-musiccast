@@ -1,0 +1,370 @@
+<div class="eqLogic eqLogic-widget noResize musiccast_widget musiccast" data-version="#version#"
+     style="text-align:center; width: 250px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#;height:320px;"
+     data-eqLogic_id="#id#" data-eqLogic_uid="#uid#">
+    <link rel="stylesheet" href="plugins/musiccast/core/template/dashboard/css/style.css"/>
+    <span class="statusCmd" style="position : absolute;left : 0px;width : 30px;z-index: 1030;"></span>
+    <div class="leftpanel">
+        <div style="margin-left : 24px;overflow: auto;height: 327px;">
+            <legend style="color : white;margin-bottom:2px;">Playlist</legend>
+            <div class="playlistList" style="text-align:left;"></div>
+
+            <legend style="color : white;margin-bottom:2px;">Favoris</legend>
+            <div class="favoriteList" style="text-align:left;"></div>
+
+        </div>
+        <img class="leftRafter" style="display:none;" src="plugins/musiccast/core/template/dashboard/images/chevron.png"
+             title="Listes" onClick="panelLeftClose#uid#()"/>
+    </div>
+    <div class="rightpanel">
+        <div style="margin-right : 24px;overflow: auto;height: 327px;background-color: #4a89dc;">
+            <legend style="color : white;margin-bottom:2px;">Enceintes</legend>
+            <div class="speakersList" style="text-align:left;"></div>
+        </div>
+        <img class="rightRafter" style="display:none;"
+             src="plugins/musiccast/core/template/dashboard/images/chevron.png" onClick="panelRightClose#uid#()"/>
+    </div>
+    <div class="uppart">
+        <a href="#eqLink#" class="title_uppart" style="#hideEqLogicName#">#name_display# <span
+                style="font-size: 0.85em;">#object_name#</span></a>
+        <a class="power cmd noRefresh" data-cmd_id="#power_on_id#" onclick="jeedom.cmd.execute({id: #power_on_id#});"><i
+                class="fa fa-power-off"></i></a>
+        <br>
+        <a class="group" style="text-decoration: none; cursor:default;">#group#</a>
+        <div class="track">
+            <a class="title" style="text-decoration: none; cursor:default;">#title#</a>
+            <br/>
+            <a class="subtitle" style="text-decoration: none; cursor:default;">#subtitle#</a>
+        </div>
+        <img class="rightRafter" src="plugins/musiccast/core/template/dashboard/images/chevron.png"
+             onClick="panelRight#uid#()"/>
+        <img class="leftRafter" src="plugins/musiccast/core/template/dashboard/images/chevron.png"
+             onclick="panelLeft#uid#()"/>
+        <div class="jaquette_musiccast">
+            <img src="#thumbnail#" class="affiche_premiere_musiccast"/>
+            <img src="#thumbnail#" class="affiche_deuxieme_musiccast"/>
+            <img src="#thumbnail#" class="affiche_troisieme_musiccast"/>
+        </div>
+        <a class="title" style="text-decoration: none; cursor:default;">#input##state#</a>
+        <img src="plugins/musiccast/core/template/dashboard/images/sound.png" height="15px" width="15px"
+             class="bouton_sup_volume" onclick="volume_musiccast#id#('bouton')"/>
+    </div>
+    <div class="downpart" style="display:block;background-color: #sub-background-color#;">
+        <a class="shuffle cmd noRefresh" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});"><i
+                class="fa fa-random"></i></a>
+        <a class="repeat cmd noRefresh" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});"><i
+                class="fa fa-repeat"></i></a>
+        <img class="previous cmd noRefresh" data-cmd_id="#previous_id#"
+             src="plugins/musiccast/core/template/dashboard/images/change.png"
+             onclick="jeedom.cmd.execute({id: #previous_id#});" title="Précédent"/>
+        <div class="cercle_downpart">
+            <img class="play_in_cercle cmd noRefresh" data-cmd_id="#play_id#"
+                 src="plugins/musiccast/core/template/dashboard/images/play1.png"
+                 onclick="jeedom.cmd.execute({id: #play_id#});" title="Lecture"/>
+            <img class="pause_in_cercle cmd noRefresh" data-cmd_id="#pause_id#"
+                 src="plugins/musiccast/core/template/dashboard/images/pause.png"
+                 onclick="jeedom.cmd.execute({id: #pause_id#});" title="Pause"/>
+        </div>
+        <div class="stop_musiccast_widget cmd noRefresh" data-cmd_id="#stop_id#"
+             onclick="jeedom.cmd.execute({id: #stop_id#});" title="Stop"></div>
+        <a class="mute cmd noRefresh" data-cmd_id="#mute_id#" onclick="jeedom.cmd.execute({id: #mute_id#});"><i
+                class="fa fa-volume-off"></i></a>
+        <img class="next cmd noRefresh" data-cmd_id="#next_id#"
+             src="plugins/musiccast/core/template/dashboard/images/change.png"
+             onclick="jeedom.cmd.execute({id: #next_id#});" title="Suivant"/>
+    </div>
+    <div class="volumeDownpart" style="display:none;background-color: #sub-background-color#;">
+        <img src="plugins/musiccast/core/template/dashboard/images/working.png" height="15px" width="15px"
+             class="bouton_sup_volume" onclick="volume_musiccast#id#('volume')"/>
+        <div class="volume_musiccast_widget" style="margin-left: 40px;">
+            <div class="volume cmd noRefresh" data-cmd_id="#setVolume_id#" style="width: 180px;" value="#volume#"></div>
+        </div>
+    </div>
+
+    <script>
+        function panelRight#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel").animate({right: "0px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel .rightRafter").show();
+            panelLeftClose#uid#();
+        }
+
+        function panelRightClose#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel").animate({right: "-200px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel .rightRafter").hide();
+        }
+
+        function panelLeft#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel").animate({left: "0px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel .leftRafter").show();
+            panelRightClose#uid#();
+        }
+
+        function panelLeftClose#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel").animate({left: "-200px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel .leftRafter").hide();
+        }
+
+        function pause_and_play#uid#(ppk)
+        {
+            if (ppk == 0) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .pause_in_cercle").remove();
+            } else if (ppk == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .play_in_cercle").remove();
+            }
+        }
+
+        function volume_musiccast#id#(bouton)
+        {
+            if (bouton == 'bouton') {
+                $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'block');
+                $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'none');
+            } else if (bouton == 'volume') {
+                $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'none');
+                $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'block');
+            }
+        }
+
+        $(".musiccast[data-eqLogic_uid=#uid#] .volume").slider({
+            min: 0,
+            max: 100,
+            range: "min",
+            value: ('#volume#' == '') ? 0 : parseInt('#volume#')
+        });
+        $(".musiccast[data-eqLogic_uid=#uid#] .slider.slider-horizontal").css('z-index', 1);
+        $(".musiccast[data-eqLogic_uid=#uid#] .volume").on('slidestop', function (event, ui) {
+            jeedom.cmd.execute({id: '#setVolume_id#', value: {slider: ui.value}});
+        });
+        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").css("background", "transparent");
+        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").css("border-color", "transparent");
+        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").append('<i class="fa fa-volume-up" style="color:#253E5E;font-size:1.2em;margin-top:-5px;cursor:pointer" title="Volume"></i>');
+        pause_and_play#uid#(#state_nb#)
+        ;
+
+        if ('#repeat_state#' == 1) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color', 'red');
+        }
+        if ('#shuffle_state#' == 1) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color', 'red');
+        }
+        if ('#mute_state#' == 1) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color', 'red');
+        }
+        if ('#power_state#' == 1) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .power").css('color', 'red');
+        }
+
+
+        if ('#state#' == '') {
+            $(".musiccast[data-eqLogic_uid=#uid#] .downpart").hide();
+        }
+
+        if ('#coordinator_state#' == 0) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightRafter").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftRafter").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .downpart").hide();
+            //$(".musiccast[data-eqLogic_uid=#uid#] .volumeDownpart").hide();
+            //$(".musiccast[data-eqLogic_uid=#uid#] .title_downpart").hide();
+            //$(".musiccast[data-eqLogic_uid=#uid#] .title").hide();
+            //$(".musiccast[data-eqLogic_uid=#uid#] .subtitle").hide();
+        }
+
+
+        if ('#playlist#' != '') {
+            playlist#id# = json_decode('#playlist#');
+            playlistList#id# = '';
+            for (var i in playlist#id#)
+            {
+                playlistList#id# += '<span class="cursor playPlaylist" style="white-space: nowrap;margin-left:5px;text-align:left;" title="' + playlist#id#[i] + '"  data-name="' + playlist#id#[i] + '"><i class="fa fa-play"></i> ' + playlist#id#[i] + '</span><br/>';
+            }
+            $(".musiccast[data-eqLogic_uid=#uid#] .playlistList").append(playlistList#id#)
+            ;
+        }
+         $('.musiccast[data-eqLogic_uid=#uid#]  .playPlaylist').on('click', function () {
+            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-spinner fa-spin"></i>');
+            var name = $(this).attr('data-name');
+            $.ajax({
+                type: "POST",
+                url: "plugins/musiccast/core/ajax/musiccast.ajax.php",
+                data: {
+                    action: "playPlaylist",
+                    id: '#id#',
+                    playlist: name
+                },
+                dataType: 'json',
+                global: false,
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                success: function (data) {
+                    if (data.state != 'ok') {
+                        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-times"></i>');
+                        setTimeout(function () {
+                            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                        }, 3000);
+                        return;
+                    }
+                    $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-rss"></i>');
+                    setTimeout(function () {
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                    }, 3000);
+                }
+            });
+        });
+
+        if ('#favorite#' != '') {
+            favorite#id# = json_decode('#favorite#');
+            favoriteList#id# = '';
+            for (var i in favorite#id#)
+            {
+                favoriteList#id# += '<span class="cursor playFavorite" style="white-space: nowrap;margin-left:5px;text-align:left;" data-name="' + favorite#id#[i] + '" title="' + favorite#id#[i] + '"><i class="fa fa-play"></i> ' + favorite#id#[i] + '</span><br/>';
+            }
+            $(".musiccast[data-eqLogic_uid=#uid#] .favoriteList").append(favoriteList#id#)
+            ;
+        }
+
+        $('.musiccast[data-eqLogic_uid=#uid#] .playFavorite').on('click', function () {
+            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-spinner fa-spin"></i>');
+            var name = $(this).attr('data-name');
+            $.ajax({
+                type: "POST",
+                url: "plugins/musiccast/core/ajax/musiccast.ajax.php",
+                data: {
+                    action: "playFavorite",
+                    id: '#id#',
+                    favorite: name
+                },
+                global: false,
+                dataType: 'json',
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                success: function (data) {
+                    if (data.state != 'ok') {
+                        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-times"></i>');
+                        setTimeout(function () {
+                            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                        }, 3000);
+                        return;
+                    }
+                    $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-rss"></i>');
+                    setTimeout(function () {
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                    }, 3000);
+                }
+            });
+        });
+        $('.musiccast[data-eqLogic_uid=#uid#] .playTrack').on('click', function () {
+            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-spinner fa-spin"></i>');
+            var position = $(this).attr('data-position');
+            $.ajax({
+                type: "POST",
+                url: "plugins/musiccast/core/ajax/musiccast.ajax.php",
+                data: {
+                    action: "playTrack",
+                    id: '#id#',
+                    position: position
+                },
+                global: false,
+                dataType: 'json',
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                success: function (data) {
+                    if (data.state != 'ok') {
+                        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-times"></i>');
+                        setTimeout(function () {
+                            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                        }, 3000);
+                        return;
+                    }
+                    $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-rss"></i>');
+                    setTimeout(function () {
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                    }, 3000);
+                }
+            });
+        });
+
+        if ('#speakers#' != '') {
+            speakers#id# = json_decode('#speakers#');
+            speakersList#id# = '';
+            for (var i in speakers#id#)
+            {
+                speakersList#id# += '<span class="cursor" style="white-space: nowrap;margin-left:5px;" title="' + speakers#id#[i] + '"><i class="addSpeaker fa fa-plus" data-name="' + speakers#id#[i] + '"></i> <i class=" removeSpeaker fa fa-minus" data-name="' + speakers#id#[i] + '"></i> ' + speakers#id#[i] + '</span><br/>';
+            }
+            $(".musiccast[data-eqLogic_uid=#uid#] .speakersList").append(speakersList#id#)
+            ;
+        }
+
+
+        $('.musiccast[data-eqLogic_uid=#uid#] .addSpeaker').on('click', function () {
+            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-spinner fa-spin"></i>');
+            var name = $(this).attr('data-name');
+            $.ajax({
+                type: "POST",
+                url: "plugins/musiccast/core/ajax/musiccast.ajax.php",
+                data: {
+                    action: "addSpeaker",
+                    id: '#id#',
+                    speaker: name
+                },
+                global: false,
+                dataType: 'json',
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                success: function (data) {
+                    if (data.state != 'ok') {
+                        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-times"></i>');
+                        setTimeout(function () {
+                            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                        }, 3000);
+                        return;
+                    }
+                    $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-rss"></i>');
+                    setTimeout(function () {
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                    }, 3000);
+                }
+            });
+        });
+
+        $('.musiccast[data-eqLogic_uid=#uid#] .removeSpeaker').on('click', function () {
+            $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-spinner fa-spin"></i>');
+            var name = $(this).attr('data-name');
+            $.ajax({
+                type: "POST",
+                url: "plugins/musiccast/core/ajax/musiccast.ajax.php",
+                data: {
+                    action: "removeSpeaker",
+                    id: '#id#',
+                    speaker: name
+                },
+                global: false,
+                dataType: 'json',
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                success: function (data) {
+                    if (data.state != 'ok') {
+                        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                        return;
+                    }
+                    $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty().append('<i class="fa fa-rss"></i>');
+                    setTimeout(function () {
+                        $(".musiccast[data-eqLogic_uid=#uid#] .statusCmd").empty();
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</div>
