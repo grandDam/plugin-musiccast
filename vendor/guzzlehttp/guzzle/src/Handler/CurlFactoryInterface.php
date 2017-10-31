@@ -1,5 +1,4 @@
 <?php
-
 namespace GuzzleHttp\Handler;
 
 use Psr\Http\Message\RequestInterface;
@@ -10,7 +9,7 @@ interface CurlFactoryInterface
      * Creates a cURL handle resource.
      *
      * @param RequestInterface $request Request
-     * @param array $options Transfer options
+     * @param array            $options Transfer options
      *
      * @return EasyHandle
      * @throws \RuntimeException when an option cannot be applied

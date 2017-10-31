@@ -21,11 +21,6 @@ class FilterTest extends PHPUnit_Framework_TestCase
         fclose($stream);
     }
 
-    private function createStream()
-    {
-        return fopen('php://memory', 'r+');
-    }
-
     public function testAppendNativePhpFunction()
     {
         $stream = $this->createStream();
@@ -46,7 +41,7 @@ class FilterTest extends PHPUnit_Framework_TestCase
         $stream = $this->createStream();
 
         StreamFilter\append($stream, function ($chunk) {
-            return str_replace(array('a', 'e', 'i', 'o', 'u'), '', $chunk);
+            return str_replace(array('a','e','i','o','u'), '', $chunk);
         });
 
         fwrite($stream, 'hello');
@@ -262,19 +257,6 @@ class FilterTest extends PHPUnit_Framework_TestCase
         $this->assertContains('test', $errors[0]);
     }
 
-    private function createErrorHandler(&$errors)
-    {
-        $errors = array();
-        set_error_handler(function ($_, $message) use (&$errors) {
-            $errors [] = $message;
-        });
-    }
-
-    private function removeErrorHandler()
-    {
-        restore_error_handler();
-    }
-
     public function testAppendThrowsDuringEnd()
     {
         $stream = $this->createStream();
@@ -353,8 +335,7 @@ class FilterTest extends PHPUnit_Framework_TestCase
     public function testAppendInvalidStreamIsRuntimeError()
     {
         if (defined('HHVM_VERSION')) $this->markTestSkipped('Not supported on HHVM (does not reject invalid stream)');
-        StreamFilter\append(false, function () {
-        });
+        StreamFilter\append(false, function () { });
     }
 
     /**
@@ -363,8 +344,7 @@ class FilterTest extends PHPUnit_Framework_TestCase
     public function testPrependInvalidStreamIsRuntimeError()
     {
         if (defined('HHVM_VERSION')) $this->markTestSkipped('Not supported on HHVM (does not reject invalid stream)');
-        StreamFilter\prepend(false, function () {
-        });
+        StreamFilter\prepend(false, function () { });
     }
 
     /**
@@ -384,5 +364,23 @@ class FilterTest extends PHPUnit_Framework_TestCase
         $stream = $this->createStream();
 
         StreamFilter\append($stream, 'a-b-c');
+    }
+
+    private function createStream()
+    {
+        return fopen('php://memory', 'r+');
+    }
+
+    private function createErrorHandler(&$errors)
+    {
+        $errors = array();
+        set_error_handler(function ($_, $message) use (&$errors) {
+            $errors []= $message;
+        });
+    }
+
+    private function removeErrorHandler()
+    {
+        restore_error_handler();
     }
 }

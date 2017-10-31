@@ -1,1438 +1,1438 @@
 [
-  {
-    "name": "doctrine/cache",
-    "version": "1.6.x-dev",
-    "version_normalized": "1.6.9999999.9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/doctrine/cache.git",
-      "reference": "eb152c5100571c7a45470ff2a35095ab3f3b900b"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/doctrine/cache/zipball/eb152c5100571c7a45470ff2a35095ab3f3b900b",
-      "reference": "eb152c5100571c7a45470ff2a35095ab3f3b900b",
-      "shasum": ""
-    },
-    "require": {
-      "php": "~5.5|~7.0"
-    },
-    "conflict": {
-      "doctrine/common": ">2.2,<2.4"
-    },
-    "require-dev": {
-      "phpunit/phpunit": "~4.8|~5.0",
-      "predis/predis": "~1.0",
-      "satooshi/php-coveralls": "~0.6"
-    },
-    "time": "2017-07-22 12:49:21",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.6.x-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Roman Borschel",
-        "email": "roman@code-factory.org"
-      },
-      {
-        "name": "Benjamin Eberlei",
-        "email": "kontakt@beberlei.de"
-      },
-      {
-        "name": "Guilherme Blanco",
-        "email": "guilhermeblanco@gmail.com"
-      },
-      {
-        "name": "Jonathan Wage",
-        "email": "jonwage@gmail.com"
-      },
-      {
-        "name": "Johannes Schmitt",
-        "email": "schmittjoh@gmail.com"
-      }
-    ],
-    "description": "Caching library offering an object-oriented API for many cache backends",
-    "homepage": "http://www.doctrine-project.org",
-    "keywords": [
-      "cache",
-      "caching"
-    ]
-  },
-  {
-    "name": "psr/simple-cache",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-fig/simple-cache.git",
-      "reference": "753fa598e8f3b9966c886fe13f370baa45ef0e24"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/753fa598e8f3b9966c886fe13f370baa45ef0e24",
-      "reference": "753fa598e8f3b9966c886fe13f370baa45ef0e24",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.3.0"
-    },
-    "time": "2017-01-02 13:31:39",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0.x-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Psr\\SimpleCache\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "PHP-FIG",
-        "homepage": "http://www.php-fig.org/"
-      }
-    ],
-    "description": "Common interfaces for simple caching",
-    "keywords": [
-      "cache",
-      "caching",
-      "psr",
-      "psr-16",
-      "simple-cache"
-    ]
-  },
-  {
-    "name": "psr/cache",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-fig/cache.git",
-      "reference": "78c5a01ddbf11cf731f1338a4f5aba23b14d5b47"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-fig/cache/zipball/78c5a01ddbf11cf731f1338a4f5aba23b14d5b47",
-      "reference": "78c5a01ddbf11cf731f1338a4f5aba23b14d5b47",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.3.0"
-    },
-    "time": "2016-10-13 14:48:10",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0.x-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Psr\\Cache\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "PHP-FIG",
-        "homepage": "http://www.php-fig.org/"
-      }
-    ],
-    "description": "Common interface for caching libraries",
-    "keywords": [
-      "cache",
-      "psr",
-      "psr-6"
-    ]
-  },
-  {
-    "name": "cache/tag-interop",
-    "version": "1.0.0",
-    "version_normalized": "1.0.0.0",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-cache/tag-interop.git",
-      "reference": "c7496dd81530f538af27b4f2713cde97bc292832"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-cache/tag-interop/zipball/c7496dd81530f538af27b4f2713cde97bc292832",
-      "reference": "c7496dd81530f538af27b4f2713cde97bc292832",
-      "shasum": ""
-    },
-    "require": {
-      "php": "^5.5 || ^7.0",
-      "psr/cache": "^1.0"
-    },
-    "time": "2017-03-13 09:14:27",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "2.0-dev"
-      }
-    },
-    "installation-source": "dist",
-    "autoload": {
-      "psr-4": {
-        "Cache\\TagInterop\\": ""
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Tobias Nyholm",
-        "email": "tobias.nyholm@gmail.com",
-        "homepage": "https://github.com/Nyholm"
-      },
-      {
-        "name": "Nicolas Grekas",
-        "email": "p@tchwork.com",
-        "homepage": "https://github.com/nicolas-grekas"
-      }
-    ],
-    "description": "Framework interoperable interfaces for tags",
-    "homepage": "http://www.php-cache.com/en/latest/",
-    "keywords": [
-      "cache",
-      "psr",
-      "psr6",
-      "tag"
-    ]
-  },
-  {
-    "name": "psr/log",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-fig/log.git",
-      "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-      "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.3.0"
-    },
-    "time": "2016-10-10 12:19:37",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0.x-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Psr\\Log\\": "Psr/Log/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "PHP-FIG",
-        "homepage": "http://www.php-fig.org/"
-      }
-    ],
-    "description": "Common interface for logging libraries",
-    "homepage": "https://github.com/php-fig/log",
-    "keywords": [
-      "log",
-      "psr",
-      "psr-3"
-    ]
-  },
-  {
-    "name": "cache/adapter-common",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-cache/adapter-common.git",
-      "reference": "837223e44918aa9d8c044ec63ad2772e9157f859"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-cache/adapter-common/zipball/837223e44918aa9d8c044ec63ad2772e9157f859",
-      "reference": "837223e44918aa9d8c044ec63ad2772e9157f859",
-      "shasum": ""
-    },
-    "require": {
-      "cache/tag-interop": "^1.0",
-      "php": "^5.6 || ^7.0",
-      "psr/cache": "^1.0",
-      "psr/log": "^1.0",
-      "psr/simple-cache": "^1.0"
-    },
-    "require-dev": {
-      "cache/integration-tests": "^0.16",
-      "phpunit/phpunit": "^5.7.21"
-    },
-    "time": "2017-07-16 21:09:25",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Cache\\Adapter\\Common\\": ""
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Aaron Scherer",
-        "email": "aequasi@gmail.com",
-        "homepage": "https://github.com/aequasi"
-      },
-      {
-        "name": "Tobias Nyholm",
-        "email": "tobias.nyholm@gmail.com",
-        "homepage": "https://github.com/nyholm"
-      }
-    ],
-    "description": "Common classes for PSR-6 adapters",
-    "homepage": "http://www.php-cache.com/en/latest/",
-    "keywords": [
-      "cache",
-      "psr-6",
-      "tag"
-    ]
-  },
-  {
-    "name": "cache/doctrine-adapter",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-cache/doctrine-adapter.git",
-      "reference": "de05c38b8a420c9e22eed92dc68c0bf7c7d650ef"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-cache/doctrine-adapter/zipball/de05c38b8a420c9e22eed92dc68c0bf7c7d650ef",
-      "reference": "de05c38b8a420c9e22eed92dc68c0bf7c7d650ef",
-      "shasum": ""
-    },
-    "require": {
-      "cache/adapter-common": "^1.0",
-      "doctrine/cache": "^1.6",
-      "php": "^5.6 || ^7.0",
-      "psr/cache": "^1.0",
-      "psr/simple-cache": "^1.0"
-    },
-    "provide": {
-      "psr/cache-implementation": "^1.0",
-      "psr/simple-cache-implementation": "^1.0"
-    },
-    "require-dev": {
-      "cache/integration-tests": "^0.16",
-      "mockery/mockery": "^0.9.9",
-      "phpunit/phpunit": "^5.7.21"
-    },
-    "suggest": {
-      "ext-apc": "Allows for caching with Apc",
-      "ext-memcache": "Allows for caching with Memcache",
-      "ext-memcached": "Allows for caching with Memcached",
-      "ext-redis": "Allows for caching with Redis"
-    },
-    "time": "2017-08-05 11:14:35",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Cache\\Adapter\\Doctrine\\": ""
-      },
-      "exclude-from-classmap": [
-        "/Tests/"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Aaron Scherer",
-        "email": "aequasi@gmail.com",
-        "homepage": "https://github.com/aequasi"
-      },
-      {
-        "name": "Tobias Nyholm",
-        "email": "tobias.nyholm@gmail.com",
-        "homepage": "https://github.com/nyholm"
-      }
-    ],
-    "description": "A PSR-6 cache implementation using Doctrine. This implementation supports tags",
-    "homepage": "http://www.php-cache.com/en/latest/",
-    "keywords": [
-      "cache",
-      "doctrine",
-      "psr-6",
-      "tag"
-    ]
-  },
-  {
-    "name": "myclabs/php-enum",
-    "version": "1.5.2",
-    "version_normalized": "1.5.2.0",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/myclabs/php-enum.git",
-      "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/myclabs/php-enum/zipball/3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
-      "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.3"
-    },
-    "require-dev": {
-      "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
-      "squizlabs/php_codesniffer": "1.*"
-    },
-    "time": "2017-06-28 16:24:08",
-    "type": "library",
-    "installation-source": "dist",
-    "autoload": {
-      "psr-4": {
-        "MyCLabs\\Enum\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "PHP Enum contributors",
-        "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
-      }
-    ],
-    "description": "PHP Enum implementation",
-    "homepage": "http://github.com/myclabs/php-enum",
-    "keywords": [
-      "enum"
-    ]
-  },
-  {
-    "name": "symfony/yaml",
-    "version": "3.4.x-dev",
-    "version_normalized": "3.4.9999999.9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/symfony/yaml.git",
-      "reference": "e99024f324a7fa927c3a7992ed6f359e3a5ccc3b"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/symfony/yaml/zipball/e99024f324a7fa927c3a7992ed6f359e3a5ccc3b",
-      "reference": "e99024f324a7fa927c3a7992ed6f359e3a5ccc3b",
-      "shasum": ""
-    },
-    "require": {
-      "php": "^5.5.9|>=7.0.8"
-    },
-    "conflict": {
-      "symfony/console": "<3.4"
-    },
-    "require-dev": {
-      "symfony/console": "~3.4|~4.0"
-    },
-    "suggest": {
-      "symfony/console": "For validating YAML files using the lint command"
-    },
-    "time": "2017-10-09 14:52:13",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "3.4-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Symfony\\Component\\Yaml\\": ""
-      },
-      "exclude-from-classmap": [
-        "/Tests/"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Fabien Potencier",
-        "email": "fabien@symfony.com"
-      },
-      {
-        "name": "Symfony Community",
-        "homepage": "https://symfony.com/contributors"
-      }
-    ],
-    "description": "Symfony Yaml Component",
-    "homepage": "https://symfony.com"
-  },
-  {
-    "name": "symfony/options-resolver",
-    "version": "3.4.x-dev",
-    "version_normalized": "3.4.9999999.9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/symfony/options-resolver.git",
-      "reference": "d0412a6676e80d5aea70f42ec964de77f61a3516"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/symfony/options-resolver/zipball/d0412a6676e80d5aea70f42ec964de77f61a3516",
-      "reference": "d0412a6676e80d5aea70f42ec964de77f61a3516",
-      "shasum": ""
-    },
-    "require": {
-      "php": "^5.5.9|>=7.0.8"
-    },
-    "time": "2017-10-12 16:27:27",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "3.4-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Symfony\\Component\\OptionsResolver\\": ""
-      },
-      "exclude-from-classmap": [
-        "/Tests/"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Fabien Potencier",
-        "email": "fabien@symfony.com"
-      },
-      {
-        "name": "Symfony Community",
-        "homepage": "https://symfony.com/contributors"
-      }
-    ],
-    "description": "Symfony OptionsResolver Component",
-    "homepage": "https://symfony.com",
-    "keywords": [
-      "config",
-      "configuration",
-      "options"
-    ]
-  },
-  {
-    "name": "psr/http-message",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-fig/http-message.git",
-      "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-      "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.3.0"
-    },
-    "time": "2016-08-06 14:39:51",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0.x-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Psr\\Http\\Message\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "PHP-FIG",
-        "homepage": "http://www.php-fig.org/"
-      }
-    ],
-    "description": "Common interface for HTTP messages",
-    "homepage": "https://github.com/php-fig/http-message",
-    "keywords": [
-      "http",
-      "http-message",
-      "psr",
-      "psr-7",
-      "request",
-      "response"
-    ]
-  },
-  {
-    "name": "php-http/message-factory",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/message-factory.git",
-      "reference": "a2809d4fe294ebe8879aec8d4d5bf21faa029344"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/message-factory/zipball/a2809d4fe294ebe8879aec8d4d5bf21faa029344",
-      "reference": "a2809d4fe294ebe8879aec8d4d5bf21faa029344",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.4",
-      "psr/http-message": "^1.0"
-    },
-    "time": "2016-02-03 08:16:31",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Message\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      }
-    ],
-    "description": "Factory interfaces for PSR-7 HTTP Message",
-    "homepage": "http://php-http.org",
-    "keywords": [
-      "factory",
-      "http",
-      "message",
-      "stream",
-      "uri"
-    ]
-  },
-  {
-    "name": "clue/stream-filter",
-    "version": "v1.4.0",
-    "version_normalized": "1.4.0.0",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/clue/php-stream-filter.git",
-      "reference": "d80fdee9b3a7e0d16fc330a22f41f3ad0eeb09d0"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/d80fdee9b3a7e0d16fc330a22f41f3ad0eeb09d0",
-      "reference": "d80fdee9b3a7e0d16fc330a22f41f3ad0eeb09d0",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.3"
-    },
-    "require-dev": {
-      "phpunit/phpunit": "^5.0 || ^4.8"
-    },
-    "time": "2017-08-18 09:54:01",
-    "type": "library",
-    "installation-source": "dist",
-    "autoload": {
-      "psr-4": {
-        "Clue\\StreamFilter\\": "src/"
-      },
-      "files": [
-        "src/functions.php"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Christian Lück",
-        "email": "christian@lueck.tv"
-      }
-    ],
-    "description": "A simple and modern approach to stream filtering in PHP",
-    "homepage": "https://github.com/clue/php-stream-filter",
-    "keywords": [
-      "bucket brigade",
-      "callback",
-      "filter",
-      "php_user_filter",
-      "stream",
-      "stream_filter_append",
-      "stream_filter_register"
-    ]
-  },
-  {
-    "name": "php-http/message",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/message.git",
-      "reference": "2edd63bae5f52f79363c5f18904b05ce3a4b7253"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/message/zipball/2edd63bae5f52f79363c5f18904b05ce3a4b7253",
-      "reference": "2edd63bae5f52f79363c5f18904b05ce3a4b7253",
-      "shasum": ""
-    },
-    "require": {
-      "clue/stream-filter": "^1.3",
-      "php": ">=5.4",
-      "php-http/message-factory": "^1.0.2",
-      "psr/http-message": "^1.0"
-    },
-    "provide": {
-      "php-http/message-factory-implementation": "1.0"
-    },
-    "require-dev": {
-      "akeneo/phpspec-skip-example-extension": "^1.0",
-      "coduo/phpspec-data-provider-extension": "^1.0",
-      "ext-zlib": "*",
-      "guzzlehttp/psr7": "^1.0",
-      "henrikbjorn/phpspec-code-coverage": "^1.0",
-      "phpspec/phpspec": "^2.4",
-      "slim/slim": "^3.0",
-      "zendframework/zend-diactoros": "^1.0"
-    },
-    "suggest": {
-      "ext-zlib": "Used with compressor/decompressor streams",
-      "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
-      "slim/slim": "Used with Slim Framework PSR-7 implementation",
-      "zendframework/zend-diactoros": "Used with Diactoros Factories"
-    },
-    "time": "2017-07-05 06:40:53",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.6-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Message\\": "src/"
-      },
-      "files": [
-        "src/filters.php"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      }
-    ],
-    "description": "HTTP Message related tools",
-    "homepage": "http://php-http.org",
-    "keywords": [
-      "http",
-      "message",
-      "psr-7"
-    ]
-  },
-  {
-    "name": "php-http/promise",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/promise.git",
-      "reference": "810b30da8bcf69e4b82c4b9bc6b31518234293ab"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/promise/zipball/810b30da8bcf69e4b82c4b9bc6b31518234293ab",
-      "reference": "810b30da8bcf69e4b82c4b9bc6b31518234293ab",
-      "shasum": ""
-    },
-    "require-dev": {
-      "henrikbjorn/phpspec-code-coverage": "^1.0",
-      "phpspec/phpspec": "^2.4"
-    },
-    "time": "2016-01-28 07:54:12",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Promise\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      },
-      {
-        "name": "Joel Wurtz",
-        "email": "joel.wurtz@gmail.com"
-      }
-    ],
-    "description": "Promise used for asynchronous HTTP requests",
-    "homepage": "http://httplug.io",
-    "keywords": [
-      "promise"
-    ]
-  },
-  {
-    "name": "php-http/httplug",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/httplug.git",
-      "reference": "036f86f0cb1f37c13dd9b5e75b71866e7ab3f60b"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/httplug/zipball/036f86f0cb1f37c13dd9b5e75b71866e7ab3f60b",
-      "reference": "036f86f0cb1f37c13dd9b5e75b71866e7ab3f60b",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.4",
-      "php-http/promise": "^1.0",
-      "psr/http-message": "^1.0"
-    },
-    "require-dev": {
-      "henrikbjorn/phpspec-code-coverage": "^1.0",
-      "phpspec/phpspec": "^2.4"
-    },
-    "time": "2017-08-18 18:51:51",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.2-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Client\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Eric GELOEN",
-        "email": "geloen.eric@gmail.com"
-      },
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      }
-    ],
-    "description": "HTTPlug, the HTTP client abstraction for PHP",
-    "homepage": "http://httplug.io",
-    "keywords": [
-      "client",
-      "http"
-    ]
-  },
-  {
-    "name": "php-http/client-common",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/client-common.git",
-      "reference": "1901ad36347227c14751a218d8f4ea1467d1f1ed"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/client-common/zipball/1901ad36347227c14751a218d8f4ea1467d1f1ed",
-      "reference": "1901ad36347227c14751a218d8f4ea1467d1f1ed",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.4",
-      "php-http/httplug": "^1.1",
-      "php-http/message": "^1.6",
-      "php-http/message-factory": "^1.0",
-      "symfony/options-resolver": "^2.6 || ^3.0"
-    },
-    "require-dev": {
-      "guzzlehttp/psr7": "^1.4",
-      "henrikbjorn/phpspec-code-coverage": "^1.0",
-      "phpspec/phpspec": "^2.4"
-    },
-    "suggest": {
-      "php-http/cache-plugin": "PSR-6 Cache plugin",
-      "php-http/logger-plugin": "PSR-3 Logger plugin",
-      "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
-    },
-    "time": "2017-10-16 16:16:36",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.7-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Client\\Common\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      }
-    ],
-    "description": "Common HTTP Client implementations and tools for HTTPlug",
-    "homepage": "http://httplug.io",
-    "keywords": [
-      "client",
-      "common",
-      "http",
-      "httplug"
-    ]
-  },
-  {
-    "name": "php-http/cache-plugin",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/cache-plugin.git",
-      "reference": "eef8c86e91af39d0d9323a921f55187ad8282194"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/eef8c86e91af39d0d9323a921f55187ad8282194",
-      "reference": "eef8c86e91af39d0d9323a921f55187ad8282194",
-      "shasum": ""
-    },
-    "require": {
-      "php": "^5.4 || ^7.0",
-      "php-http/client-common": "^1.1",
-      "php-http/message-factory": "^1.0",
-      "psr/cache": "^1.0",
-      "symfony/options-resolver": "^2.6 || ^3.0"
-    },
-    "require-dev": {
-      "henrikbjorn/phpspec-code-coverage": "^1.0",
-      "phpspec/phpspec": "^2.5"
-    },
-    "time": "2017-07-31 06:46:14",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.5-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Client\\Common\\Plugin\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      }
-    ],
-    "description": "PSR-6 Cache plugin for HTTPlug",
-    "homepage": "http://httplug.io",
-    "keywords": [
-      "cache",
-      "http",
-      "httplug",
-      "plugin"
-    ]
-  },
-  {
-    "name": "guzzlehttp/psr7",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/guzzle/psr7.git",
-      "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/guzzle/psr7/zipball/d2537c86fa8b004c29e9b9f5e10028f0a29df101",
-      "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.4.0",
-      "psr/http-message": "~1.0"
-    },
-    "provide": {
-      "psr/http-message-implementation": "1.0"
-    },
-    "require-dev": {
-      "phpunit/phpunit": "~4.0"
-    },
-    "time": "2017-10-07 03:19:56",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.4-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "GuzzleHttp\\Psr7\\": "src/"
-      },
-      "files": [
-        "src/functions_include.php"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Michael Dowling",
-        "email": "mtdowling@gmail.com",
-        "homepage": "https://github.com/mtdowling"
-      },
-      {
-        "name": "Tobias Schultze",
-        "homepage": "https://github.com/Tobion"
-      }
-    ],
-    "description": "PSR-7 message implementation that also provides common utility methods",
-    "keywords": [
-      "http",
-      "message",
-      "request",
-      "response",
-      "stream",
-      "uri",
-      "url"
-    ]
-  },
-  {
-    "name": "guzzlehttp/promises",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/guzzle/promises.git",
-      "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/guzzle/promises/zipball/e9cdab6ff93ff789b5b599326c727f51d10893a6",
-      "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6",
-      "shasum": ""
-    },
-    "require": {
-      "php": ">=5.5.0"
-    },
-    "require-dev": {
-      "phpunit/phpunit": "^4.8.36"
-    },
-    "time": "2017-10-06 12:25:00",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.4-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "GuzzleHttp\\Promise\\": "src/"
-      },
-      "files": [
-        "src/functions_include.php"
-      ]
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Michael Dowling",
-        "email": "mtdowling@gmail.com",
-        "homepage": "https://github.com/mtdowling"
-      }
-    ],
-    "description": "Guzzle promises library",
-    "keywords": [
-      "promise"
-    ]
-  },
-  {
-    "name": "guzzlehttp/guzzle",
-    "version": "6.3.0",
-    "version_normalized": "6.3.0.0",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/guzzle/guzzle.git",
-      "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-      "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-      "shasum": ""
-    },
-    "require": {
-      "guzzlehttp/promises": "^1.0",
-      "guzzlehttp/psr7": "^1.4",
-      "php": ">=5.5"
-    },
-    "require-dev": {
-      "ext-curl": "*",
-      "phpunit/phpunit": "^4.0 || ^5.0",
-      "psr/log": "^1.0"
-    },
-    "suggest": {
-      "psr/log": "Required for using the Log middleware"
-    },
-    "time": "2017-06-22 18:50:49",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "6.2-dev"
-      }
-    },
-    "installation-source": "dist",
-    "autoload": {
-      "files": [
-        "src/functions_include.php"
-      ],
-      "psr-4": {
-        "GuzzleHttp\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Michael Dowling",
-        "email": "mtdowling@gmail.com",
-        "homepage": "https://github.com/mtdowling"
-      }
-    ],
-    "description": "Guzzle is a PHP HTTP client library",
-    "homepage": "http://guzzlephp.org/",
-    "keywords": [
-      "client",
-      "curl",
-      "framework",
-      "http",
-      "http client",
-      "rest",
-      "web service"
-    ]
-  },
-  {
-    "name": "php-http/guzzle6-adapter",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/guzzle6-adapter.git",
-      "reference": "54181ff8455a4c2e1706a53e0d98060b93030321"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/54181ff8455a4c2e1706a53e0d98060b93030321",
-      "reference": "54181ff8455a4c2e1706a53e0d98060b93030321",
-      "shasum": ""
-    },
-    "require": {
-      "guzzlehttp/guzzle": "^6.0",
-      "php": "^5.5 || ^7.0",
-      "php-http/httplug": "^1.0"
-    },
-    "provide": {
-      "php-http/async-client-implementation": "1.0",
-      "php-http/client-implementation": "1.0"
-    },
-    "require-dev": {
-      "ext-curl": "*",
-      "php-http/client-integration-tests": "^0.6"
-    },
-    "time": "2017-05-29 15:06:15",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.2-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Adapter\\Guzzle6\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      },
-      {
-        "name": "David de Boer",
-        "email": "david@ddeboer.nl"
-      }
-    ],
-    "description": "Guzzle 6 HTTP Adapter",
-    "homepage": "http://httplug.io",
-    "keywords": [
-      "Guzzle",
-      "http"
-    ]
-  },
-  {
-    "name": "php-http/discovery",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/php-http/discovery.git",
-      "reference": "d39a8798c473b6b896059a8de576598e4d17d992"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/php-http/discovery/zipball/d39a8798c473b6b896059a8de576598e4d17d992",
-      "reference": "d39a8798c473b6b896059a8de576598e4d17d992",
-      "shasum": ""
-    },
-    "require": {
-      "php": "^5.5 || ^7.0"
-    },
-    "require-dev": {
-      "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-      "php-http/httplug": "^1.0",
-      "php-http/message-factory": "^1.0",
-      "phpspec/phpspec": "^2.4",
-      "puli/composer-plugin": "1.0.0-beta10"
-    },
-    "suggest": {
-      "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories",
-      "puli/composer-plugin": "Sets up Puli which is recommended for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
-    },
-    "time": "2017-09-13 14:06:45",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.3-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "Http\\Discovery\\": "src/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Márk Sági-Kazár",
-        "email": "mark.sagikazar@gmail.com"
-      }
-    ],
-    "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
-    "homepage": "http://php-http.org",
-    "keywords": [
-      "adapter",
-      "client",
-      "discovery",
-      "factory",
-      "http",
-      "message",
-      "psr7"
-    ]
-  },
-  {
-    "name": "granddam/php-musiccast-api",
-    "version": "dev-master",
-    "version_normalized": "9999999-dev",
-    "source": {
-      "type": "git",
-      "url": "https://github.com/grandDam/php-musiccast-api.git",
-      "reference": "7d7e18452a6e7113fc52c473cd30124373386c77"
-    },
-    "dist": {
-      "type": "zip",
-      "url": "https://api.github.com/repos/grandDam/php-musiccast-api/zipball/7d7e18452a6e7113fc52c473cd30124373386c77",
-      "reference": "7d7e18452a6e7113fc52c473cd30124373386c77",
-      "shasum": ""
-    },
-    "require": {
-      "cache/doctrine-adapter": "^1.0",
-      "doctrine/cache": "^1.4",
-      "myclabs/php-enum": "^1.5",
-      "php": "^5.6 || ^7.0",
-      "php-http/cache-plugin": "^1.2",
-      "php-http/client-common": "^1.3",
-      "php-http/client-implementation": "^1.0",
-      "php-http/discovery": "^1.0",
-      "php-http/httplug": "^1.1",
-      "psr/cache": "^1.0",
-      "psr/http-message": "^1.0",
-      "symfony/yaml": "^3.2"
-    },
-    "conflict": {
-      "php-http/message-factory": "< 1.0.2"
-    },
-    "require-dev": {
-      "friendsofphp/php-cs-fixer": "^2.0",
-      "guzzlehttp/psr7": "^1.2",
-      "mockery/mockery": "^0.9.4",
-      "nikic/php-parser": "^3.0",
-      "php-http/guzzle6-adapter": "^1.0",
-      "phpro/grumphp": "^0.11.1",
-      "phpunit/php-code-coverage": "^4",
-      "phpunit/phpunit": "^5.7.14",
-      "satooshi/php-coveralls": "^1.0",
-      "squizlabs/php_codesniffer": "^2.7"
-    },
-    "time": "2017-10-21 09:38:04",
-    "type": "library",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "1.0-dev"
-      }
-    },
-    "installation-source": "source",
-    "autoload": {
-      "psr-4": {
-        "MusicCast\\": "src/",
-        "MusicCastTests\\": "tests/"
-      }
-    },
-    "notification-url": "https://packagist.org/downloads/",
-    "license": [
-      "MIT"
-    ],
-    "authors": [
-      {
-        "name": "Sam Van der Borght",
-        "email": "samvanderborght@gmail.com"
-      },
-      {
-        "name": "Damien SUROT",
-        "email": "damien@toxeek.com"
-      }
-    ],
-    "description": "A PHP library for interacting with Yamaha MusicCast speakers",
-    "keywords": [
-      "api",
-      "client",
-      "musiccast",
-      "yamaha"
-    ]
-  }
+    {
+        "name": "doctrine/cache",
+        "version": "1.6.x-dev",
+        "version_normalized": "1.6.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/cache.git",
+            "reference": "eb152c5100571c7a45470ff2a35095ab3f3b900b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/cache/zipball/eb152c5100571c7a45470ff2a35095ab3f3b900b",
+            "reference": "eb152c5100571c7a45470ff2a35095ab3f3b900b",
+            "shasum": ""
+        },
+        "require": {
+            "php": "~5.5|~7.0"
+        },
+        "conflict": {
+            "doctrine/common": ">2.2,<2.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8|~5.0",
+            "predis/predis": "~1.0",
+            "satooshi/php-coveralls": "~0.6"
+        },
+        "time": "2017-07-22 12:49:21",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Johannes Schmitt",
+                "email": "schmittjoh@gmail.com"
+            }
+        ],
+        "description": "Caching library offering an object-oriented API for many cache backends",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "cache",
+            "caching"
+        ]
+    },
+    {
+        "name": "psr/simple-cache",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/simple-cache.git",
+            "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+            "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-10-23 01:57:42",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\SimpleCache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interfaces for simple caching",
+        "keywords": [
+            "cache",
+            "caching",
+            "psr",
+            "psr-16",
+            "simple-cache"
+        ]
+    },
+    {
+        "name": "psr/cache",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/cache.git",
+            "reference": "78c5a01ddbf11cf731f1338a4f5aba23b14d5b47"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/cache/zipball/78c5a01ddbf11cf731f1338a4f5aba23b14d5b47",
+            "reference": "78c5a01ddbf11cf731f1338a4f5aba23b14d5b47",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-10-13 14:48:10",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for caching libraries",
+        "keywords": [
+            "cache",
+            "psr",
+            "psr-6"
+        ]
+    },
+    {
+        "name": "cache/tag-interop",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-cache/tag-interop.git",
+            "reference": "c7496dd81530f538af27b4f2713cde97bc292832"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-cache/tag-interop/zipball/c7496dd81530f538af27b4f2713cde97bc292832",
+            "reference": "c7496dd81530f538af27b4f2713cde97bc292832",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0",
+            "psr/cache": "^1.0"
+        },
+        "time": "2017-03-13 09:14:27",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cache\\TagInterop\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tobias Nyholm",
+                "email": "tobias.nyholm@gmail.com",
+                "homepage": "https://github.com/Nyholm"
+            },
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com",
+                "homepage": "https://github.com/nicolas-grekas"
+            }
+        ],
+        "description": "Framework interoperable interfaces for tags",
+        "homepage": "http://www.php-cache.com/en/latest/",
+        "keywords": [
+            "cache",
+            "psr",
+            "psr6",
+            "tag"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-10-10 12:19:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "cache/adapter-common",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-cache/adapter-common.git",
+            "reference": "837223e44918aa9d8c044ec63ad2772e9157f859"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-cache/adapter-common/zipball/837223e44918aa9d8c044ec63ad2772e9157f859",
+            "reference": "837223e44918aa9d8c044ec63ad2772e9157f859",
+            "shasum": ""
+        },
+        "require": {
+            "cache/tag-interop": "^1.0",
+            "php": "^5.6 || ^7.0",
+            "psr/cache": "^1.0",
+            "psr/log": "^1.0",
+            "psr/simple-cache": "^1.0"
+        },
+        "require-dev": {
+            "cache/integration-tests": "^0.16",
+            "phpunit/phpunit": "^5.7.21"
+        },
+        "time": "2017-07-16 21:09:25",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Cache\\Adapter\\Common\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Aaron Scherer",
+                "email": "aequasi@gmail.com",
+                "homepage": "https://github.com/aequasi"
+            },
+            {
+                "name": "Tobias Nyholm",
+                "email": "tobias.nyholm@gmail.com",
+                "homepage": "https://github.com/nyholm"
+            }
+        ],
+        "description": "Common classes for PSR-6 adapters",
+        "homepage": "http://www.php-cache.com/en/latest/",
+        "keywords": [
+            "cache",
+            "psr-6",
+            "tag"
+        ]
+    },
+    {
+        "name": "cache/doctrine-adapter",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-cache/doctrine-adapter.git",
+            "reference": "de05c38b8a420c9e22eed92dc68c0bf7c7d650ef"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-cache/doctrine-adapter/zipball/de05c38b8a420c9e22eed92dc68c0bf7c7d650ef",
+            "reference": "de05c38b8a420c9e22eed92dc68c0bf7c7d650ef",
+            "shasum": ""
+        },
+        "require": {
+            "cache/adapter-common": "^1.0",
+            "doctrine/cache": "^1.6",
+            "php": "^5.6 || ^7.0",
+            "psr/cache": "^1.0",
+            "psr/simple-cache": "^1.0"
+        },
+        "provide": {
+            "psr/cache-implementation": "^1.0",
+            "psr/simple-cache-implementation": "^1.0"
+        },
+        "require-dev": {
+            "cache/integration-tests": "^0.16",
+            "mockery/mockery": "^0.9.9",
+            "phpunit/phpunit": "^5.7.21"
+        },
+        "suggest": {
+            "ext-apc": "Allows for caching with Apc",
+            "ext-memcache": "Allows for caching with Memcache",
+            "ext-memcached": "Allows for caching with Memcached",
+            "ext-redis": "Allows for caching with Redis"
+        },
+        "time": "2017-08-05 11:14:35",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Cache\\Adapter\\Doctrine\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Aaron Scherer",
+                "email": "aequasi@gmail.com",
+                "homepage": "https://github.com/aequasi"
+            },
+            {
+                "name": "Tobias Nyholm",
+                "email": "tobias.nyholm@gmail.com",
+                "homepage": "https://github.com/nyholm"
+            }
+        ],
+        "description": "A PSR-6 cache implementation using Doctrine. This implementation supports tags",
+        "homepage": "http://www.php-cache.com/en/latest/",
+        "keywords": [
+            "cache",
+            "doctrine",
+            "psr-6",
+            "tag"
+        ]
+    },
+    {
+        "name": "myclabs/php-enum",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/myclabs/php-enum.git",
+            "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/myclabs/php-enum/zipball/3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
+            "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+            "squizlabs/php_codesniffer": "1.*"
+        },
+        "time": "2017-06-28 16:24:08",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "MyCLabs\\Enum\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP Enum contributors",
+                "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
+            }
+        ],
+        "description": "PHP Enum implementation",
+        "homepage": "http://github.com/myclabs/php-enum",
+        "keywords": [
+            "enum"
+        ]
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "3.4.x-dev",
+        "version_normalized": "3.4.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/yaml.git",
+            "reference": "e99024f324a7fa927c3a7992ed6f359e3a5ccc3b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/yaml/zipball/e99024f324a7fa927c3a7992ed6f359e3a5ccc3b",
+            "reference": "e99024f324a7fa927c3a7992ed6f359e3a5ccc3b",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "conflict": {
+            "symfony/console": "<3.4"
+        },
+        "require-dev": {
+            "symfony/console": "~3.4|~4.0"
+        },
+        "suggest": {
+            "symfony/console": "For validating YAML files using the lint command"
+        },
+        "time": "2017-10-09 14:52:13",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Yaml\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/options-resolver",
+        "version": "3.4.x-dev",
+        "version_normalized": "3.4.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/options-resolver.git",
+            "reference": "d0412a6676e80d5aea70f42ec964de77f61a3516"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/d0412a6676e80d5aea70f42ec964de77f61a3516",
+            "reference": "d0412a6676e80d5aea70f42ec964de77f61a3516",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "time": "2017-10-12 16:27:27",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\OptionsResolver\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony OptionsResolver Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "config",
+            "configuration",
+            "options"
+        ]
+    },
+    {
+        "name": "psr/http-message",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06 14:39:51",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "homepage": "https://github.com/php-fig/http-message",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
+        "name": "php-http/message-factory",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/message-factory.git",
+            "reference": "a2809d4fe294ebe8879aec8d4d5bf21faa029344"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/message-factory/zipball/a2809d4fe294ebe8879aec8d4d5bf21faa029344",
+            "reference": "a2809d4fe294ebe8879aec8d4d5bf21faa029344",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2016-02-03 08:16:31",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Factory interfaces for PSR-7 HTTP Message",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "factory",
+            "http",
+            "message",
+            "stream",
+            "uri"
+        ]
+    },
+    {
+        "name": "clue/stream-filter",
+        "version": "v1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clue/php-stream-filter.git",
+            "reference": "d80fdee9b3a7e0d16fc330a22f41f3ad0eeb09d0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/d80fdee9b3a7e0d16fc330a22f41f3ad0eeb09d0",
+            "reference": "d80fdee9b3a7e0d16fc330a22f41f3ad0eeb09d0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.0 || ^4.8"
+        },
+        "time": "2017-08-18 09:54:01",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Clue\\StreamFilter\\": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Lück",
+                "email": "christian@lueck.tv"
+            }
+        ],
+        "description": "A simple and modern approach to stream filtering in PHP",
+        "homepage": "https://github.com/clue/php-stream-filter",
+        "keywords": [
+            "bucket brigade",
+            "callback",
+            "filter",
+            "php_user_filter",
+            "stream",
+            "stream_filter_append",
+            "stream_filter_register"
+        ]
+    },
+    {
+        "name": "php-http/message",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/message.git",
+            "reference": "2edd63bae5f52f79363c5f18904b05ce3a4b7253"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/message/zipball/2edd63bae5f52f79363c5f18904b05ce3a4b7253",
+            "reference": "2edd63bae5f52f79363c5f18904b05ce3a4b7253",
+            "shasum": ""
+        },
+        "require": {
+            "clue/stream-filter": "^1.3",
+            "php": ">=5.4",
+            "php-http/message-factory": "^1.0.2",
+            "psr/http-message": "^1.0"
+        },
+        "provide": {
+            "php-http/message-factory-implementation": "1.0"
+        },
+        "require-dev": {
+            "akeneo/phpspec-skip-example-extension": "^1.0",
+            "coduo/phpspec-data-provider-extension": "^1.0",
+            "ext-zlib": "*",
+            "guzzlehttp/psr7": "^1.0",
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4",
+            "slim/slim": "^3.0",
+            "zendframework/zend-diactoros": "^1.0"
+        },
+        "suggest": {
+            "ext-zlib": "Used with compressor/decompressor streams",
+            "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+            "slim/slim": "Used with Slim Framework PSR-7 implementation",
+            "zendframework/zend-diactoros": "Used with Diactoros Factories"
+        },
+        "time": "2017-07-05 06:40:53",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Message\\": "src/"
+            },
+            "files": [
+                "src/filters.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "HTTP Message related tools",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7"
+        ]
+    },
+    {
+        "name": "php-http/promise",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/promise.git",
+            "reference": "810b30da8bcf69e4b82c4b9bc6b31518234293ab"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/promise/zipball/810b30da8bcf69e4b82c4b9bc6b31518234293ab",
+            "reference": "810b30da8bcf69e4b82c4b9bc6b31518234293ab",
+            "shasum": ""
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "time": "2016-01-28 07:54:12",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Promise\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            },
+            {
+                "name": "Joel Wurtz",
+                "email": "joel.wurtz@gmail.com"
+            }
+        ],
+        "description": "Promise used for asynchronous HTTP requests",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
+        "name": "php-http/httplug",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/httplug.git",
+            "reference": "036f86f0cb1f37c13dd9b5e75b71866e7ab3f60b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/httplug/zipball/036f86f0cb1f37c13dd9b5e75b71866e7ab3f60b",
+            "reference": "036f86f0cb1f37c13dd9b5e75b71866e7ab3f60b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "php-http/promise": "^1.0",
+            "psr/http-message": "^1.0"
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "time": "2017-08-18 18:51:51",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eric GELOEN",
+                "email": "geloen.eric@gmail.com"
+            },
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "HTTPlug, the HTTP client abstraction for PHP",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "client",
+            "http"
+        ]
+    },
+    {
+        "name": "php-http/client-common",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/client-common.git",
+            "reference": "1901ad36347227c14751a218d8f4ea1467d1f1ed"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/client-common/zipball/1901ad36347227c14751a218d8f4ea1467d1f1ed",
+            "reference": "1901ad36347227c14751a218d8f4ea1467d1f1ed",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "php-http/httplug": "^1.1",
+            "php-http/message": "^1.6",
+            "php-http/message-factory": "^1.0",
+            "symfony/options-resolver": "^2.6 || ^3.0"
+        },
+        "require-dev": {
+            "guzzlehttp/psr7": "^1.4",
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "suggest": {
+            "php-http/cache-plugin": "PSR-6 Cache plugin",
+            "php-http/logger-plugin": "PSR-3 Logger plugin",
+            "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
+        },
+        "time": "2017-10-16 16:16:36",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.7-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\Common\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Common HTTP Client implementations and tools for HTTPlug",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "client",
+            "common",
+            "http",
+            "httplug"
+        ]
+    },
+    {
+        "name": "php-http/cache-plugin",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/cache-plugin.git",
+            "reference": "eef8c86e91af39d0d9323a921f55187ad8282194"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/eef8c86e91af39d0d9323a921f55187ad8282194",
+            "reference": "eef8c86e91af39d0d9323a921f55187ad8282194",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.4 || ^7.0",
+            "php-http/client-common": "^1.1",
+            "php-http/message-factory": "^1.0",
+            "psr/cache": "^1.0",
+            "symfony/options-resolver": "^2.6 || ^3.0"
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.5"
+        },
+        "time": "2017-07-31 06:46:14",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\Common\\Plugin\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "PSR-6 Cache plugin for HTTPlug",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "cache",
+            "http",
+            "httplug",
+            "plugin"
+        ]
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/d2537c86fa8b004c29e9b9f5e10028f0a29df101",
+            "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2017-10-07 03:19:56",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
+            }
+        ],
+        "description": "PSR-7 message implementation that also provides common utility methods",
+        "keywords": [
+            "http",
+            "message",
+            "request",
+            "response",
+            "stream",
+            "uri",
+            "url"
+        ]
+    },
+    {
+        "name": "guzzlehttp/promises",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/e9cdab6ff93ff789b5b599326c727f51d10893a6",
+            "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2017-10-06 12:25:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle promises library",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "6.3.0",
+        "version_normalized": "6.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+            "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/promises": "^1.0",
+            "guzzlehttp/psr7": "^1.4",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.0 || ^5.0",
+            "psr/log": "^1.0"
+        },
+        "suggest": {
+            "psr/log": "Required for using the Log middleware"
+        },
+        "time": "2017-06-22 18:50:49",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "6.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/functions_include.php"
+            ],
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle is a PHP HTTP client library",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http client",
+            "rest",
+            "web service"
+        ]
+    },
+    {
+        "name": "php-http/guzzle6-adapter",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/guzzle6-adapter.git",
+            "reference": "54181ff8455a4c2e1706a53e0d98060b93030321"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/54181ff8455a4c2e1706a53e0d98060b93030321",
+            "reference": "54181ff8455a4c2e1706a53e0d98060b93030321",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": "^5.5 || ^7.0",
+            "php-http/httplug": "^1.0"
+        },
+        "provide": {
+            "php-http/async-client-implementation": "1.0",
+            "php-http/client-implementation": "1.0"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "php-http/client-integration-tests": "^0.6"
+        },
+        "time": "2017-05-29 15:06:15",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Adapter\\Guzzle6\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            },
+            {
+                "name": "David de Boer",
+                "email": "david@ddeboer.nl"
+            }
+        ],
+        "description": "Guzzle 6 HTTP Adapter",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "Guzzle",
+            "http"
+        ]
+    },
+    {
+        "name": "php-http/discovery",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/discovery.git",
+            "reference": "d39a8798c473b6b896059a8de576598e4d17d992"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/discovery/zipball/d39a8798c473b6b896059a8de576598e4d17d992",
+            "reference": "d39a8798c473b6b896059a8de576598e4d17d992",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0"
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^2.0.2",
+            "php-http/httplug": "^1.0",
+            "php-http/message-factory": "^1.0",
+            "phpspec/phpspec": "^2.4",
+            "puli/composer-plugin": "1.0.0-beta10"
+        },
+        "suggest": {
+            "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories",
+            "puli/composer-plugin": "Sets up Puli which is recommended for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
+        },
+        "time": "2017-09-13 14:06:45",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.3-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Http\\Discovery\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "adapter",
+            "client",
+            "discovery",
+            "factory",
+            "http",
+            "message",
+            "psr7"
+        ]
+    },
+    {
+        "name": "granddam/php-musiccast-api",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/grandDam/php-musiccast-api.git",
+            "reference": "7d7e18452a6e7113fc52c473cd30124373386c77"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/grandDam/php-musiccast-api/zipball/7d7e18452a6e7113fc52c473cd30124373386c77",
+            "reference": "7d7e18452a6e7113fc52c473cd30124373386c77",
+            "shasum": ""
+        },
+        "require": {
+            "cache/doctrine-adapter": "^1.0",
+            "doctrine/cache": "^1.4",
+            "myclabs/php-enum": "^1.5",
+            "php": "^5.6 || ^7.0",
+            "php-http/cache-plugin": "^1.2",
+            "php-http/client-common": "^1.3",
+            "php-http/client-implementation": "^1.0",
+            "php-http/discovery": "^1.0",
+            "php-http/httplug": "^1.1",
+            "psr/cache": "^1.0",
+            "psr/http-message": "^1.0",
+            "symfony/yaml": "^3.2"
+        },
+        "conflict": {
+            "php-http/message-factory": "< 1.0.2"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.0",
+            "guzzlehttp/psr7": "^1.2",
+            "mockery/mockery": "^0.9.4",
+            "nikic/php-parser": "^3.0",
+            "php-http/guzzle6-adapter": "^1.0",
+            "phpro/grumphp": "^0.11.1",
+            "phpunit/php-code-coverage": "^4",
+            "phpunit/phpunit": "^5.7.14",
+            "satooshi/php-coveralls": "^1.0",
+            "squizlabs/php_codesniffer": "^2.7"
+        },
+        "time": "2017-10-21 09:38:04",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "MusicCast\\": "src/",
+                "MusicCastTests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sam Van der Borght",
+                "email": "samvanderborght@gmail.com"
+            },
+            {
+                "name": "Damien SUROT",
+                "email": "damien@toxeek.com"
+            }
+        ],
+        "description": "A PHP library for interacting with Yamaha MusicCast speakers",
+        "keywords": [
+            "api",
+            "client",
+            "musiccast",
+            "yamaha"
+        ]
+    }
 ]

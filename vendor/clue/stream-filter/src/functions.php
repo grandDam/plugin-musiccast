@@ -59,8 +59,8 @@ function prepend($stream, $callback, $read_write = STREAM_FILTER_ALL)
  * explicitly passing a `null` value (which many filters do not accept).
  * Please refer to the individual filter definition for more details.
  *
- * @param string $filter built-in filter name. See stream_get_filters() or http://php.net/manual/en/filters.php
- * @param mixed $parameters (optional) parameters to pass to the built-in filter as-is
+ * @param string $filter     built-in filter name. See stream_get_filters() or http://php.net/manual/en/filters.php
+ * @param mixed  $parameters (optional) parameters to pass to the built-in filter as-is
  * @return callable a filter callback which can be append()'ed or prepend()'ed
  * @throws RuntimeException on error
  * @link http://php.net/manual/en/filters.php

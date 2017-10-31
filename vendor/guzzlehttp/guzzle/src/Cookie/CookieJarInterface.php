@@ -1,5 +1,4 @@
 <?php
-
 namespace GuzzleHttp\Cookie;
 
 use Psr\Http\Message\RequestInterface;
@@ -32,7 +31,7 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
     /**
      * Extract cookies from an HTTP response and store them in the CookieJar.
      *
-     * @param RequestInterface $request Request that was sent
+     * @param RequestInterface  $request  Request that was sent
      * @param ResponseInterface $response Response that was received
      */
     public function extractCookies(
@@ -60,8 +59,8 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
      * removed.
      *
      * @param string $domain Clears cookies matching a domain
-     * @param string $path Clears cookies matching a domain and path
-     * @param string $name Clears cookies matching a domain, path, and name
+     * @param string $path   Clears cookies matching a domain and path
+     * @param string $name   Clears cookies matching a domain, path, and name
      *
      * @return CookieJarInterface
      */

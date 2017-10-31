@@ -1,5 +1,4 @@
 <?php
-
 namespace GuzzleHttp\Cookie;
 
 use Psr\Http\Message\RequestInterface;
@@ -17,7 +16,7 @@ class CookieJar implements CookieJarInterface
     private $strictMode;
 
     /**
-     * @param bool $strictMode Set to true to throw exceptions when invalid
+     * @param bool $strictMode   Set to true to throw exceptions when invalid
      *                           cookies are added to the cookie jar.
      * @param array $cookieArray Array of SetCookie objects or a hash of
      *                           arrays that can be used with the SetCookie
@@ -33,6 +32,126 @@ class CookieJar implements CookieJarInterface
             }
             $this->setCookie($cookie);
         }
+    }
+
+    /**
+     * Create a new Cookie jar from an associative array and domain.
+     *
+     * @param array  $cookies Cookies to create the jar from
+     * @param string $domain  Domain to set the cookies to
+     *
+     * @return self
+     */
+    public static function fromArray(array $cookies, $domain)
+    {
+        $cookieJar = new self();
+        foreach ($cookies as $name => $value) {
+            $cookieJar->setCookie(new SetCookie([
+                'Domain'  => $domain,
+                'Name'    => $name,
+                'Value'   => $value,
+                'Discard' => true
+            ]));
+        }
+
+        return $cookieJar;
+    }
+
+    /**
+     * @deprecated
+     */
+    public static function getCookieValue($value)
+    {
+        return $value;
+    }
+
+    /**
+     * Evaluate if this cookie should be persisted to storage
+     * that survives between requests.
+     *
+     * @param SetCookie $cookie Being evaluated.
+     * @param bool $allowSessionCookies If we should persist session cookies
+     * @return bool
+     */
+    public static function shouldPersist(
+        SetCookie $cookie,
+        $allowSessionCookies = false
+    ) {
+        if ($cookie->getExpires() || $allowSessionCookies) {
+            if (!$cookie->getDiscard()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Finds and returns the cookie based on the name
+     *
+     * @param string $name cookie name to search for
+     * @return SetCookie|null cookie that was found or null if not found
+     */
+    public function getCookieByName($name)
+    {
+        // don't allow a null name
+        if($name === null) {
+            return null;
+        }
+        foreach($this->cookies as $cookie) {
+            if($cookie->getName() !== null && strcasecmp($cookie->getName(), $name) === 0) {
+                return $cookie;
+            }
+        }
+    }
+
+    public function toArray()
+    {
+        return array_map(function (SetCookie $cookie) {
+            return $cookie->toArray();
+        }, $this->getIterator()->getArrayCopy());
+    }
+
+    public function clear($domain = null, $path = null, $name = null)
+    {
+        if (!$domain) {
+            $this->cookies = [];
+            return;
+        } elseif (!$path) {
+            $this->cookies = array_filter(
+                $this->cookies,
+                function (SetCookie $cookie) use ($path, $domain) {
+                    return !$cookie->matchesDomain($domain);
+                }
+            );
+        } elseif (!$name) {
+            $this->cookies = array_filter(
+                $this->cookies,
+                function (SetCookie $cookie) use ($path, $domain) {
+                    return !($cookie->matchesPath($path) &&
+                        $cookie->matchesDomain($domain));
+                }
+            );
+        } else {
+            $this->cookies = array_filter(
+                $this->cookies,
+                function (SetCookie $cookie) use ($path, $domain, $name) {
+                    return !($cookie->getName() == $name &&
+                        $cookie->matchesPath($path) &&
+                        $cookie->matchesDomain($domain));
+                }
+            );
+        }
+    }
+
+    public function clearSessionCookies()
+    {
+        $this->cookies = array_filter(
+            $this->cookies,
+            function (SetCookie $cookie) {
+                return !$cookie->getDiscard() && $cookie->getExpires();
+            }
+        );
     }
 
     public function setCookie(SetCookie $cookie)
@@ -96,133 +215,9 @@ class CookieJar implements CookieJarInterface
         return true;
     }
 
-    /**
-     * If a cookie already exists and the server asks to set it again with a
-     * null value, the cookie must be deleted.
-     *
-     * @param SetCookie $cookie
-     */
-    private function removeCookieIfEmpty(SetCookie $cookie)
+    public function count()
     {
-        $cookieValue = $cookie->getValue();
-        if ($cookieValue === null || $cookieValue === '') {
-            $this->clear(
-                $cookie->getDomain(),
-                $cookie->getPath(),
-                $cookie->getName()
-            );
-        }
-    }
-
-    public function clear($domain = null, $path = null, $name = null)
-    {
-        if (!$domain) {
-            $this->cookies = [];
-            return;
-        } elseif (!$path) {
-            $this->cookies = array_filter(
-                $this->cookies,
-                function (SetCookie $cookie) use ($path, $domain) {
-                    return !$cookie->matchesDomain($domain);
-                }
-            );
-        } elseif (!$name) {
-            $this->cookies = array_filter(
-                $this->cookies,
-                function (SetCookie $cookie) use ($path, $domain) {
-                    return !($cookie->matchesPath($path) &&
-                        $cookie->matchesDomain($domain));
-                }
-            );
-        } else {
-            $this->cookies = array_filter(
-                $this->cookies,
-                function (SetCookie $cookie) use ($path, $domain, $name) {
-                    return !($cookie->getName() == $name &&
-                        $cookie->matchesPath($path) &&
-                        $cookie->matchesDomain($domain));
-                }
-            );
-        }
-    }
-
-    /**
-     * Create a new Cookie jar from an associative array and domain.
-     *
-     * @param array $cookies Cookies to create the jar from
-     * @param string $domain Domain to set the cookies to
-     *
-     * @return self
-     */
-    public static function fromArray(array $cookies, $domain)
-    {
-        $cookieJar = new self();
-        foreach ($cookies as $name => $value) {
-            $cookieJar->setCookie(new SetCookie([
-                'Domain' => $domain,
-                'Name' => $name,
-                'Value' => $value,
-                'Discard' => true
-            ]));
-        }
-
-        return $cookieJar;
-    }
-
-    /**
-     * @deprecated
-     */
-    public static function getCookieValue($value)
-    {
-        return $value;
-    }
-
-    /**
-     * Evaluate if this cookie should be persisted to storage
-     * that survives between requests.
-     *
-     * @param SetCookie $cookie Being evaluated.
-     * @param bool $allowSessionCookies If we should persist session cookies
-     * @return bool
-     */
-    public static function shouldPersist(
-        SetCookie $cookie,
-        $allowSessionCookies = false
-    )
-    {
-        if ($cookie->getExpires() || $allowSessionCookies) {
-            if (!$cookie->getDiscard()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Finds and returns the cookie based on the name
-     *
-     * @param string $name cookie name to search for
-     * @return SetCookie|null cookie that was found or null if not found
-     */
-    public function getCookieByName($name)
-    {
-        // don't allow a null name
-        if ($name === null) {
-            return null;
-        }
-        foreach ($this->cookies as $cookie) {
-            if ($cookie->getName() !== null && strcasecmp($cookie->getName(), $name) === 0) {
-                return $cookie;
-            }
-        }
-    }
-
-    public function toArray()
-    {
-        return array_map(function (SetCookie $cookie) {
-            return $cookie->toArray();
-        }, $this->getIterator()->getArrayCopy());
+        return count($this->cookies);
     }
 
     public function getIterator()
@@ -230,26 +225,10 @@ class CookieJar implements CookieJarInterface
         return new \ArrayIterator(array_values($this->cookies));
     }
 
-    public function clearSessionCookies()
-    {
-        $this->cookies = array_filter(
-            $this->cookies,
-            function (SetCookie $cookie) {
-                return !$cookie->getDiscard() && $cookie->getExpires();
-            }
-        );
-    }
-
-    public function count()
-    {
-        return count($this->cookies);
-    }
-
     public function extractCookies(
         RequestInterface $request,
         ResponseInterface $response
-    )
-    {
+    ) {
         if ($cookieHeader = $response->getHeader('Set-Cookie')) {
             foreach ($cookieHeader as $cookie) {
                 $sc = SetCookie::fromString($cookie);
@@ -275,7 +254,7 @@ class CookieJar implements CookieJarInterface
     private function getCookiePathFromRequest(RequestInterface $request)
     {
         $uriPath = $request->getUri()->getPath();
-        if ('' === $uriPath) {
+        if (''  === $uriPath) {
             return '/';
         }
         if (0 !== strpos($uriPath, '/')) {
@@ -313,5 +292,23 @@ class CookieJar implements CookieJarInterface
         return $values
             ? $request->withHeader('Cookie', implode('; ', $values))
             : $request;
+    }
+
+    /**
+     * If a cookie already exists and the server asks to set it again with a
+     * null value, the cookie must be deleted.
+     *
+     * @param SetCookie $cookie
+     */
+    private function removeCookieIfEmpty(SetCookie $cookie)
+    {
+        $cookieValue = $cookie->getValue();
+        if ($cookieValue === null || $cookieValue === '') {
+            $this->clear(
+                $cookie->getDomain(),
+                $cookie->getPath(),
+                $cookie->getName()
+            );
+        }
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Clue\StreamFilter;
 
-use Exception;
-use InvalidArgumentException;
 use php_user_filter;
+use InvalidArgumentException;
 use ReflectionFunction;
+use Exception;
 
 /**
  *
@@ -33,6 +33,26 @@ class CallbackFilter extends php_user_filter
         $this->supportsClose = ($ref->getNumberOfRequiredParameters() === 0);
 
         return true;
+    }
+
+    public function onClose()
+    {
+        $this->closed = true;
+
+        // callback supports closing and is not already closed
+        if ($this->supportsClose) {
+            $this->supportsClose = false;
+            // invoke without argument to signal end and discard resulting buffer
+            try {
+                call_user_func($this->callback);
+            } catch (Exception $ignored) {
+                // this might be called during engine shutdown, so it's not safe
+                // to raise any errors or exceptions here
+                // trigger_error('Error closing filter: ' . $ignored->getMessage(), E_USER_WARNING);
+            }
+        }
+
+        $this->callback = null;
     }
 
     public function filter($in, $out, &$consumed, $closing)
@@ -96,25 +116,5 @@ class CallbackFilter extends php_user_filter
         }
 
         return PSFS_PASS_ON;
-    }
-
-    public function onClose()
-    {
-        $this->closed = true;
-
-        // callback supports closing and is not already closed
-        if ($this->supportsClose) {
-            $this->supportsClose = false;
-            // invoke without argument to signal end and discard resulting buffer
-            try {
-                call_user_func($this->callback);
-            } catch (Exception $ignored) {
-                // this might be called during engine shutdown, so it's not safe
-                // to raise any errors or exceptions here
-                // trigger_error('Error closing filter: ' . $ignored->getMessage(), E_USER_WARNING);
-            }
-        }
-
-        $this->callback = null;
     }
 }

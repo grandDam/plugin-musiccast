@@ -1,10 +1,9 @@
 <?php
-
 namespace GuzzleHttp\Exception;
 
-use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\UriInterface;
 
 /**
@@ -27,8 +26,7 @@ class RequestException extends TransferException
         ResponseInterface $response = null,
         \Exception $previous = null,
         array $handlerContext = []
-    )
-    {
+    ) {
         // Set the code of the exception if the response is set and not future.
         $code = $response && !($response instanceof PromiseInterface)
             ? $response->getStatusCode()
@@ -43,7 +41,7 @@ class RequestException extends TransferException
      * Wrap non-RequestExceptions with a RequestException
      *
      * @param RequestInterface $request
-     * @param \Exception $e
+     * @param \Exception       $e
      *
      * @return RequestException
      */
@@ -57,10 +55,10 @@ class RequestException extends TransferException
     /**
      * Factory method to create a new exception with a normalized error message
      *
-     * @param RequestInterface $request Request
+     * @param RequestInterface  $request  Request
      * @param ResponseInterface $response Response received
-     * @param \Exception $previous Previous exception
-     * @param array $ctx Optional handler context.
+     * @param \Exception        $previous Previous exception
+     * @param array             $ctx      Optional handler context.
      *
      * @return self
      */
@@ -69,8 +67,7 @@ class RequestException extends TransferException
         ResponseInterface $response = null,
         \Exception $previous = null,
         array $ctx = []
-    )
-    {
+    ) {
         if (!$response) {
             return new self(
                 'Error completing request',
@@ -81,7 +78,7 @@ class RequestException extends TransferException
             );
         }
 
-        $level = (int)floor($response->getStatusCode() / 100);
+        $level = (int) floor($response->getStatusCode() / 100);
         if ($level === 4) {
             $label = 'Client error';
             $className = ClientException::class;
@@ -114,24 +111,6 @@ class RequestException extends TransferException
         }
 
         return new $className($message, $request, $response, $previous, $ctx);
-    }
-
-    /**
-     * Obfuscates URI if there is an username and a password present
-     *
-     * @param UriInterface $uri
-     *
-     * @return UriInterface
-     */
-    private static function obfuscateUri($uri)
-    {
-        $userInfo = $uri->getUserInfo();
-
-        if (false !== ($pos = strpos($userInfo, ':'))) {
-            return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
-        }
-
-        return $uri;
     }
 
     /**
@@ -171,6 +150,24 @@ class RequestException extends TransferException
         }
 
         return $summary;
+    }
+
+    /**
+     * Obfuscates URI if there is an username and a password present
+     *
+     * @param UriInterface $uri
+     *
+     * @return UriInterface
+     */
+    private static function obfuscateUri($uri)
+    {
+        $userInfo = $uri->getUserInfo();
+
+        if (false !== ($pos = strpos($userInfo, ':'))) {
+            return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
+        }
+
+        return $uri;
     }
 
     /**

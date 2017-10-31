@@ -1,27 +1,26 @@
 <?php
-
 namespace GuzzleHttp;
 
 use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
+use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
 
 /**
- * @method ResponseInterface get(string | UriInterface $uri, array $options = [])
- * @method ResponseInterface head(string | UriInterface $uri, array $options = [])
- * @method ResponseInterface put(string | UriInterface $uri, array $options = [])
- * @method ResponseInterface post(string | UriInterface $uri, array $options = [])
- * @method ResponseInterface patch(string | UriInterface $uri, array $options = [])
- * @method ResponseInterface delete(string | UriInterface $uri, array $options = [])
- * @method Promise\PromiseInterface getAsync(string | UriInterface $uri, array $options = [])
- * @method Promise\PromiseInterface headAsync(string | UriInterface $uri, array $options = [])
- * @method Promise\PromiseInterface putAsync(string | UriInterface $uri, array $options = [])
- * @method Promise\PromiseInterface postAsync(string | UriInterface $uri, array $options = [])
- * @method Promise\PromiseInterface patchAsync(string | UriInterface $uri, array $options = [])
- * @method Promise\PromiseInterface deleteAsync(string | UriInterface $uri, array $options = [])
+ * @method ResponseInterface get(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface head(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface put(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface post(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface patch(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface delete(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface getAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface headAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface putAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface postAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface patchAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface deleteAsync(string|UriInterface $uri, array $options = [])
  */
 class Client implements ClientInterface
 {
@@ -76,6 +75,81 @@ class Client implements ClientInterface
         $this->configureDefaults($config);
     }
 
+    public function __call($method, $args)
+    {
+        if (count($args) < 1) {
+            throw new \InvalidArgumentException('Magic request methods require a URI and optional options array');
+        }
+
+        $uri = $args[0];
+        $opts = isset($args[1]) ? $args[1] : [];
+
+        return substr($method, -5) === 'Async'
+            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
+            : $this->request($method, $uri, $opts);
+    }
+
+    public function sendAsync(RequestInterface $request, array $options = [])
+    {
+        // Merge the base URI into the request URI if needed.
+        $options = $this->prepareDefaults($options);
+
+        return $this->transfer(
+            $request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')),
+            $options
+        );
+    }
+
+    public function send(RequestInterface $request, array $options = [])
+    {
+        $options[RequestOptions::SYNCHRONOUS] = true;
+        return $this->sendAsync($request, $options)->wait();
+    }
+
+    public function requestAsync($method, $uri = '', array $options = [])
+    {
+        $options = $this->prepareDefaults($options);
+        // Remove request modifying parameter because it can be done up-front.
+        $headers = isset($options['headers']) ? $options['headers'] : [];
+        $body = isset($options['body']) ? $options['body'] : null;
+        $version = isset($options['version']) ? $options['version'] : '1.1';
+        // Merge the URI into the base URI.
+        $uri = $this->buildUri($uri, $options);
+        if (is_array($body)) {
+            $this->invalidBody();
+        }
+        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
+        // Remove the option so that they are not doubly-applied.
+        unset($options['headers'], $options['body'], $options['version']);
+
+        return $this->transfer($request, $options);
+    }
+
+    public function request($method, $uri = '', array $options = [])
+    {
+        $options[RequestOptions::SYNCHRONOUS] = true;
+        return $this->requestAsync($method, $uri, $options)->wait();
+    }
+
+    public function getConfig($option = null)
+    {
+        return $option === null
+            ? $this->config
+            : (isset($this->config[$option]) ? $this->config[$option] : null);
+    }
+
+    private function buildUri($uri, array $config)
+    {
+        // for BC we accept null which would otherwise fail in uri_for
+        $uri = Psr7\uri_for($uri === null ? '' : $uri);
+
+        if (isset($config['base_uri'])) {
+            $uri = Psr7\UriResolver::resolve(Psr7\uri_for($config['base_uri']), $uri);
+        }
+
+        return $uri->getScheme() === '' && $uri->getHost() !== '' ? $uri->withScheme('http') : $uri;
+    }
+
     /**
      * Configures the default options for a client.
      *
@@ -85,10 +159,10 @@ class Client implements ClientInterface
     {
         $defaults = [
             'allow_redirects' => RedirectMiddleware::$defaultSettings,
-            'http_errors' => true,
-            'decode_content' => true,
-            'verify' => true,
-            'cookies' => false
+            'http_errors'     => true,
+            'decode_content'  => true,
+            'verify'          => true,
+            'cookies'         => false
         ];
 
         // Use the standard Linux HTTP_PROXY and HTTPS_PROXY if set.
@@ -127,39 +201,6 @@ class Client implements ClientInterface
             }
             $this->config['headers']['User-Agent'] = default_user_agent();
         }
-    }
-
-    public function __call($method, $args)
-    {
-        if (count($args) < 1) {
-            throw new \InvalidArgumentException('Magic request methods require a URI and optional options array');
-        }
-
-        $uri = $args[0];
-        $opts = isset($args[1]) ? $args[1] : [];
-
-        return substr($method, -5) === 'Async'
-            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
-            : $this->request($method, $uri, $opts);
-    }
-
-    public function requestAsync($method, $uri = '', array $options = [])
-    {
-        $options = $this->prepareDefaults($options);
-        // Remove request modifying parameter because it can be done up-front.
-        $headers = isset($options['headers']) ? $options['headers'] : [];
-        $body = isset($options['body']) ? $options['body'] : null;
-        $version = isset($options['version']) ? $options['version'] : '1.1';
-        // Merge the URI into the base URI.
-        $uri = $this->buildUri($uri, $options);
-        if (is_array($body)) {
-            $this->invalidBody();
-        }
-        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
-        // Remove the option so that they are not doubly-applied.
-        unset($options['headers'], $options['body'], $options['version']);
-
-        return $this->transfer($request, $options);
     }
 
     /**
@@ -204,27 +245,6 @@ class Client implements ClientInterface
         return $result;
     }
 
-    private function buildUri($uri, array $config)
-    {
-        // for BC we accept null which would otherwise fail in uri_for
-        $uri = Psr7\uri_for($uri === null ? '' : $uri);
-
-        if (isset($config['base_uri'])) {
-            $uri = Psr7\UriResolver::resolve(Psr7\uri_for($config['base_uri']), $uri);
-        }
-
-        return $uri->getScheme() === '' && $uri->getHost() !== '' ? $uri->withScheme('http') : $uri;
-    }
-
-    private function invalidBody()
-    {
-        throw new \InvalidArgumentException('Passing in the "body" request '
-            . 'option as an array to send a POST request has been deprecated. '
-            . 'Please use the "form_params" request option to send a '
-            . 'application/x-www-form-urlencoded request, or the "multipart" '
-            . 'request option to send a multipart/form-data request.');
-    }
-
     /**
      * Transfers the given request and applies request options.
      *
@@ -232,7 +252,7 @@ class Client implements ClientInterface
      * as-is without merging in default options.
      *
      * @param RequestInterface $request
-     * @param array $options
+     * @param array            $options
      *
      * @return Promise\PromiseInterface
      */
@@ -264,7 +284,7 @@ class Client implements ClientInterface
      * Applies the array of request options to a request.
      *
      * @param RequestInterface $request
-     * @param array $options
+     * @param array            $options
      *
      * @return RequestInterface
      */
@@ -383,33 +403,12 @@ class Client implements ClientInterface
         return $request;
     }
 
-    public function request($method, $uri = '', array $options = [])
+    private function invalidBody()
     {
-        $options[RequestOptions::SYNCHRONOUS] = true;
-        return $this->requestAsync($method, $uri, $options)->wait();
-    }
-
-    public function send(RequestInterface $request, array $options = [])
-    {
-        $options[RequestOptions::SYNCHRONOUS] = true;
-        return $this->sendAsync($request, $options)->wait();
-    }
-
-    public function sendAsync(RequestInterface $request, array $options = [])
-    {
-        // Merge the base URI into the request URI if needed.
-        $options = $this->prepareDefaults($options);
-
-        return $this->transfer(
-            $request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')),
-            $options
-        );
-    }
-
-    public function getConfig($option = null)
-    {
-        return $option === null
-            ? $this->config
-            : (isset($this->config[$option]) ? $this->config[$option] : null);
+        throw new \InvalidArgumentException('Passing in the "body" request '
+            . 'option as an array to send a POST request has been deprecated. '
+            . 'Please use the "form_params" request option to send a '
+            . 'application/x-www-form-urlencoded request, or the "multipart" '
+            . 'request option to send a multipart/form-data request.');
     }
 }

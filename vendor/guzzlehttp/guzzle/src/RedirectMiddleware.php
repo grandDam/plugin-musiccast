@@ -1,5 +1,4 @@
 <?php
-
 namespace GuzzleHttp;
 
 use GuzzleHttp\Exception\BadResponseException;
@@ -23,14 +22,14 @@ class RedirectMiddleware
     const STATUS_HISTORY_HEADER = 'X-Guzzle-Redirect-Status-History';
 
     public static $defaultSettings = [
-        'max' => 5,
-        'protocols' => ['http', 'https'],
-        'strict' => false,
-        'referer' => false,
+        'max'             => 5,
+        'protocols'       => ['http', 'https'],
+        'strict'          => false,
+        'referer'         => false,
         'track_redirects' => false,
     ];
 
-    /** @var callable */
+    /** @var callable  */
     private $nextHandler;
 
     /**
@@ -43,7 +42,7 @@ class RedirectMiddleware
 
     /**
      * @param RequestInterface $request
-     * @param array $options
+     * @param array            $options
      *
      * @return PromiseInterface
      */
@@ -75,8 +74,8 @@ class RedirectMiddleware
     }
 
     /**
-     * @param RequestInterface $request
-     * @param array $options
+     * @param RequestInterface  $request
+     * @param array             $options
      * @param ResponseInterface|PromiseInterface $response
      *
      * @return ResponseInterface|PromiseInterface
@@ -85,8 +84,7 @@ class RedirectMiddleware
         RequestInterface $request,
         array $options,
         ResponseInterface $response
-    )
-    {
+    ) {
         if (substr($response->getStatusCode(), 0, 1) != '3'
             || !$response->hasHeader('Location')
         ) {
@@ -112,12 +110,29 @@ class RedirectMiddleware
         if (!empty($options['allow_redirects']['track_redirects'])) {
             return $this->withTracking(
                 $promise,
-                (string)$nextRequest->getUri(),
+                (string) $nextRequest->getUri(),
                 $response->getStatusCode()
             );
         }
 
         return $promise;
+    }
+
+    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
+    {
+        return $promise->then(
+            function (ResponseInterface $response) use ($uri, $statusCode) {
+                // Note that we are pushing to the front of the list as this
+                // would be an earlier response than what is currently present
+                // in the history header.
+                $historyHeader = $response->getHeader(self::HISTORY_HEADER);
+                $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
+                array_unshift($historyHeader, $uri);
+                array_unshift($statusHeader, $statusCode);
+                return $response->withHeader(self::HISTORY_HEADER, $historyHeader)
+                                ->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);
+            }
+        );
     }
 
     private function guardMax(RequestInterface $request, array &$options)
@@ -137,8 +152,8 @@ class RedirectMiddleware
     }
 
     /**
-     * @param RequestInterface $request
-     * @param array $options
+     * @param RequestInterface  $request
+     * @param array             $options
      * @param ResponseInterface $response
      *
      * @return RequestInterface
@@ -147,8 +162,7 @@ class RedirectMiddleware
         RequestInterface $request,
         array $options,
         ResponseInterface $response
-    )
-    {
+    ) {
         // Request modifications to apply.
         $modify = [];
         $protocols = $options['allow_redirects']['protocols'];
@@ -173,7 +187,7 @@ class RedirectMiddleware
             && $modify['uri']->getScheme() === $request->getUri()->getScheme()
         ) {
             $uri = $request->getUri()->withUserInfo('', '');
-            $modify['set_headers']['Referer'] = (string)$uri;
+            $modify['set_headers']['Referer'] = (string) $uri;
         } else {
             $modify['remove_headers'][] = 'Referer';
         }
@@ -189,9 +203,9 @@ class RedirectMiddleware
     /**
      * Set the appropriate URL on the request based on the location header
      *
-     * @param RequestInterface $request
+     * @param RequestInterface  $request
      * @param ResponseInterface $response
-     * @param array $protocols
+     * @param array             $protocols
      *
      * @return UriInterface
      */
@@ -199,8 +213,7 @@ class RedirectMiddleware
         RequestInterface $request,
         ResponseInterface $response,
         array $protocols
-    )
-    {
+    ) {
         $location = Psr7\UriResolver::resolve(
             $request->getUri(),
             new Psr7\Uri($response->getHeaderLine('Location'))
@@ -220,22 +233,5 @@ class RedirectMiddleware
         }
 
         return $location;
-    }
-
-    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
-    {
-        return $promise->then(
-            function (ResponseInterface $response) use ($uri, $statusCode) {
-                // Note that we are pushing to the front of the list as this
-                // would be an earlier response than what is currently present
-                // in the history header.
-                $historyHeader = $response->getHeader(self::HISTORY_HEADER);
-                $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
-                array_unshift($historyHeader, $uri);
-                array_unshift($statusHeader, $statusCode);
-                return $response->withHeader(self::HISTORY_HEADER, $historyHeader)
-                    ->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);
-            }
-        );
     }
 }

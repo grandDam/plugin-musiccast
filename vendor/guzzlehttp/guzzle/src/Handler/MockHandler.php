@@ -1,10 +1,10 @@
 <?php
-
 namespace GuzzleHttp\Handler;
 
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Promise\RejectedPromise;
 use GuzzleHttp\TransferStats;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -21,35 +21,12 @@ class MockHandler implements \Countable
     private $onRejected;
 
     /**
-     * The passed in value must be an array of
-     * {@see Psr7\Http\Message\ResponseInterface} objects, Exceptions,
-     * callables, or Promises.
-     *
-     * @param array $queue
-     * @param callable $onFulfilled Callback to invoke when the return value is fulfilled.
-     * @param callable $onRejected Callback to invoke when the return value is rejected.
-     */
-    public function __construct(
-        array $queue = null,
-        callable $onFulfilled = null,
-        callable $onRejected = null
-    )
-    {
-        $this->onFulfilled = $onFulfilled;
-        $this->onRejected = $onRejected;
-
-        if ($queue) {
-            call_user_func_array([$this, 'append'], $queue);
-        }
-    }
-
-    /**
      * Creates a new MockHandler that uses the default handler stack list of
      * middlewares.
      *
      * @param array $queue Array of responses, callables, or exceptions.
      * @param callable $onFulfilled Callback to invoke when the return value is fulfilled.
-     * @param callable $onRejected Callback to invoke when the return value is rejected.
+     * @param callable $onRejected  Callback to invoke when the return value is rejected.
      *
      * @return HandlerStack
      */
@@ -57,9 +34,30 @@ class MockHandler implements \Countable
         array $queue = null,
         callable $onFulfilled = null,
         callable $onRejected = null
-    )
-    {
+    ) {
         return HandlerStack::create(new self($queue, $onFulfilled, $onRejected));
+    }
+
+    /**
+     * The passed in value must be an array of
+     * {@see Psr7\Http\Message\ResponseInterface} objects, Exceptions,
+     * callables, or Promises.
+     *
+     * @param array $queue
+     * @param callable $onFulfilled Callback to invoke when the return value is fulfilled.
+     * @param callable $onRejected  Callback to invoke when the return value is rejected.
+     */
+    public function __construct(
+        array $queue = null,
+        callable $onFulfilled = null,
+        callable $onRejected = null
+    ) {
+        $this->onFulfilled = $onFulfilled;
+        $this->onRejected = $onRejected;
+
+        if ($queue) {
+            call_user_func_array([$this, 'append'], $queue);
+        }
     }
 
     public function __invoke(RequestInterface $request, array $options)
@@ -103,7 +101,7 @@ class MockHandler implements \Countable
                     call_user_func($this->onFulfilled, $value);
                 }
                 if (isset($options['sink'])) {
-                    $contents = (string)$value->getBody();
+                    $contents = (string) $value->getBody();
                     $sink = $options['sink'];
 
                     if (is_resource($sink)) {
@@ -125,19 +123,6 @@ class MockHandler implements \Countable
                 return \GuzzleHttp\Promise\rejection_for($reason);
             }
         );
-    }
-
-    private function invokeStats(
-        RequestInterface $request,
-        array $options,
-        ResponseInterface $response = null,
-        $reason = null
-    )
-    {
-        if (isset($options['on_stats'])) {
-            $stats = new TransferStats($request, $response, 0, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
     }
 
     /**
@@ -188,5 +173,17 @@ class MockHandler implements \Countable
     public function count()
     {
         return count($this->queue);
+    }
+
+    private function invokeStats(
+        RequestInterface $request,
+        array $options,
+        ResponseInterface $response = null,
+        $reason = null
+    ) {
+        if (isset($options['on_stats'])) {
+            $stats = new TransferStats($request, $response, 0, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
     }
 }

@@ -18,17 +18,18 @@ namespace MyCLabs\Enum;
 abstract class Enum
 {
     /**
-     * Store existing constants in a static cache per object.
-     *
-     * @var array
-     */
-    protected static $cache = array();
-    /**
      * Enum value
      *
      * @var mixed
      */
     protected $value;
+
+    /**
+     * Store existing constants in a static cache per object.
+     *
+     * @var array
+     */
+    protected static $cache = array();
 
     /**
      * Creates a new value of some type
@@ -47,31 +48,41 @@ abstract class Enum
     }
 
     /**
-     * Check if is valid enum value
-     *
-     * @param $value
-     *
-     * @return bool
+     * @return mixed
      */
-    public static function isValid($value)
+    public function getValue()
     {
-        return in_array($value, static::toArray(), true);
+        return $this->value;
     }
 
     /**
-     * Returns all possible values as an array
+     * Returns the enum key (i.e. the constant name).
      *
-     * @return array Constant name in key, constant value in value
+     * @return mixed
      */
-    public static function toArray()
+    public function getKey()
     {
-        $class = get_called_class();
-        if (!array_key_exists($class, static::$cache)) {
-            $reflection = new \ReflectionClass($class);
-            static::$cache[$class] = $reflection->getConstants();
-        }
+        return static::search($this->value);
+    }
 
-        return static::$cache[$class];
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string)$this->value;
+    }
+
+    /**
+     * Compares one Enum with another.
+     *
+     * This method is final, for more information read https://github.com/myclabs/php-enum/issues/4
+     *
+     * @return bool True if Enums are equal, false if not equal
+     */
+    final public function equals(Enum $enum)
+    {
+        return $this->getValue() === $enum->getValue() && get_called_class() == get_class($enum);
     }
 
     /**
@@ -101,6 +112,34 @@ abstract class Enum
     }
 
     /**
+     * Returns all possible values as an array
+     *
+     * @return array Constant name in key, constant value in value
+     */
+    public static function toArray()
+    {
+        $class = get_called_class();
+        if (!array_key_exists($class, static::$cache)) {
+            $reflection            = new \ReflectionClass($class);
+            static::$cache[$class] = $reflection->getConstants();
+        }
+
+        return static::$cache[$class];
+    }
+
+    /**
+     * Check if is valid enum value
+     *
+     * @param $value
+     *
+     * @return bool
+     */
+    public static function isValid($value)
+    {
+        return in_array($value, static::toArray(), true);
+    }
+
+    /**
      * Check if is valid enum key
      *
      * @param $key
@@ -112,35 +151,6 @@ abstract class Enum
         $array = static::toArray();
 
         return isset($array[$key]);
-    }
-
-    /**
-     * Returns a value when called statically like so: MyEnum::SOME_VALUE() given SOME_VALUE is a class constant
-     *
-     * @param string $name
-     * @param array $arguments
-     *
-     * @return static
-     * @throws \BadMethodCallException
-     */
-    public static function __callStatic($name, $arguments)
-    {
-        $array = static::toArray();
-        if (isset($array[$name])) {
-            return new static($array[$name]);
-        }
-
-        throw new \BadMethodCallException("No static method or enum constant '$name' in class " . get_called_class());
-    }
-
-    /**
-     * Returns the enum key (i.e. the constant name).
-     *
-     * @return mixed
-     */
-    public function getKey()
-    {
-        return static::search($this->value);
     }
 
     /**
@@ -156,30 +166,21 @@ abstract class Enum
     }
 
     /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string)$this->value;
-    }
-
-    /**
-     * Compares one Enum with another.
+     * Returns a value when called statically like so: MyEnum::SOME_VALUE() given SOME_VALUE is a class constant
      *
-     * This method is final, for more information read https://github.com/myclabs/php-enum/issues/4
+     * @param string $name
+     * @param array  $arguments
      *
-     * @return bool True if Enums are equal, false if not equal
+     * @return static
+     * @throws \BadMethodCallException
      */
-    final public function equals(Enum $enum)
+    public static function __callStatic($name, $arguments)
     {
-        return $this->getValue() === $enum->getValue() && get_called_class() == get_class($enum);
-    }
+        $array = static::toArray();
+        if (isset($array[$name])) {
+            return new static($array[$name]);
+        }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
+        throw new \BadMethodCallException("No static method or enum constant '$name' in class " . get_called_class());
     }
 }
