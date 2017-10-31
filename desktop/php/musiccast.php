@@ -147,7 +147,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     </div>
                     <div class="col-xs-6">
                         <center>
-                            <img src="plugins/musiccast/doc/images/musiccast_icon.png" id="img_musiccastModel"
+                            <img src="plugins/musiccast/plugin_info/musiccast_icon.png" id="img_musiccastModel"
                                  style="height : 300px;"/>
                         </center>
                     </div>
