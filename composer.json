@@ -5,7 +5,7 @@
         "granddam/php-musiccast-api": "^1.0@dev",
         "php-http/guzzle6-adapter": "^1.1"
     },
-    "minimum-stability" : "dev",
+    "minimum-stability" : "stable",
     "authors": [
         {
             "name": "Damien SUROT",
