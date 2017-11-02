@@ -241,7 +241,7 @@ class musiccast extends eqLogic
                 $changed = false;
                 $controller = $eqLogic->getController();
                 if ($controller != null) {
-                    log::add('musiccast', 'debug', 'Pulling controller ' . $controller->getName());
+                    //log::add('musiccast', 'debug', 'Pulling controller ' . $controller->getName());
                     $group_id = $controller->getGroup();
                     $state = self::convertState($controller->getStateName());
                     if ($state == __('Transition', __FILE__)) {
@@ -1228,17 +1228,19 @@ class MusicCastCmd extends cmd
             } elseif ($this->getLogicalId() == 'play_playlist') {
                 $playlist = $controller->getPlaylistByName($_options['title']);
                 if ($playlist == null) {
-                    throw new Exception(__('Playlist non trouvé : ', __FILE__) . trim($_options['title']));
+                    $playlist = $controller->getPlaylistByName($_options['select']);
                 }
-
-                if (isset($_options['message']) && $_options['message'] == 'random') {
-                    $controller->setShuffle(true);
+                if ($playlist == null) {
+                    throw new Exception(__('Playlist non trouvée : ', __FILE__) );
                 }
                 $playlist->play();
             } elseif ($this->getLogicalId() == 'play_favorite') {
                 $favorite = $controller->getFavoriteByName($_options['title']);
                 if ($favorite == null) {
-                    throw new Exception(__('Playlist non trouvé : ', __FILE__) . trim($_options['title']));
+                    $favorite = $controller->getFavoriteByName($_options['select']);
+                }
+                if ($favorite == null) {
+                    throw new Exception(__('Favori non trouvée', __FILE__) );
                 }
                 $favorite->play();
             } elseif ($this->getLogicalId() == 'add_speaker') {
@@ -1254,7 +1256,7 @@ class MusicCastCmd extends cmd
             } elseif ($this->getLogicalId() == 'standby') {
                 $controller->standBy();
             } elseif ($this->getLogicalId() == 'change_input') {
-                $controller->setInput($_options['title']);
+                $controller->setInput($_options['select']);
             } else {
                 musiccast::pull($eqLogic->getId());
             }
