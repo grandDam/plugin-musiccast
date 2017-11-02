@@ -90,15 +90,18 @@ class Controller extends Speaker
         }
         $group = [];
         $speakers = $this->network->getSpeakers();
+
         foreach ($speakers as $speaker) {
             if ($speaker->getUuid() == $this->getUuid()) {
                 $group[] = $speaker;
+                continue;
             }
-            if ($speaker->getGroup() === $this->getGroup() &&
-                !(is_numeric($speaker->getGroup()) || intval($speaker->getGroup()) == 0)) {
+            if ($speaker->getGroup() === $this->getGroup() && $this->getGroup() != Speaker::NO_GROUP) {
                 $group[] = $speaker;
             }
         }
+
+
         return $this->speakers = $group;
     }
 
