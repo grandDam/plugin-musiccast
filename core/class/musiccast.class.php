@@ -330,8 +330,6 @@ class musiccast extends eqLogic
                     $changed = $eqLogic->checkAndUpdateCmd('power_state', $power) || $changed;
                     $changed = $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator) || $changed;
 
-                    //   self::getPlayLists($controller->getIp());
-                    //   self::getFavorites($controller->getIp());
                     if ($changed) {
                         log::add('musiccast', 'debug', "Refreshing widget");
                         $eqLogic->refreshWidget();
@@ -472,10 +470,10 @@ class musiccast extends eqLogic
     static function getPlayLists($ip)
     {
         $musicCast = self::getMusicCast();
-        $controller = $musicCast->getControllerByIp($ip);
-        if ($controller != null) {
+        $speaker = $musicCast->getSpeakerByIp($ip);
+        if ($speaker != null) {
             $mcast = musiccast::byLogicalId($ip, 'musiccast');
-            $playlists = $controller->getPlaylists();
+            $playlists = $speaker->getPlaylists();
             $array = array();
             foreach ($playlists as $playlist) {
                 $array[$playlist->getName()] = $playlist->getName();
@@ -523,10 +521,10 @@ class musiccast extends eqLogic
     static function getFavorites($ip)
     {
         $musicCast = self::getMusicCast();
-        $controller = $musicCast->getControllerByIp($ip);
-        if ($controller != null) {
+        $speaker = $musicCast->getSpeakerByIp($ip);
+        if ($speaker != null) {
             $mcast = musiccast::byLogicalId($ip, 'musiccast');
-            $favorites = $controller->getFavorites();
+            $favorites = $speaker->getFavorites();
             $array = array();
             foreach ($favorites as $favorite) {
                 $array[$favorite->getName()] = $favorite->getName();
