@@ -48,11 +48,6 @@ class Controller extends Speaker
     protected $network;
 
     /**
-     * @var Speaker[]
-     */
-    private $speakers;
-
-    /**
      * @var
      */
     private $distribution_id;
@@ -74,7 +69,6 @@ class Controller extends Speaker
             not the coordinator of it's group");
         }
         $this->network = $network;
-        $this->speakers = $this->getSpeakers();
         $this->distribution_id = $distribution_id;
     }
 
@@ -85,9 +79,6 @@ class Controller extends Speaker
      */
     public function getSpeakers()
     {
-        if (is_array($this->speakers)) {
-            return $this->speakers;
-        }
         $group = [];
         $speakers = $this->network->getSpeakers();
 
@@ -102,7 +93,7 @@ class Controller extends Speaker
         }
 
 
-        return $this->speakers = $group;
+        return $group;
     }
 
     /**
@@ -258,7 +249,7 @@ class Controller extends Speaker
         if ($speaker->getUuid() === $this->getUuid()) {
             return $this;
         }
-        if (!in_array($speaker, $this->speakers)) {
+        if (!in_array($speaker, $this->getSpeakers())) {
             $group = $this->getGroup();
             if ($group == Speaker::NO_GROUP) {
                 $group = md5($this->device->getIp());
@@ -271,7 +262,6 @@ class Controller extends Speaker
                     [$group, 'add', 'main', array($speaker->device->getIp())]
                 );
                 $this->call('dist', 'startDistribution', [$this->distribution_id]);
-                $this->speakers[] = $speaker;
             }
         }
         return $this;
@@ -290,8 +280,7 @@ class Controller extends Speaker
         if ($speaker->getUuid() === $this->getUuid()) {
             return $this;
         }
-        if (in_array($speaker, $this->speakers)) {
-            unset($this->speakers[array_search($speaker, $this->speakers)]);
+        if (in_array($speaker, $this->getSpeakers())) {
             $speaker->call('dist', 'setClientInfo');
             $this->call(
                 'dist',
