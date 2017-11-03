@@ -123,7 +123,7 @@ class musiccast extends eqLogic
     public static function getMusicCast($_emptyCache = false)
     {
         if (self::$_musiccast === null) {
-            self::$_musiccast = new MusicCast\Network(null, log::getLogger());
+            self::$_musiccast = new MusicCast\Network(null, log::getLogger('musiccast'));
         }
         return self::$_musiccast;
     }
@@ -146,6 +146,7 @@ class musiccast extends eqLogic
                 if (is_object($object)) {
                     $eqLogic->setObject_id($object->getId());
                     $eqLogic->setName($speaker->getUuid() . '-' . $speaker->getName());
+                    $eqLogic->setConfiguration('model', 'OTHER');
                 }
                 if (strpos($speaker->getModel(), 'WX-030') !== false) {
                     $eqLogic->setConfiguration('model', 'WX-030');
