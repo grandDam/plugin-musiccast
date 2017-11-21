@@ -1,46 +1,48 @@
 {
-    "plugins/musiccast/plugin_info/info.xml": {
+    "plugins\/musiccast\/plugin_info\/info.xml": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast",
-        "Aucune": "Nessuno"
+        "Aucune": "Aucune"
     },
-    "plugins/musiccast/core/class/musiccast.class.php": {
-        "Status": "Stato",
+    "plugins\/musiccast\/core\/class\/musiccast.class.php": {
+        "Status": "Status",
         "Rafraîhir": "Rafraîhir",
         "Play": "Play",
-        "Stop": "Ferma",
-        "Pause": "Pausa",
-        "Suivant": "Successivo",
+        "Stop": "Stop",
+        "Pause": "Pause",
+        "Suivant": "Suivant",
         "Precedent": "Precedent",
-        "Muet": "Muto",
+        "Muet": "Muet",
         "Non muet": "Non muet",
         "Répéter": "Répéter",
         "Aléatoire": "Aléatoire",
-        "Volume status": "Stato volume",
+        "Volume status": "Volume status",
         "Volume": "Volume",
         "Piste": "Piste",
         "Artiste": "Artiste",
         "Album": "Album",
-        "Durée": "Durata",
+        "Durée": "Durée",
         "Position": "Position",
-        "Lecture": "Esecuzione",
-        "Image": "Immagine",
+        "Lecture": "Lecture",
+        "Image": "Image",
         "Répéter status": "Répéter status",
         "Aléatoire status": "Aléatoire status",
         "Jouer playlist": "Jouer playlist",
-        "Aucun": "Nessuno",
-        "Arrêté": "Ferma",
+        "Aucun": "Aucun",
+        "Arrêté": "Arrêté",
         "Ajout un haut parleur": "Ajout un haut parleur",
         "Supprimer un haut parleur": "Supprimer un haut parleur",
+        "Supprimer les hauts parleurs" : "Supprimer un haut parleur",
+        "Change input" : "Changer d'entrée",
         "Dire": "Dire",
-        "Jouer une radio": "Jouer une radio",
-        "Radio non trouvée : ": "Radio non trouvée :",
-        "Playlist non trouvé : ": "Playlist non trouvé :",
-        "Erreur sur ": "Errore su",
-        "Options": "Opzioni",
+        "Jouer un favoris": "Jouer une radio",
+        "Favoris non trouvé : ": "Favoris non trouvé : ",
+        "Playlist non trouvé : ": "Playlist non trouvé : ",
+        "Erreur sur ": "Erreur sur ",
+        "Options": "Options",
         "Titre de la playlist": "Titre de la playlist",
-        "Titre de la radio": "Titre de la radio",
+        "Titre du favoris": "Titre du favoris",
         "Nom de la piece": "Nom de la piece",
-        "Message": "Messaggio",
+        "Message": "Message",
         "Tache Z-Wave": "Tache Z-Wave",
         "OK": "OK",
         "Tache de synchronisation": "Tache de synchronisation",
@@ -50,45 +52,46 @@
         "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull": "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull",
         "Muet status": "Muet status",
         "Entrée de ligne": "Entrée de ligne",
-        "Impossible de récuperer le MusicCast : ": "Impossible de récuperer le MusicCast :"
+        "Impossible de récuperer le MusicCast : ": "Impossible de récuperer le MusicCast : "
     },
-    "plugins/musiccast/desktop/php/musiccast.php": {
-        "Ajouter un template": "Aggiungere template",
-        "Rechercher": "Cerca",
+    "plugins\/musiccast\/desktop\/php\/musiccast.php": {
+        "Ajouter un template": "Ajouter un template",
+        "Rechercher": "Rechercher",
         "Mes templates": "Mes templates",
-        "Général": "Generale",
+        "Général": "Général",
         "Nom de l'équipement template": "Nom de l'équipement template",
-        "Objet parent": "Oggetto padre",
-        "Aucun": "Nessuno",
-        "Activer": "Attiva",
-        "Visible": "Visibile",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Activer": "Activer",
+        "Visible": "Visible",
         "template param 1": "template param 1",
         "Template": "Template",
-        "Nom": "Nome",
-        "Type": "Tipo",
-        "Action": "Azione",
-        "Supprimer": "Elimina",
-        "Sauvegarder": "Salva",
+        "Nom": "Nom",
+        "Type": "Type",
+        "Action": "Action",
+        "Supprimer": "Supprimer",
+        "Sauvegarder": "Sauvegarder",
         "IP": "IP",
-        "Commande": "Comando",
+        "Commande": "Commande",
         "Nom du MusicCast": "Nom du MusicCast",
         "Mes MusicCast": "Mes MusicCast",
         "Model": "Model",
         "Masquer la jaquette": "Masquer la jaquette",
-        "Gestion": "Gestione",
-        "Configuration": "Configurazione",
-        "Equipement": "Dispositivo",
-        "Commandes": "Comandi",
-        "Configuration avancée": "Configurazione avanzata"
+        "Gestion": "Gestion",
+        "Configuration": "Configuration",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
+        "Coordinateur": "Coordinateur",
+        "Configuration avancée": "Configuration avancée"
     },
-    "plugins/musiccast/desktop/js/musiccast.js": {
-        "Nom": "Nome",
-        "Tester": "Prova"
+    "plugins\/musiccast\/desktop\/js\/musiccast.js": {
+        "Nom": "Nom",
+        "Tester": "Tester"
     },
-    "plugins/musiccast/plugin_info/configuration.php": {
+    "plugins\/musiccast\/plugin_info\/configuration.php": {
         "Découverte": "Découverte",
         "Rechercher les équipements MusicCast": "Rechercher les équipements MusicCast",
-        "Synchronisation réussie": "Sincronizzazione avvenuta con successo",
+        "Synchronisation réussie": "Synchronisation réussie",
         "Partage de fichier pour le text-to-speech": "Partage de fichier pour le text-to-speech",
         "[TTS] Chemin local du répertoire partagé": "[TTS] Chemin local du répertoire partagé",
         "[TTS] Chemin MusicCast du répertoire paratagé": "[TTS] Chemin MusicCast du répertoire paratagé",
@@ -106,46 +109,46 @@
         "Nom ou IP du partage": "Nom ou IP du partage",
         "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6": "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6",
         "Dépendance MusicCast": "Dépendance MusicCast",
-        "Installer/Mettre à jour": "Installa/Aggiorna",
-        "Etes-vous sûr de vouloir installer/mettre à jour MusicCast ? ": "Etes-vous sûr de vouloir installer/mettre à jour MusicCast ?",
-        "Installation / Mise à jour": "Installazione / Aggiornamento",
+        "Installer\/Mettre à jour": "Installer\/Mettre à jour",
+        "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ": "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ",
+        "Installation \/ Mise à jour": "Installation \/ Mise à jour",
         "Partage": "Partage"
     },
-    "plugins/musiccast/desktop/modal/queue.musiccast.php": {
+    "plugins\/musiccast\/desktop\/modal\/queue.musiccast.php": {
         "Artiste": "Artiste",
         "Album": "Album",
         "Piste": "Piste",
-        "Vider": "Vuota",
-        "Action": "Azione"
+        "Vider": "Vider",
+        "Action": "Action"
     },
-    "plugins/musiccast/desktop/modal/playlist.musiccast.php": {
+    "plugins\/musiccast\/desktop\/modal\/playlist.musiccast.php": {
         "Artiste": "Artiste",
         "Album": "Album",
         "Piste": "Piste",
         "Playlist": "Playlist",
-        "Action": "Azione"
+        "Action": "Action"
     },
-    "plugins/musiccast/desktop/modal/radio.musiccast.php": {
-        "Vider": "Vuota",
-        "Action": "Azione",
+    "plugins\/musiccast\/desktop\/modal\/favorite.musiccast.php": {
+        "Vider": "Vider",
+        "Action": "Action",
+        "Favoris": "Favoris"
+    },
+    "plugins\/musiccast\/desktop\/modal\/speaker.musiccast.php": {
+        "Action": "Action",
         "Radio": "Radio"
     },
-    "plugins/musiccast/desktop/modal/speaker.musiccast.php": {
-        "Action": "Azione",
-        "Radio": "Radio"
+    "plugins\/musiccast\/core\/ajax\/musiccast.ajax.php": {
+        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
     },
-    "plugins/musiccast/core/ajax/musiccast.ajax.php": {
-        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à :"
-    },
-    "plugins/musiccast/desktop/php/panel.php": {
+    "plugins\/musiccast\/desktop\/php\/panel.php": {
         "Liste objets": "Liste objets",
-        "Rechercher": "Cerca"
+        "Rechercher": "Rechercher"
     },
-    "plugins/musiccast/desktop/modal/update.musiccast.php": {
-        "Pause": "Pausa",
-        "Rechercher": "Cerca"
+    "plugins\/musiccast\/desktop\/modal\/update.musiccast.php": {
+        "Pause": "Pause",
+        "Rechercher": "Rechercher"
     },
-    "plugins/musiccast/plugin_info/info.json": {
+    "plugins\/musiccast\/plugin_info\/info.json": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast"
     }
 }
