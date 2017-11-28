@@ -1,14 +1,14 @@
 {
-    "plugins/musiccast/plugin_info/info.xml": {
+    "plugins\/musiccast\/plugin_info\/info.xml": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast",
-        "Aucune": "Tak ada"
+        "Aucune": "Aucune"
     },
-    "plugins/musiccast/core/class/musiccast.class.php": {
+    "plugins\/musiccast\/core\/class\/musiccast.class.php": {
         "Status": "Status",
-        "Rafraîhir": "Menyegarkan",
+        "Rafraîhir": "Rafraîhir",
         "Play": "Play",
         "Stop": "Stop",
-        "Pause": "Berhenti Sebentar",
+        "Pause": "Pause",
         "Suivant": "Suivant",
         "Precedent": "Precedent",
         "Muet": "Muet",
@@ -27,20 +27,22 @@
         "Répéter status": "Répéter status",
         "Aléatoire status": "Aléatoire status",
         "Jouer playlist": "Jouer playlist",
-        "Aucun": "Tak ada",
-        "Arrêté": "Berhenti",
+        "Aucun": "Aucun",
+        "Arrêté": "Arrêté",
         "Ajout un haut parleur": "Ajout un haut parleur",
         "Supprimer un haut parleur": "Supprimer un haut parleur",
+        "Supprimer les hauts parleurs" : "Supprimer un haut parleur",
+        "Change input" : "Changer d'entrée",
         "Dire": "Dire",
-        "Jouer un favoris": "Jouer un favoris",
-        "Favoris non trouvé : ": "Favoris non trouvé :",
-        "Playlist non trouvé : ": "Playlist non trouvé :",
-        "Erreur sur ": "Error",
-        "Options": "Pilihan",
+        "Jouer un favoris": "Jouer une radio",
+        "Favoris non trouvé : ": "Favoris non trouvé : ",
+        "Playlist non trouvé : ": "Playlist non trouvé : ",
+        "Erreur sur ": "Erreur sur ",
+        "Options": "Options",
         "Titre de la playlist": "Titre de la playlist",
-        "Titre de la radio": "Titre de la radio",
+        "Titre du favoris": "Titre du favoris",
         "Nom de la piece": "Nom de la piece",
-        "Message": "Pesan",
+        "Message": "Message",
         "Tache Z-Wave": "Tache Z-Wave",
         "OK": "OK",
         "Tache de synchronisation": "Tache de synchronisation",
@@ -50,45 +52,46 @@
         "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull": "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull",
         "Muet status": "Muet status",
         "Entrée de ligne": "Entrée de ligne",
-        "Impossible de récuperer le MusicCast : ": "Impossible de récuperer le MusicCast :"
+        "Impossible de récuperer le MusicCast : ": "Impossible de récuperer le MusicCast : "
     },
-    "plugins/musiccast/desktop/php/musiccast.php": {
+    "plugins\/musiccast\/desktop\/php\/musiccast.php": {
         "Ajouter un template": "Ajouter un template",
-        "Rechercher": "Mencari",
+        "Rechercher": "Rechercher",
         "Mes templates": "Mes templates",
-        "Général": "Umum",
-        "Nom de l'équipement template": "Nama peralatan contoh",
-        "Objet parent": "Objek induk",
-        "Aucun": "Tak ada",
-        "Activer": "Mengaktifkan",
-        "Visible": "Terlihat",
+        "Général": "Général",
+        "Nom de l'équipement template": "Nom de l'équipement template",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Activer": "Activer",
+        "Visible": "Visible",
         "template param 1": "template param 1",
         "Template": "Template",
-        "Nom": "Nama",
-        "Type": "Jenis",
-        "Action": "Tindakan",
-        "Supprimer": "Menghapus",
-        "Sauvegarder": "Menyimpan",
+        "Nom": "Nom",
+        "Type": "Type",
+        "Action": "Action",
+        "Supprimer": "Supprimer",
+        "Sauvegarder": "Sauvegarder",
         "IP": "IP",
-        "Commande": "Pesanan",
+        "Commande": "Commande",
         "Nom du MusicCast": "Nom du MusicCast",
         "Mes MusicCast": "Mes MusicCast",
         "Model": "Model",
         "Masquer la jaquette": "Masquer la jaquette",
-        "Gestion": "Manajemen",
-        "Configuration": "Konfigurasi",
-        "Equipement": "Peralatan",
-        "Commandes": "Perintah",
+        "Gestion": "Gestion",
+        "Configuration": "Configuration",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
+        "Coordinateur": "Coordinateur",
         "Configuration avancée": "Configuration avancée"
     },
-    "plugins/musiccast/desktop/js/musiccast.js": {
-        "Nom": "Nama",
-        "Tester": "Coba"
+    "plugins\/musiccast\/desktop\/js\/musiccast.js": {
+        "Nom": "Nom",
+        "Tester": "Tester"
     },
-    "plugins/musiccast/plugin_info/configuration.php": {
+    "plugins\/musiccast\/plugin_info\/configuration.php": {
         "Découverte": "Découverte",
         "Rechercher les équipements MusicCast": "Rechercher les équipements MusicCast",
-        "Synchronisation réussie": "Sinkronisasi berhasil",
+        "Synchronisation réussie": "Synchronisation réussie",
         "Partage de fichier pour le text-to-speech": "Partage de fichier pour le text-to-speech",
         "[TTS] Chemin local du répertoire partagé": "[TTS] Chemin local du répertoire partagé",
         "[TTS] Chemin MusicCast du répertoire paratagé": "[TTS] Chemin MusicCast du répertoire paratagé",
@@ -106,46 +109,46 @@
         "Nom ou IP du partage": "Nom ou IP du partage",
         "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6": "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6",
         "Dépendance MusicCast": "Dépendance MusicCast",
-        "Installer/Mettre à jour": "Installer/Mettre à jour",
-        "Etes-vous sûr de vouloir installer/mettre à jour MusicCast ? ": "Etes-vous sûr de vouloir installer/mettre à jour MusicCast ?",
-        "Installation / Mise à jour": "Installation / Mise à jour",
+        "Installer\/Mettre à jour": "Installer\/Mettre à jour",
+        "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ": "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ",
+        "Installation \/ Mise à jour": "Installation \/ Mise à jour",
         "Partage": "Partage"
     },
-    "plugins/musiccast/desktop/modal/queue.musiccast.php": {
+    "plugins\/musiccast\/desktop\/modal\/queue.musiccast.php": {
         "Artiste": "Artiste",
         "Album": "Album",
         "Piste": "Piste",
-        "Vider": "Abisin",
-        "Action": "Tindakan"
+        "Vider": "Vider",
+        "Action": "Action"
     },
-    "plugins/musiccast/desktop/modal/playlist.musiccast.php": {
+    "plugins\/musiccast\/desktop\/modal\/playlist.musiccast.php": {
         "Artiste": "Artiste",
         "Album": "Album",
         "Piste": "Piste",
         "Playlist": "Playlist",
-        "Action": "Tindakan"
+        "Action": "Action"
     },
-    "plugins/musiccast/desktop/modal/radio.musiccast.php": {
-        "Vider": "Abisin",
-        "Action": "Tindakan",
+    "plugins\/musiccast\/desktop\/modal\/favorite.musiccast.php": {
+        "Vider": "Vider",
+        "Action": "Action",
+        "Favoris": "Favoris"
+    },
+    "plugins\/musiccast\/desktop\/modal\/speaker.musiccast.php": {
+        "Action": "Action",
         "Radio": "Radio"
     },
-    "plugins/musiccast/desktop/modal/speaker.musiccast.php": {
-        "Action": "Tindakan",
-        "Radio": "Radio"
+    "plugins\/musiccast\/core\/ajax\/musiccast.ajax.php": {
+        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
     },
-    "plugins/musiccast/core/ajax/musiccast.ajax.php": {
-        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à :"
-    },
-    "plugins/musiccast/desktop/php/panel.php": {
+    "plugins\/musiccast\/desktop\/php\/panel.php": {
         "Liste objets": "Liste objets",
-        "Rechercher": "Mencari"
+        "Rechercher": "Rechercher"
     },
-    "plugins/musiccast/desktop/modal/update.musiccast.php": {
-        "Pause": "Berhenti Sebentar",
-        "Rechercher": "Mencari"
+    "plugins\/musiccast\/desktop\/modal\/update.musiccast.php": {
+        "Pause": "Pause",
+        "Rechercher": "Rechercher"
     },
-    "plugins/musiccast/plugin_info/info.json": {
+    "plugins\/musiccast\/plugin_info\/info.json": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast"
     }
 }
