@@ -170,6 +170,7 @@ class musiccast extends eqLogic
                 }
                 if (strpos($speaker->getModel(), 'WXA-') !== false
                     || strpos($speaker->getModel(), 'WXC-') !== false
+                    || strpos($speaker->getModel(), 'WXAD-') !== false
                     || strpos($speaker->getModel(), 'WXC-') !== false) {
                     $eqLogic->setConfiguration('model', 'GATEWAY');
                 }
@@ -997,7 +998,10 @@ class musiccast extends eqLogic
         if (is_object($cmd_state)) {
             $replace['#state#'] = $cmd_state->execCmd();
             if ($replace['#state#'] == __('Aucun', __FILE__)) {
-                $replace['#state#'] = '';
+                if ($this->getConfiguration('strControl', 0) == 0)
+                    $replace['#state#'] = '';
+                else
+                    $replace['#state#'] = ' - ' . __('Inconnu', __FILE__);
             } else {
                 $replace['#state#'] = ' - ' . $replace['#state#'];
             }
@@ -1232,7 +1236,7 @@ class MusicCastCmd extends cmd
                     $playlist = $controller->getPlaylistByName($_options['select']);
                 }
                 if ($playlist == null) {
-                    throw new Exception(__('Playlist non trouvée : ', __FILE__) );
+                    throw new Exception(__('Playlist non trouvée : ', __FILE__));
                 }
                 $playlist->play();
             } elseif ($this->getLogicalId() == 'play_favorite') {
@@ -1241,7 +1245,7 @@ class MusicCastCmd extends cmd
                     $favorite = $controller->getFavoriteByName($_options['select']);
                 }
                 if ($favorite == null) {
-                    throw new Exception(__('Favori non trouvée', __FILE__) );
+                    throw new Exception(__('Favori non trouvée', __FILE__));
                 }
                 $favorite->play();
             } elseif ($this->getLogicalId() == 'add_speaker') {

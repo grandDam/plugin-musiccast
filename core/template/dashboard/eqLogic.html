@@ -123,7 +123,9 @@
                 $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'none');
             } else if (bouton == 'volume') {
                 $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'none');
-                $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'block');
+                if ('#coordinator_state#' != 0 || '#state#' != '') {
+                    $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'block');
+                }
             }
         }
 

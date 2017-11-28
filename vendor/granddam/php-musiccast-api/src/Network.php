@@ -169,11 +169,6 @@ class Network implements LoggerAwareInterface
             $devices = $this->cache->get($cacheKey);
         } else {
             $devices = $this->getDevices();
-
-            # Only cache the devices if we actually found some
-            if (count($devices) > 0) {
-                $this->cache->set($cacheKey, $devices);
-            }
         }
 
         if (count($devices) < 1) {
@@ -181,18 +176,31 @@ class Network implements LoggerAwareInterface
         }
 
 
-        # Get the MusicCast devices from 1 speaker
-        $ip = reset($devices);
-        $device = new Device($ip, 80);
-        $this->logger->debug("Getting devices info from: {$ip}");
-        $treeInfo = $device->getMusicCastTreeInfo();
+        # Get the MusicCast network information
         $this->speakers = [];
-        foreach ($treeInfo['mac_address_list'] as $addr) {
-            $ip = $addr['ip_address'];
-            $speaker = new Speaker(new Device($ip, 80));
-            $this->speakers[$ip] = $speaker;
+        $validDevices = [];
+        foreach ($devices as $deviceIP) {
+            $device = new Device($deviceIP, 80);
+            $this->logger->debug("Getting devices info from: {$deviceIP}");
+            try {
+                $treeInfo = $device->getMusicCastTreeInfo();
+                foreach ($treeInfo['mac_address_list'] as $addr) {
+                    $ip = $addr['ip_address'];
+                    if (!array_key_exists($ip, $this->speakers)) {
+                        $speaker = new Speaker(new Device($ip, 80));
+                        $this->speakers[$ip] = $speaker;
+                        $validDevices[] = $ip;
+                    }
+                }
+                break;
+            } catch (\Exception $e) {
+                $this->logger->debug($deviceIP . ' is not a valid MusicCast Device');
+            }
         }
-
+        # Only cache the devices if we actually found some
+        if (count($validDevices) > 0) {
+            $this->cache->set($cacheKey, $validDevices);
+        }
         return $this->speakers;
     }
 
@@ -216,7 +224,7 @@ class Network implements LoggerAwareInterface
 
     protected function getCacheKey()
     {
-        $cacheKey = "devices";
+        $cacheKey = "devicesV20171128_1";
 
         $cacheKey .= "_" . gettype($this->networkInterface);
         $cacheKey .= "_" . $this->networkInterface;

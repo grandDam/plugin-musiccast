@@ -143,6 +143,14 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                                data-l1key="logicalId" placeholder="IP"/>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">{{Streaming control}}</label>
+                                    <div class="col-lg-2">
+                                        <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr"
+                                                                              data-l1key="configuration"
+                                                                              data-l2key="strControl"></label>
+                                    </div>
+                                </div>
                             </fieldset>
                         </form>
                     </div>
