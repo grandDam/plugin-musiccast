@@ -8,11 +8,11 @@ Ce plugin nécessite que les enceintes soit alimentés (même en mode veille) et
 Si plus tard vous ajoutez un élément MusicCast, vous pouvez soit créer un équipement MusicCast en donnant l'IP à Jeedom ou cliquer sur "Rechercher les équipements MusicCast"
 
 
-== Configuration des équipements
+== Geräte Konfiguration
 
-La configuration des équipements MusicCast est accessible à partir du menu Plugins puis multimedia
+Die Konfiguration der MusicCast-Geräte erfolgt über das Menü Plugins, dann Multimedia
 
-Vous retrouvez ici toute la configuration de votre équipement : 
+Hier finden Sie die ganze Konfiguration des Geräts : 
 
 * *Nom de l'équipement MusicCast* : nom de votre équipement MusicCast
 * *Objet parent* : indique l'objet parent auquel appartient l'équipement
