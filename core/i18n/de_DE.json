@@ -1,12 +1,12 @@
 {
     "plugins\/musiccast\/plugin_info\/info.xml": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast",
-        "Aucune": "Aucune"
+        "Aucune": "Keine"
     },
     "plugins\/musiccast\/core\/class\/musiccast.class.php": {
         "Status": "Status",
         "Rafraîhir": "Rafraîhir",
-        "Play": "Play",
+        "Play": "Spielen",
         "Stop": "Stop",
         "Pause": "Pause",
         "Suivant": "Suivant",
