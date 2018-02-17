@@ -47,108 +47,108 @@
         "OK": "OK",
         "Tache de synchronisation": "Tarea de sincronización",
         "Tâche de synchronisation": "Tarea de sincronización",
-        "Transition": "Transition",
+        "Transition": "Transición",
         "NOK": "NOK",
-        "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull": "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull",
-        "Muet status": "Muet status",
-        "Entrée de ligne": "Entrée de ligne",
-        "Impossible de récuperer le MusicCast : ": "Impossible de récuperer le MusicCast : "
+        "Allez sur la page du moteur des tâches et vérifiez lancer la tache musiccast::pull": "Vaya a la página del motor de tareas y compruebe para lanzar la tarea musiccast::pull",
+        "Muet status": "Estado de silencio",
+        "Entrée de ligne": "Entrada de línea",
+        "Impossible de récuperer le MusicCast : ": "Imposible recuperar el MusicCast : "
     },
     "plugins\/musiccast\/desktop\/php\/musiccast.php": {
-        "Ajouter un template": "Ajouter un template",
-        "Rechercher": "Rechercher",
-        "Mes templates": "Mes templates",
-        "Général": "Général",
-        "Nom de l'équipement template": "Nom de l'équipement template",
-        "Objet parent": "Objet parent",
-        "Aucun": "Aucun",
-        "Activer": "Activer",
+        "Ajouter un template": "Agregar una plantilla",
+        "Rechercher": "Buscar",
+        "Mes templates": "Mis plantillas",
+        "Général": "General",
+        "Nom de l'équipement template": "Nombre del dispositivo de plantilla",
+        "Objet parent": "Objeto padre",
+        "Aucun": "Ninguno",
+        "Activer": "Activar",
         "Visible": "Visible",
-        "template param 1": "template param 1",
-        "Template": "Template",
-        "Nom": "Nom",
-        "Type": "Type",
-        "Action": "Action",
-        "Supprimer": "Supprimer",
+        "template param 1": "parámetro de plantilla 1",
+        "Template": "Plantilla",
+        "Nom": "Nombre",
+        "Type": "Tipo",
+        "Action": "Acción",
+        "Supprimer": "Borrar",
         "Sauvegarder": "Guardar",
         "IP": "IP",
-        "Commande": "Commande",
-        "Nom du MusicCast": "Nom du MusicCast",
-        "Mes MusicCast": "Mes MusicCast",
-        "Model": "Model",
-        "Masquer la jaquette": "Masquer la jaquette",
-        "Gestion": "Gestion",
-        "Configuration": "Configuration",
-        "Equipement": "Equipement",
-        "Commandes": "Commandes",
-        "Coordinateur": "Coordinateur",
-        "Configuration avancée": "Configuration avancée"
+        "Commande": "Comando",
+        "Nom du MusicCast": "Nombre del MusicCast",
+        "Mes MusicCast": "Mis MusicCast",
+        "Model": "Modelo",
+        "Masquer la jaquette": "Ocultar la portada",
+        "Gestion": "Gestión",
+        "Configuration": "Configuración",
+        "Equipement": "Dispositivo",
+        "Commandes": "Comandos",
+        "Coordinateur": "Coordiandor",
+        "Configuration avancée": "Configuración avanzada"
     },
     "plugins\/musiccast\/desktop\/js\/musiccast.js": {
-        "Nom": "Nom",
-        "Tester": "Tester"
+        "Nom": "Nombre",
+        "Tester": "Prueba"
     },
     "plugins\/musiccast\/plugin_info\/configuration.php": {
-        "Découverte": "Découverte",
-        "Rechercher les équipements MusicCast": "Rechercher les équipements MusicCast",
-        "Synchronisation réussie": "Synchronisation réussie",
-        "Partage de fichier pour le text-to-speech": "Partage de fichier pour le text-to-speech",
-        "[TTS] Chemin local du répertoire partagé": "[TTS] Chemin local du répertoire partagé",
-        "[TTS] Chemin MusicCast du répertoire paratagé": "[TTS] Chemin MusicCast du répertoire paratagé",
-        "[TTS] Chemin MusicCast du répertoire partagé": "[TTS] Chemin MusicCast du répertoire partagé",
-        "Fournisseur TTS": "Fournisseur TTS",
-        "Voix": "Voix",
-        "[TTS] IP du partage": "[TTS] IP du partage",
-        "[TTS] Nom d'utilisateur pour le partage": "[TTS] Nom d'utilisateur pour le partage",
-        "[TTS] Mot de passe du partage": "[TTS] Mot de passe du partage",
-        "[TTS] Chemin sur le nas": "[TTS] Chemin sur le nas",
-        "IP du partage": "IP du partage",
-        "Nom d'utilisateur pour le partage": "Nom d'utilisateur pour le partage",
-        "Mot de passe du partage": "Mot de passe du partage",
-        "Chemin sur le nas": "Chemin sur le nas",
-        "Nom ou IP du partage": "Nom ou IP du partage",
-        "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6": "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6",
-        "Dépendance MusicCast": "Dépendance MusicCast",
-        "Installer\/Mettre à jour": "Installer\/Mettre à jour",
-        "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ": "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ",
-        "Installation \/ Mise à jour": "Installation \/ Mise à jour",
-        "Partage": "Partage"
+        "Découverte": "Descubrir",
+        "Rechercher les équipements MusicCast": "Buscar dispositivos MusicCast",
+        "Synchronisation réussie": "Sincronización exitosa",
+        "Partage de fichier pour le text-to-speech": "Uso compartido de archivos para text-to-speech",
+        "[TTS] Chemin local du répertoire partagé": "[TTS] Ruta local al directorio compartido",
+        "[TTS] Chemin MusicCast du répertoire paratagé": "[TTS] Ruta MursicCast  al directorio compartido",
+        "[TTS] Chemin MusicCast du répertoire partagé": "[TTS] Ruta local al directorio compartido",
+        "Fournisseur TTS": "Proveedor TTS",
+        "Voix": "Voz",
+        "[TTS] IP du partage": "[TTS] IP compartida",
+        "[TTS] Nom d'utilisateur pour le partage": "[TTS] Nombre de usuario para compartir",
+        "[TTS] Mot de passe du partage": "[TTS] Contraseña para compartir",
+        "[TTS] Chemin sur le nas": "[TTS] Ruta hacia el nas",
+        "IP du partage": "Ip compartida",
+        "Nom d'utilisateur pour le partage": "Nombre de usuario para compartir",
+        "Mot de passe du partage": "Contraseña para compartir",
+        "Chemin sur le nas": "Ruta hacia el nas",
+        "Nom ou IP du partage": "Nombre o IP de la compartición",
+        "Attention votre version de PHP (5.6.14-0+deb8u1) est trop veille il faut au minimum PHP 5.6": "Atención su versión de PHP (5.6.14-0+deb8u1) es demasiado antigua es necesario al menos PHP 5.6",
+        "Dépendance MusicCast": "Dependencias MusicCast",
+        "Installer\/Mettre à jour": "Instalar/Actualizar",
+        "Etes-vous sûr de vouloir installer\/mettre à jour MusicCast ? ": "¿Está seguro de que desea instalar/actualizar MusicCast? ",
+        "Installation \/ Mise à jour": "Instalar/Actualizar",
+        "Partage": "Compartir"
     },
     "plugins\/musiccast\/desktop\/modal\/queue.musiccast.php": {
-        "Artiste": "Artiste",
+        "Artiste": "Artista",
         "Album": "Album",
-        "Piste": "Piste",
-        "Vider": "Vider",
-        "Action": "Action"
+        "Piste": "Pista",
+        "Vider": "Limpiar",
+        "Action": "Acción"
     },
     "plugins\/musiccast\/desktop\/modal\/playlist.musiccast.php": {
-        "Artiste": "Artiste",
+        "Artiste": "Artista",
         "Album": "Album",
-        "Piste": "Piste",
+        "Piste": "Pista",
         "Playlist": "Playlist",
-        "Action": "Action"
+        "Action": "Acción"
     },
     "plugins\/musiccast\/desktop\/modal\/favorite.musiccast.php": {
-        "Vider": "Vider",
-        "Action": "Action",
-        "Favoris": "Favoris"
+        "Vider": "Limpiar",
+        "Action": "Acción",
+        "Favoris": "Favoritos"
     },
     "plugins\/musiccast\/desktop\/modal\/speaker.musiccast.php": {
-        "Action": "Action",
+        "Action": "Acción",
         "Radio": "Radio"
     },
     "plugins\/musiccast\/core\/ajax\/musiccast.ajax.php": {
-        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
+        "Aucune méthode correspondante à : ": "Ningún método correspondiente a :"
     },
     "plugins\/musiccast\/desktop\/php\/panel.php": {
-        "Liste objets": "Liste objets",
-        "Rechercher": "Rechercher"
+        "Liste objets": "Lista de objetos",
+        "Rechercher": "Buscar"
     },
     "plugins\/musiccast\/desktop\/modal\/update.musiccast.php": {
-        "Pause": "Pause",
-        "Rechercher": "Rechercher"
+        "Pause": "Pausa",
+        "Rechercher": "Buscar"
     },
     "plugins\/musiccast\/plugin_info\/info.json": {
-        "Plugin de controle de MusicCast": "Plugin de controle de MusicCast"
+        "Plugin de controle de MusicCast": "Plugin de control MusicCast"
     }
 }
