@@ -1,7 +1,7 @@
 {
     "plugins\/musiccast\/plugin_info\/info.xml": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast",
-        "Aucune": "Aucune"
+        "Aucune": "None"
     },
     "plugins\/musiccast\/core\/class\/musiccast.class.php": {
         "Status": "Status",
@@ -55,22 +55,22 @@
         "Impossible de récuperer le MusicCast : ": "Impossible de récuperer le MusicCast : "
     },
     "plugins\/musiccast\/desktop\/php\/musiccast.php": {
-        "Ajouter un template": "Ajouter un template",
-        "Rechercher": "Rechercher",
+        "Ajouter un template": "Add a template",
+        "Rechercher": "Search",
         "Mes templates": "Mes templates",
         "Général": "Général",
         "Nom de l'équipement template": "Nom de l'équipement template",
         "Objet parent": "Objet parent",
         "Aucun": "Aucun",
-        "Activer": "Activer",
+        "Activer": "Enable",
         "Visible": "Visible",
         "template param 1": "template param 1",
         "Template": "Template",
         "Nom": "Nom",
         "Type": "Type",
         "Action": "Action",
-        "Supprimer": "Supprimer",
-        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Delete",
+        "Sauvegarder": "Save",
         "IP": "IP",
         "Commande": "Commande",
         "Nom du MusicCast": "Nom du MusicCast",
@@ -78,7 +78,7 @@
         "Model": "Model",
         "Masquer la jaquette": "Masquer la jaquette",
         "Gestion": "Gestion",
-        "Configuration": "Configuration",
+        "Configuration": "Setup",
         "Equipement": "Equipement",
         "Commandes": "Commandes",
         "Coordinateur": "Coordinateur",
@@ -142,11 +142,11 @@
     },
     "plugins\/musiccast\/desktop\/php\/panel.php": {
         "Liste objets": "Liste objets",
-        "Rechercher": "Rechercher"
+        "Rechercher": "Search"
     },
     "plugins\/musiccast\/desktop\/modal\/update.musiccast.php": {
         "Pause": "Pause",
-        "Rechercher": "Rechercher"
+        "Rechercher": "Search"
     },
     "plugins\/musiccast\/plugin_info\/info.json": {
         "Plugin de controle de MusicCast": "Plugin de controle de MusicCast"
