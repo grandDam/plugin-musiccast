@@ -82,7 +82,7 @@
         "Equipement": "Equipement",
         "Commandes": "Commandes",
         "Coordinateur": "Coordinateur",
-        "Configuration avancée": "Configuration avancée"
+        "Configuration avancée": "Advanced configuration"
     },
     "plugins\/musiccast\/desktop\/js\/musiccast.js": {
         "Nom": "Nom",
