@@ -205,9 +205,7 @@ class musiccast extends eqLogic
     public static function cron5()
     {
         log::add('musiccast', 'debug', 'Refreshing playlist and favorites');
-        if (self::$_eqLogics == null) {
-            self::$_eqLogics = self::byType('musiccast');
-        }
+        self::$_eqLogics = self::byType('musiccast');
         foreach (self::$_eqLogics as $eqLogic) {
             if ($eqLogic->getIsEnable() == 0) {
                 continue;
@@ -225,9 +223,7 @@ class musiccast extends eqLogic
 
     public static function pull($_eqLogic_id = null)
     {
-        if (self::$_eqLogics == null) {
-            self::$_eqLogics = self::byType('musiccast');
-        }
+        self::$_eqLogics = self::byType('musiccast');
         $_groups = array();
         foreach (self::$_eqLogics as $eqLogic) {
             if ($_eqLogic_id != null && $_eqLogic_id != $eqLogic->getId()) {
@@ -336,11 +332,11 @@ class musiccast extends eqLogic
                         log::add('musiccast', 'debug', "Refreshing widget");
                         $eqLogic->refreshWidget();
                     }
-                    if ($eqLogic->getConfiguration('musiccastNumberFailed', 0) > 0) {
+                    if ($eqLogic->getConfiguration('amusiccastNumberFailed', 0) > 0) {
                         foreach (message::byPluginLogicalId('musiccast', 'musiccastLost' . $eqLogic->getId()) as $message) {
                             $message->remove();
                         }
-                        $eqLogic->setConfiguration('musiccastNumberFailed', 0);
+                        $eqLogic->setConfiguration('amusiccastNumberFailed', 0);
                         $eqLogic->save();
                     }
                 }
@@ -348,10 +344,10 @@ class musiccast extends eqLogic
                 if ($_eqLogic_id != null) {
                     log::add('musiccast', 'error', $e->getMessage());
                 } else {
-                    if ($eqLogic->getConfiguration('musiccastNumberFailed', 0) == 150) {
+                    if ($eqLogic->getConfiguration('amusiccastNumberFailed', 0) == 150) {
                         log::add('musiccast', 'error', __('Erreur sur ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $e->getMessage(), 'musiccastLost' . $eqLogic->getId());
                     } else {
-                        $eqLogic->setConfiguration('musiccastNumberFailed', $eqLogic->getConfiguration('musiccastNumberFailed', 0) + 1);
+                        $eqLogic->setConfiguration('amusiccastNumberFailed', $eqLogic->getConfiguration('amusiccastNumberFailed', 0) + 1);
                         $eqLogic->save();
                     }
                 }
@@ -406,11 +402,11 @@ class musiccast extends eqLogic
                         log::add('musiccast', 'debug', "refreshWidget");
                         $eqLogic->refreshWidget();
                     }
-                    if ($eqLogic->getConfiguration('musiccastNumberFailed', 0) > 0) {
+                    if ($eqLogic->getConfiguration('amusiccastNumberFailed', 0) > 0) {
                         foreach (message::byPluginLogicalId('musiccast', 'musiccastLost' . $eqLogic->getId()) as $message) {
                             $message->remove();
                         }
-                        $eqLogic->setConfiguration('musiccastNumberFailed', 0);
+                        $eqLogic->setConfiguration('amusiccastNumberFailed', 0);
                         $eqLogic->save();
                     }
                 }
@@ -418,10 +414,10 @@ class musiccast extends eqLogic
                 if ($_eqLogic_id != null) {
                     log::add('musiccast', 'error', $e->getMessage());
                 } else {
-                    if ($eqLogic->getConfiguration('musiccastNumberFailed', 0) == 150) {
+                    if ($eqLogic->getConfiguration('amusiccastNumberFailed', 0) == 150) {
                         log::add('musiccast', 'error', __('Erreur sur ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $e->getMessage(), 'musiccastLost' . $eqLogic->getId());
                     } else {
-                        $eqLogic->setConfiguration('musiccastNumberFailed', $eqLogic->getConfiguration('musiccastNumberFailed', 0) + 1);
+                        $eqLogic->setConfiguration('amusiccastNumberFailed', $eqLogic->getConfiguration('amusiccastNumberFailed', 0) + 1);
                         $eqLogic->save();
                     }
                 }
@@ -557,7 +553,7 @@ class musiccast extends eqLogic
     public
     function getSpeaker()
     {
-        return $this->_speaker = self::getSpeakerByIp($this->getLogicalId());
+        return /*$this->_speaker =*/ self::getSpeakerByIp($this->getLogicalId());
 
     }
 
@@ -567,7 +563,7 @@ class musiccast extends eqLogic
     public
     function getController()
     {
-        return $this->_controller = self::getControllerByIp($this->getLogicalId());
+        return /*$this->_controller =*/ self::getControllerByIp($this->getLogicalId());
     }
 
     public
@@ -940,14 +936,21 @@ class musiccast extends eqLogic
         $input->setEqLogic_id($this->getId());
         $input->save();
 
+        //si équipement désactivé ne pas mettre jour ces infos
+        //car si l’équipement n'est pas joignable cela prend beaucoup de temps pour rien
+        if ($this->getIsEnable() != 0) {
+            try {
+                self::getFavorites($this->getLogicalId());
+                self::getPlayLists($this->getLogicalId());
+                self::getInputs($this->getLogicalId());
+            } catch (Exception $e) {
 
-        try {
-            self::getFavorites($this->getLogicalId());
-            self::getPlayLists($this->getLogicalId());
-            self::getInputs($this->getLogicalId());
-        } catch (Exception $e) {
-
+            }
         }
+
+        //relance daemon pour prise en compte changement
+        self::deamon_start();
+
     }
 
     public
