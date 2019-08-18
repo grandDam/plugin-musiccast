@@ -1,9 +1,10 @@
-= MusicCast
+MusicCast
+===
 
 Le plugin MusicCast permet de piloter les amplis, enceintes, barres de son et tous les éléments compatibles MusicCast. Il va vous permettre de voir l'état du/des MusicCast et d'effectuer des actions dessus (lecture, pause, suivant, précédent, volume, choix d'une playlist...)
 
-include::configuration.asciidoc[]
+#include "configuration.md"
 
 '''
 
-include::changelog.asciidoc[]
+#include "changelog.md"
