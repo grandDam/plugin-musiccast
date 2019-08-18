@@ -3,7 +3,8 @@ MusicCast
 
 Le plugin MusicCast permet de piloter les amplis, enceintes, barres de son et tous les éléments compatibles MusicCast. Il va vous permettre de voir l'état du/des MusicCast et d'effectuer des actions dessus (lecture, pause, suivant, précédent, volume, choix d'une playlist...)
 
-== Configuration du plugin
+Configuration du plugin
+===
 
 La configuration est très simple, après téléchargement du plugin, il vous suffit de l'activer et c'est tout. Le plugin va rechercher les MusicCast sur votre réseau et créer les équipements automatiquement. Il vous restera à les affecter à vos pièces.
 
@@ -13,7 +14,8 @@ Ce plugin nécessite que les enceintes soit alimentés (même en mode veille) et
 Si plus tard vous ajoutez un élément MusicCast, vous pouvez soit créer un équipement MusicCast en donnant l'IP à Jeedom ou cliquer sur "Rechercher les équipements MusicCast"
 
 
-== Configuration des équipements
+Configuration des équipements
+==
 
 La configuration des équipements MusicCast est accessible à partir du menu Plugins puis multimedia
 
@@ -67,7 +69,8 @@ Comme commande vous retrouverez :
 Pour la lecture des playlists vous pouvez mettre des options (dans la case option). Pour lancer la playlist en lecture aléatoire il faut mettre dedans "random"
 
 
-== Le panel
+Le panel
+==
 
 Le plugin MusicCast met aussi à disposition un panel qui rassemble tous vos MusicCast. Disponible à partir du menu Accueil -> MusicCast Controller :
 
