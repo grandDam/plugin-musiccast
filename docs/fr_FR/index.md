@@ -78,5 +78,3 @@ Le plugin MusicCast met aussi à disposition un panel qui rassemble tous vos Mus
 Pour avoir le panel il faut l'activer dans la configuration du plugin
 
 '''
-
-#include "changelog.md"
