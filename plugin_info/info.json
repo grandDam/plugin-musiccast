@@ -10,6 +10,6 @@
 	"hasOwnDeamon" : true,
 	"display" : "panel",
 	"mobile" : "panel",
-	"changelog" : "https://github.com/jeedom/plugin-template/blob/master/doc/#language#/changelog.asciidoc",
-	"documentation" : "https://github.com/jeedom/plugin-template/blob/master/doc/#language#/index.asciidoc"
+	"changelog" : "https://granddam.github.io/plugin-musiccast/#language#/changelog",
+	"documentation" : "https://granddam.github.io/plugin-musiccast/#language#/index"
 }
