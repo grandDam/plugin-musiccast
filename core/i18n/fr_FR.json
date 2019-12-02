@@ -5,7 +5,7 @@
     },
     "plugins\/musiccast\/core\/class\/musiccast.class.php": {
         "Status": "Status",
-        "Rafraîhir": "Rafraîhir",
+        "Rafraichir": "Rafraichir",
         "Play": "Play",
         "Stop": "Stop",
         "Pause": "Pause",

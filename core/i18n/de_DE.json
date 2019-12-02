@@ -5,7 +5,7 @@
     },
     "plugins\/musiccast\/core\/class\/musiccast.class.php": {
         "Status": "Status",
-        "Rafraîhir": "Rafraîhir",
+        "Rafraichir": "Rafraichir",
         "Play": "Spielen",
         "Stop": "Stop",
         "Pause": "Pause",
@@ -141,7 +141,7 @@
         "Aucune méthode correspondante à : ": "Keine Methode entspricht :"
     },
     "plugins\/musiccast\/desktop\/php\/panel.php": {
-        "Liste objets": "Liste objets",
+        "Liste objets": "Objektliste",
         "Rechercher": "Suchen"
     },
     "plugins\/musiccast\/desktop\/modal\/update.musiccast.php": {
