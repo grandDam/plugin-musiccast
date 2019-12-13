@@ -1,68 +1,173 @@
-<div class="eqLogic eqLogic-widget musiccast" data-version="#version#" style="overflow:hidden;text-align:center; width: 420px; height:19.34em; padding-bottom:0px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#">
-	<link rel="stylesheet" href="plugins/musiccast/core/template/mobile/css/style.css" />
-	<span class="statusCmd" style="position : absolute;left : 5px; width : 30px;z-index: 1030;"></span>
-	<div>
-		<strong style="margin-left:auto;margin-right:auto;#hideEqLogicName#">#name_display# <span style="font-size: 0.85em;position: relative;top:-2px;">#object_name#</span></strong>
-		<div style="margin-top : 5px; height:12em;">
-			<div style="height:8em;">
-				<img src="#thumbnail#" style="margin-left:auto;margin-right:auto;height:100%;border-radius:5%;"/>
-			</div>
-			<div style="height:3.23em;">
-				<span style="font-size:1em;">#title#</span>
-				<br />
-				<span style="font-size:0.7em;">#input##state#</span>
-			</div>
-			<div style="background-color:#sub-background-color#;height:6em;margin-top:0.5em;display:block;">
-				<div style="height:3em;">
-					<img class="bouton_bas" style="margin-right:0.2em;opacity: 0.5;" src="plugins/musiccast/core/template/dashboard/images/sound63.png" onclick="soundMenu#id#();"/>
-					<img class="previous cmd" data-cmd_id="#previous_id#"  src="plugins/musiccast/core/template/dashboard/images/change.png" onclick="jeedom.cmd.execute({id: #previous_id#});"/>
-					<img class="bouton_bas play cmd" data-cmd_id="#play_id#" src="plugins/musiccast/core/template/dashboard/images/play1.png" onclick="jeedom.cmd.execute({id: #play_id#});" style="margin-left:0.32em;" />
-					<img class="bouton_bas pause cmd" data-cmd_id="#pause_id#" src="plugins/musiccast/core/template/dashboard/images/pause.png" onclick="jeedom.cmd.execute({id: #pause_id#});" />
-					<img class="bouton_bas cmd" data-cmd_id="#next_id#" src="plugins/musiccast/core/template/dashboard/images/change.png" onclick="jeedom.cmd.execute({id: #next_id#});"/>
-				</div>
-				<div style="height:3em;" class="primarySubMenu">
-					<img class="bouton_bas cmd" data-cmd_id="#stop_id#" src="plugins/musiccast/core/template/dashboard/images/stop.png" style="position:relative;top:-3px;" onclick="jeedom.cmd.execute({id: #stop_id#});"/>
-					<a class="bouton_bas mute cmd" data-cmd_id="#mute_id#" onclick="jeedom.cmd.execute({id: #mute_id#});" style="font-size:2.5em;color:black;"><i class="fa fa-volume-off"></i></a>
-					<a class="bouton_bas shuffle cmd" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});" style="font-size:2.5em;color:black;"><i class="fa fa-random"></i></a>
-					<a class="bouton_bas shuffle cmd" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});" style="font-size:2.5em;color:black;"><i class="fa fa-repeat"></i></a>
-				</div>
-				<div style="height:3em;display:none;margin-top:17px;" class="soundMenu">
-					<div class="volume full-width-slider cmd" data-cmd_id="#setVolume_id#" style="width: 96%;text-align: right;min-width : 100px;">
-						<input type="range" min="0" max="100" data-theme="a" value="#volume#"/>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="eqLogic eqLogic-widget noResize musiccast_widget musiccast" data-version="#version#" category="Multimédia" data-category="multimedia"
+     style="text-align:center; width: 250px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#;height:320px;"
+     data-eqLogic_id="#id#" data-eqLogic_uid="#uid#">
+    <link rel="stylesheet" href="plugins/musiccast/core/template/dashboard/css/style.css"/>
+    <center class="widget-name">
+        <a class="cmd power pull-left" data-cmd_id="#power_on_id#" onclick="jeedom.cmd.execute({id: #power_on_id#});">
+            <i class="fa fa-power-off power"></i>
+        </a>
+        <span class="cmd pull-left statusCmd" style="width : 30px;z-index: 1030;"></span>
+        <a href="#eqLink#" style="#hideEqLogicName#">#name_display#<a>
+    </center>
+    <a class="group" style="text-decoration: none; cursor:default;">#group#</a>
+    <div class="uppart">
+        <div class="jaquette_musiccast"></div>
+        <div class="track">
+            <div class="title">#title#</div>
+            <div class="subtitle">#subtitle#</div>
+        </div>
+    </div>
+    <div class="downpart" style="background-color: #sub-background-color# !important;#background-color#;color: #color#;">
+        <div style="height: 19px;">
+        <nav class="nav">
+            <a class="cmd" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});" title="Aléatoire"
+                style="color: #sub-icon-color# !important;">
+                <i class="fa fa-random shuffle"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});" title="Répéter"
+                style="color: #sub-icon-color# !important;">
+                <i class="fa fa-sync repeat"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#previous_id#" onClick="jeedom.cmd.execute({id: #previous_id#});" title="Précédent"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-step-backward"></i>
+            </a>
+            <a class="cmd play" data-cmd_id="#play_id#" onclick="jeedom.cmd.execute({id: #play_id#});" title="Lecture"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-play"></i>
+            </a>
+            <a class="cmd pause" data-cmd_id="#pause_id#" onclick="jeedom.cmd.execute({id: #pause_id#});" title="Pause"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-pause"></i>
+            </a>
+            <a class="cmd stop" data-cmd_id="#stop_id#" onclick="jeedom.cmd.execute({id: #stop_id#});" title="Stop"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-stop"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#next_id#" onClick="jeedom.cmd.execute({id: #next_id#});" title="Suivant"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-step-forward"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#mute_id#" onclick="jeedom.cmd.execute({id: #mute_id#});" title="Mute"
+                style="color: #sub-icon-color# !important;">
+                <i class="icon jeedomapp-audiomute"></i>
+            </a>
+        </nav>
+        </div>
+        <div class="cmd volume" data-cmd_id="#setVolume_id#" style="width: 100%;margin:0 10px 0;" value="#volume#"></div>
+    </div>
 
-	<script>
-		function soundMenu#id#(){
-			if(!$('.musiccast[data-eqLogic_uid=#uid#] .soundMenu').is(':visible')){
-				$('.musiccast[data-eqLogic_uid=#uid#] .soundMenu').show();
-				$('.musiccast[data-eqLogic_uid=#uid#] .primarySubMenu').hide();
-			}else{
-				$('.musiccast[data-eqLogic_uid=#uid#] .soundMenu').hide();
-				$('.musiccast[data-eqLogic_uid=#uid#] .primarySubMenu').show();
-			}
-		}
-		$("body").undelegate(".musiccast[data-eqLogic_uid=#uid#] .volume",'slidestop');
-		$("body").delegate(".musiccast[data-eqLogic_uid=#uid#] .volume",'slidestop', function (event, ui) {
-			jeedom.cmd.execute({id: '#setVolume_id#', value: {slider: $(".musiccast[data-eqLogic_uid=#uid#] .volume input").value()}});
-		});
-		if('#repeat_state#' == 1){
-			$(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color','red');
-		}
-		if('#shuffle_state#' == 1){
-			$(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color','red');
-		}
-		if('#mute_state#' == 1){
-			$(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color','red');
-		}
-		if('#state_nb#' == 1){
-			$('.musiccast[data-eqLogic_uid=#uid#] .play').remove();
-		}else{
-			$('.musiccast[data-eqLogic_uid=#uid#] .pause').remove();
-		}
-	</script>
+    <script>
+        function panelRight#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel").animate({right: "0px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel .rightRafter").show();
+            panelLeftClose#uid#();
+        }
+
+        function panelRightClose#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel").animate({right: "-200px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .rightpanel .rightRafter").hide();
+        }
+
+        function panelLeft#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel").animate({left: "0px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel .leftRafter").show();
+            panelRightClose#uid#();
+        }
+
+        function panelLeftClose#uid#()
+        {
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel").animate({left: "-200px"});
+            $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel .leftRafter").hide();
+        }
+
+        function pause_and_play#uid#(ppk)
+        {
+            if (ppk == 0) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .pause_in_cercle").remove();
+            } else if (ppk == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .play_in_cercle").remove();
+            }
+        }
+
+        function volume_musiccast#id#(bouton)
+        {
+            if (bouton == 'bouton') {
+                $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'block');
+                $('.musiccast[data-eqLogic_uid=#uid#] .nav').css('display', 'none');
+            } else if (bouton == 'volume') {
+                $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'none');
+                if ('#coordinator_state#' != 0 || '#state#' != '') {
+                    $('.musiccast[data-eqLogic_uid=#uid#] .nav').css('display', 'block');
+                }
+            }
+        }
+
+        $(".musiccast[data-eqLogic_uid=#uid#] .volume").slider({
+            min: 0,
+            max: 100,
+            range: "min",
+            value: ('#volume#' == '') ? 0 : parseInt('#volume#')
+        });
+        $(".musiccast[data-eqLogic_uid=#uid#] .slider.slider-horizontal").css('z-index', 1);
+        $(".musiccast[data-eqLogic_uid=#uid#] .volume").on('slidestop', function (event, ui) {
+            jeedom.cmd.execute({id: '#setVolume_id#', value: {slider: ui.value}});
+        });
+        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").addClass("importantTransparent");
+        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").append('<i class="fa fa-volume-up" style="color:#253E5E;font-size:1.2em;margin-top:-5px;cursor:pointer" title="Volume"></i>');
+        pause_and_play#uid#(#state_nb#);
+
+        if ('#power_state#' == 1) {
+            if ('#repeat_state#' == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color', 'green');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color', 'red');
+            }
+            if ('#shuffle_state#' == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color', 'green');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color', 'red');
+            }
+            if ('#mute_state#' == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color', 'green');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color', 'red');
+            }
+
+           if ('#input#' == 'tv' || '#input#' == 'hdmi') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<i class="icon techno-tv fa-10x"></i>');
+                $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
+            } else if ('#input#' == 'bluetooth') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<i class="icon techno-bluetooth3 icon_blue fa-10x"></i>');
+            } else if ('#input#' == 'net_radio' || '#input#' == 'spotify') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_front"/>')
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_left_musiccast"/>')
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_right_musiccast"/>');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_front"/>');
+            }
+        } else {
+            $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .track").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .volume_musiccast_widget").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+            .append('<i class="fa fa-power-off icon_red fa-10x"></i>');
+        }
+
+
+        if ('#state#' == '') {
+            $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
+        }
+
+        if ('#coordinator_state#' == 0) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
+        }
+    </script>
 </div>
-

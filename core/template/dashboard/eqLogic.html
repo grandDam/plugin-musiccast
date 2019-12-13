@@ -1,83 +1,81 @@
-<div class="eqLogic eqLogic-widget noResize musiccast_widget musiccast" data-version="#version#"
+<div class="eqLogic eqLogic-widget noResize musiccast_widget musiccast" data-version="#version#" category="Multimédia" data-category="multimedia"
      style="text-align:center; width: 250px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#;height:320px;"
      data-eqLogic_id="#id#" data-eqLogic_uid="#uid#">
     <link rel="stylesheet" href="plugins/musiccast/core/template/dashboard/css/style.css"/>
-    <span class="statusCmd" style="position : absolute;left : 0px;width : 30px;z-index: 1030;"></span>
-    <div class="leftpanel">
-        <div style="margin-left : 24px;overflow: auto;height: 327px;">
-            <legend style="color : white;margin-bottom:2px;">Playlist</legend>
-            <div class="playlistList" style="text-align:left;"></div>
-
-            <legend style="color : white;margin-bottom:2px;">Favoris</legend>
-            <div class="favoriteList" style="text-align:left;"></div>
-
-        </div>
-        <img class="leftRafter" style="display:none;" src="plugins/musiccast/core/template/dashboard/images/chevron.png"
-             title="Listes" onClick="panelLeftClose#uid#()"/>
-    </div>
-    <div class="rightpanel">
-        <div style="margin-right : 24px;overflow: auto;height: 327px;background-color: #4a89dc;">
-            <legend style="color : white;margin-bottom:2px;">Enceintes</legend>
-            <div class="speakersList" style="text-align:left;"></div>
-        </div>
-        <img class="rightRafter" style="display:none;"
-             src="plugins/musiccast/core/template/dashboard/images/chevron.png" onClick="panelRightClose#uid#()"/>
-    </div>
+    <center class="widget-name">
+        <a class="cmd power pull-left" data-cmd_id="#power_on_id#" onclick="jeedom.cmd.execute({id: #power_on_id#});">
+            <i class="fa fa-power-off power"></i>
+        </a>
+        <span class="cmd pull-left statusCmd" style="width : 30px;z-index: 1030;"></span>
+        <a href="#eqLink#" style="#hideEqLogicName#">#name_display#<a>
+    </center>
+    <a class="group" style="text-decoration: none; cursor:default;">#group#</a>
     <div class="uppart">
-        <a href="#eqLink#" class="title_uppart" style="#hideEqLogicName#">#name_display# <span
-                style="font-size: 0.85em;">#object_name#</span></a>
-        <a class="power cmd noRefresh" data-cmd_id="#power_on_id#" onclick="jeedom.cmd.execute({id: #power_on_id#});"><i
-                class="fa fa-power-off"></i></a>
-        <br>
-        <a class="group" style="text-decoration: none; cursor:default;">#group#</a>
+        <div class="leftpanel" style="overflow: auto;background-color: #sub-background-color# !important; color: #sub-icon-color# !important;">
+            <a class="leftRafter" onClick="panelLeftClose#uid#()" style="display:none;top: 90px;color: #sub-icon-color# !important;"><i class="fas fa-chevron-left"></i></a>
+            <div style="margin-left : 24px;">
+                <legend style="color : white;margin-bottom:2px;">Playlist</legend>
+                <div class="playlistList" style="text-align:left;"></div>
+
+                <legend style="color : white;margin-bottom:2px;">Favoris</legend>
+                <div class="favoriteList" style="text-align:left;"></div>
+
+            </div>
+        </div>
+        <div class="rightpanel" style="overflow: auto;background-color: #sub-background-color# !important;color: #sub-icon-color# !important;">
+            <a class="rightRafter" onClick="panelRightClose#uid#()" style="display:none;top: 90px;color: #sub-icon-color# !important;"><i class="fas fa-chevron-right"></i></a>
+            <div style="margin-right : 24px;">
+                <legend style="color : white;margin-bottom:2px;">Enceintes</legend>
+                <div class="speakersList" style="text-align:left;"></div>
+            </div>
+        </div>
+        <a class="rightRafter" onClick="panelRight#uid#()"><i class="fas fa-chevron-left"></i></a>
+        <a class="leftRafter" onClick="panelLeft#uid#()"><i class="fas fa-chevron-right"></i></a>
+        <div class="jaquette_musiccast"></div>
         <div class="track">
-            <a class="title" style="text-decoration: none; cursor:default;">#title#</a>
-            <br/>
-            <a class="subtitle" style="text-decoration: none; cursor:default;">#subtitle#</a>
+            <div class="title">#title#</div>
+            <div class="subtitle">#subtitle#</div>
         </div>
-        <img class="rightRafter" src="plugins/musiccast/core/template/dashboard/images/chevron.png"
-             onClick="panelRight#uid#()"/>
-        <img class="leftRafter" src="plugins/musiccast/core/template/dashboard/images/chevron.png"
-             onclick="panelLeft#uid#()"/>
-        <div class="jaquette_musiccast">
-            <img src="#thumbnail#" class="affiche_premiere_musiccast"/>
-            <img src="#thumbnail#" class="affiche_deuxieme_musiccast"/>
-            <img src="#thumbnail#" class="affiche_troisieme_musiccast"/>
-        </div>
-        <a class="title" style="text-decoration: none; cursor:default;">#input##state#</a>
-        <img src="plugins/musiccast/core/template/dashboard/images/sound.png" height="15px" width="15px"
-             class="bouton_sup_volume" onclick="volume_musiccast#id#('bouton')"/>
+        <!--div class="title">#input##state#</div-->
     </div>
-    <div class="downpart" style="display:block;background-color: #sub-background-color#;">
-        <a class="shuffle cmd noRefresh" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});"><i
-                class="fa fa-random"></i></a>
-        <a class="repeat cmd noRefresh" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});"><i
-                class="fa fa-repeat"></i></a>
-        <img class="previous cmd noRefresh" data-cmd_id="#previous_id#"
-             src="plugins/musiccast/core/template/dashboard/images/change.png"
-             onclick="jeedom.cmd.execute({id: #previous_id#});" title="Précédent"/>
-        <div class="cercle_downpart">
-            <img class="play_in_cercle cmd noRefresh" data-cmd_id="#play_id#"
-                 src="plugins/musiccast/core/template/dashboard/images/play1.png"
-                 onclick="jeedom.cmd.execute({id: #play_id#});" title="Lecture"/>
-            <img class="pause_in_cercle cmd noRefresh" data-cmd_id="#pause_id#"
-                 src="plugins/musiccast/core/template/dashboard/images/pause.png"
-                 onclick="jeedom.cmd.execute({id: #pause_id#});" title="Pause"/>
+    <div class="downpart" style="background-color: #sub-background-color# !important;#background-color#;color: #color#;">
+        <div style="height: 19px;">
+        <nav class="nav">
+            <a class="cmd" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});" title="Aléatoire"
+                style="color: #sub-icon-color# !important;">
+                <i class="fa fa-random shuffle"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});" title="Répéter"
+                style="color: #sub-icon-color# !important;">
+                <i class="fa fa-sync repeat"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#previous_id#" onClick="jeedom.cmd.execute({id: #previous_id#});" title="Précédent"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-step-backward"></i>
+            </a>
+            <a class="cmd play" data-cmd_id="#play_id#" onclick="jeedom.cmd.execute({id: #play_id#});" title="Lecture"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-play"></i>
+            </a>
+            <a class="cmd pause" data-cmd_id="#pause_id#" onclick="jeedom.cmd.execute({id: #pause_id#});" title="Pause"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-pause"></i>
+            </a>
+            <a class="cmd stop" data-cmd_id="#stop_id#" onclick="jeedom.cmd.execute({id: #stop_id#});" title="Stop"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-stop"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#next_id#" onClick="jeedom.cmd.execute({id: #next_id#});" title="Suivant"
+                style="color: #sub-icon-color# !important;">
+                <i class="fas fa-step-forward"></i>
+            </a>
+            <a class="cmd" data-cmd_id="#mute_id#" onclick="jeedom.cmd.execute({id: #mute_id#});" title="Mute"
+                style="color: #sub-icon-color# !important;">
+                <i class="icon jeedomapp-audiomute"></i>
+            </a>
+        </nav>
         </div>
-        <div class="stop_musiccast_widget cmd noRefresh" data-cmd_id="#stop_id#"
-             onclick="jeedom.cmd.execute({id: #stop_id#});" title="Stop"></div>
-        <a class="mute cmd noRefresh" data-cmd_id="#mute_id#" onclick="jeedom.cmd.execute({id: #mute_id#});"><i
-                class="fa fa-volume-off"></i></a>
-        <img class="next cmd noRefresh" data-cmd_id="#next_id#"
-             src="plugins/musiccast/core/template/dashboard/images/change.png"
-             onclick="jeedom.cmd.execute({id: #next_id#});" title="Suivant"/>
-    </div>
-    <div class="volumeDownpart" style="display:none;background-color: #sub-background-color#;">
-        <img src="plugins/musiccast/core/template/dashboard/images/working.png" height="15px" width="15px"
-             class="bouton_sup_volume" onclick="volume_musiccast#id#('volume')"/>
-        <div class="volume_musiccast_widget" style="margin-left: 40px;">
-            <div class="volume cmd noRefresh" data-cmd_id="#setVolume_id#" style="width: 180px;" value="#volume#"></div>
-        </div>
+        <div class="cmd volume" data-cmd_id="#setVolume_id#" style="width: 100%;margin:10px;" value="#volume#"></div>
     </div>
 
     <script>
@@ -120,11 +118,11 @@
         {
             if (bouton == 'bouton') {
                 $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'block');
-                $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'none');
+                $('.musiccast[data-eqLogic_uid=#uid#] .nav').css('display', 'none');
             } else if (bouton == 'volume') {
                 $('.musiccast[data-eqLogic_uid=#uid#] .volumeDownpart').css('display', 'none');
                 if ('#coordinator_state#' != 0 || '#state#' != '') {
-                    $('.musiccast[data-eqLogic_uid=#uid#] .downpart').css('display', 'block');
+                    $('.musiccast[data-eqLogic_uid=#uid#] .nav').css('display', 'block');
                 }
             }
         }
@@ -139,28 +137,54 @@
         $(".musiccast[data-eqLogic_uid=#uid#] .volume").on('slidestop', function (event, ui) {
             jeedom.cmd.execute({id: '#setVolume_id#', value: {slider: ui.value}});
         });
-        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").css("background", "transparent");
-        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").css("border-color", "transparent");
+        $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").addClass("importantTransparent");
         $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").append('<i class="fa fa-volume-up" style="color:#253E5E;font-size:1.2em;margin-top:-5px;cursor:pointer" title="Volume"></i>');
-        pause_and_play#uid#(#state_nb#)
-        ;
+        pause_and_play#uid#(#state_nb#);
 
-        if ('#repeat_state#' == 1) {
-            $(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color', 'red');
-        }
-        if ('#shuffle_state#' == 1) {
-            $(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color', 'red');
-        }
-        if ('#mute_state#' == 1) {
-            $(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color', 'red');
-        }
         if ('#power_state#' == 1) {
-            $(".musiccast[data-eqLogic_uid=#uid#] .power").css('color', 'red');
+            if ('#repeat_state#' == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color', 'green');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .repeat").css('color', 'red');
+            }
+            if ('#shuffle_state#' == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color', 'green');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .shuffle").css('color', 'red');
+            }
+            if ('#mute_state#' == 1) {
+                $(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color', 'green');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .mute").css('color', 'red');
+            }
+
+           if ('#input#' == 'tv' || '#input#' == 'hdmi') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<i class="icon techno-tv fa-10x"></i>');
+                $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
+            } else if ('#input#' == 'bluetooth') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<i class="icon techno-bluetooth3 icon_blue fa-10x"></i>');
+            } else if ('#input#' == 'net_radio' || '#input#' == 'spotify') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_front"/>')
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_left_musiccast"/>')
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_right_musiccast"/>');
+            } else {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_front"/>');
+            }
+        } else {
+            $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .track").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .volume_musiccast_widget").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+            .append('<i class="fa fa-power-off icon_red fa-10x"></i>');
         }
 
 
         if ('#state#' == '') {
-            $(".musiccast[data-eqLogic_uid=#uid#] .downpart").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
         }
 
         if ('#coordinator_state#' == 0) {
@@ -168,11 +192,7 @@
             $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel").hide();
             $(".musiccast[data-eqLogic_uid=#uid#] .rightRafter").hide();
             $(".musiccast[data-eqLogic_uid=#uid#] .leftRafter").hide();
-            $(".musiccast[data-eqLogic_uid=#uid#] .downpart").hide();
-            //$(".musiccast[data-eqLogic_uid=#uid#] .volumeDownpart").hide();
-            //$(".musiccast[data-eqLogic_uid=#uid#] .title_downpart").hide();
-            //$(".musiccast[data-eqLogic_uid=#uid#] .title").hide();
-            //$(".musiccast[data-eqLogic_uid=#uid#] .subtitle").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .nav").hide();
         }
 
 
@@ -181,7 +201,7 @@
             playlistList#id# = '';
             for (var i in playlist#id#)
             {
-                playlistList#id# += '<span class="cursor playPlaylist" style="white-space: nowrap;margin-left:5px;text-align:left;" title="' + playlist#id#[i] + '"  data-name="' + playlist#id#[i] + '"><i class="fa fa-play"></i> ' + playlist#id#[i] + '</span><br/>';
+                playlistList#id# += '<span class="cursor playPlaylist" style="white-space: nowrap;margin-left:5px;text-align:left;" title="' + playlist#id#[i] + '"  data-name="' + playlist#id#[i] + '"><i class="fa fa-play" style="color: #sub-icon-color# !important;"></i> ' + playlist#id#[i] + '</span><br/>';
             }
             $(".musiccast[data-eqLogic_uid=#uid#] .playlistList").append(playlistList#id#)
             ;
@@ -224,7 +244,7 @@
             favoriteList#id# = '';
             for (var i in favorite#id#)
             {
-                favoriteList#id# += '<span class="cursor playFavorite" style="white-space: nowrap;margin-left:5px;text-align:left;" data-name="' + favorite#id#[i] + '" title="' + favorite#id#[i] + '"><i class="fa fa-play"></i> ' + favorite#id#[i] + '</span><br/>';
+                favoriteList#id# += '<span class="cursor playFavorite" style="white-space: nowrap;margin-left:5px;text-align:left;" data-name="' + favorite#id#[i] + '" title="' + favorite#id#[i] + '"><i class="fa fa-play" style="color: #sub-icon-color# !important;"></i> ' + favorite#id#[i] + '</span><br/>';
             }
             $(".musiccast[data-eqLogic_uid=#uid#] .favoriteList").append(favoriteList#id#)
             ;
@@ -300,7 +320,7 @@
             speakersList#id# = '';
             for (var i in speakers#id#)
             {
-                speakersList#id# += '<span class="cursor" style="white-space: nowrap;margin-left:5px;" title="' + speakers#id#[i] + '"><i class="addSpeaker fa fa-plus" data-name="' + speakers#id#[i] + '"></i> <i class=" removeSpeaker fa fa-minus" data-name="' + speakers#id#[i] + '"></i> ' + speakers#id#[i] + '</span><br/>';
+                speakersList#id# += '<span class="cursor" style="white-space: nowrap;margin-left:5px;" title="' + speakers#id#[i] + '"><i class="addSpeaker fa fa-plus" style="color: #sub-icon-color# !important;" data-name="' + speakers#id#[i] + '"></i> <i class=" removeSpeaker fa fa-minus" style="color: #sub-icon-color# !important;" data-name="' + speakers#id#[i] + '"></i> ' + speakers#id#[i] + '</span><br/>';
             }
             $(".musiccast[data-eqLogic_uid=#uid#] .speakersList").append(speakersList#id#)
             ;

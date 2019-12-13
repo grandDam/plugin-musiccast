@@ -37,7 +37,14 @@ class musiccast extends eqLogic
             'sub-background-color' => array(
                 'name' => 'Couleur de la barre de contrôle',
                 'type' => 'color',
-                'default' => '#5d9cec',
+                'default' => 'rgba(var(--cat-multimedia-color), var(--opacity))',
+                'allow_transparent' => true,
+                'allow_displayType' => true,
+            ),
+            'sub-icon-color' => array(
+                'name' => 'Couleur des icônes de la barre de contrôle',
+                'type' => 'color',
+                'default' => 'var(--eqTitle-color)',
                 'allow_transparent' => true,
                 'allow_displayType' => true,
             ),
