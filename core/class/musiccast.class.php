@@ -596,6 +596,7 @@ class musiccast extends eqLogic
         }
         $play->setType('action');
         $play->setSubType('other');
+        $play->setGeneric_type('MEDIA_RESUME');
         $play->setEqLogic_id($this->getId());
         $play->save();
 
@@ -607,6 +608,7 @@ class musiccast extends eqLogic
         }
         $stop->setType('action');
         $stop->setSubType('other');
+        $stop->setGeneric_type('MEDIA_STOP');
         $stop->setEqLogic_id($this->getId());
         $stop->save();
 
@@ -618,6 +620,7 @@ class musiccast extends eqLogic
         }
         $pause->setType('action');
         $pause->setSubType('other');
+        $pause->setGeneric_type('MEDIA_PAUSE');
         $pause->setEqLogic_id($this->getId());
         $pause->save();
 
@@ -629,6 +632,7 @@ class musiccast extends eqLogic
         }
         $next->setType('action');
         $next->setSubType('other');
+        $next->setGeneric_type('MEDIA_NEXT');
         $next->setEqLogic_id($this->getId());
         $next->save();
 
@@ -640,6 +644,7 @@ class musiccast extends eqLogic
         }
         $previous->setType('action');
         $previous->setSubType('other');
+        $previous->setGeneric_type('MEDIA_PREVIOUS');
         $previous->setEqLogic_id($this->getId());
         $previous->save();
 
@@ -732,6 +737,7 @@ class musiccast extends eqLogic
         $volume->setUnite('%');
         $volume->setType('info');
         $volume->setSubType('numeric');
+        $volume->setGeneric_type('VOLUME');
         $volume->setConfiguration('repeatEventManagement', 'never');
         $volume->setEqLogic_id($this->getId());
         $volume->save();
@@ -744,6 +750,7 @@ class musiccast extends eqLogic
         }
         $setVolume->setType('action');
         $setVolume->setSubType('slider');
+        $setVolume->setGeneric_type('SET_VOLUME');
         $setVolume->setValue($volume->getId());
         $setVolume->setEqLogic_id($this->getId());
         $setVolume->save();
@@ -878,6 +885,7 @@ class musiccast extends eqLogic
         }
         $power_on->setType('action');
         $power_on->setSubType('other');
+        $power_on->setGeneric_type('ENERGY_ON');
         $power_on->setEqLogic_id($this->getId());
         $power_on->save();
 
@@ -889,6 +897,7 @@ class musiccast extends eqLogic
         }
         $standby->setType('action');
         $standby->setSubType('other');
+        $standby->setGeneric_type('ENERGY_OFF');
         $standby->setEqLogic_id($this->getId());
         $standby->save();
 
