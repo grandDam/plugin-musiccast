@@ -316,18 +316,18 @@ class musiccast extends eqLogic
                     }
 
 
-                    $changed = $eqLogic->checkAndUpdateCmd('group', $group) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('state', $state) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('volume', $controller->getVolume()) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('shuffle_state', $shuffle) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('mute_state', $mute) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('repeat_state', $repeat) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_title', $title) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_album', $album) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_artist', $artist) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('input', $input) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('power_state', $power) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator) || $changed;
+                    $changed |= $eqLogic->checkAndUpdateCmd('group', $group);
+                    $changed |= $eqLogic->checkAndUpdateCmd('state', $state);
+                    $changed |= $eqLogic->checkAndUpdateCmd('volume', $controller->getVolume());
+                    $changed |= $eqLogic->checkAndUpdateCmd('shuffle_state', $shuffle);
+                    $changed |= $eqLogic->checkAndUpdateCmd('mute_state', $mute);
+                    $changed |= $eqLogic->checkAndUpdateCmd('repeat_state', $repeat);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_title', $title);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_album', $album);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_artist', $artist);
+                    $changed |= $eqLogic->checkAndUpdateCmd('input', $input);
+                    $changed |= $eqLogic->checkAndUpdateCmd('power_state', $power);
+                    $changed |= $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator);
 
                     if ($changed) {
                         log::add('musiccast', 'debug', "Refreshing widget");
@@ -390,15 +390,15 @@ class musiccast extends eqLogic
                     }
 
 
-                    $changed = $eqLogic->checkAndUpdateCmd('group', $group) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('state', $state) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('volume', $speaker->getVolume()) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_title', $title) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_album', $album) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_artist', $artist) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('input', $input) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('power_state', $power) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator) || $changed;
+                    $changed |= $eqLogic->checkAndUpdateCmd('group', $group);
+                    $changed |= $eqLogic->checkAndUpdateCmd('state', $state);
+                    $changed |= $eqLogic->checkAndUpdateCmd('volume', $speaker->getVolume());
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_title', $title);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_album', $album);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_artist', $artist);
+                    $changed |= $eqLogic->checkAndUpdateCmd('input', $input);
+                    $changed |= $eqLogic->checkAndUpdateCmd('power_state', $power);
+                    $changed |= $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator);
                     if ($changed) {
                         log::add('musiccast', 'debug', "refreshWidget");
                         $eqLogic->refreshWidget();
