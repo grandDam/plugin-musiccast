@@ -153,46 +153,40 @@ class musiccast extends eqLogic
                 if (is_object($object)) {
                     $eqLogic->setObject_id($object->getId());
                     $eqLogic->setName($speaker->getUuid() . '-' . $speaker->getName());
-                    $eqLogic->setConfiguration('model', 'OTHER');
                 }
-                if (strpos($speaker->getModel(), 'WX-030') !== false) {
+                $model = $speaker->getModel();
+                if (strpos($model, 'WX-030') !== false) {
                     $eqLogic->setConfiguration('model', 'WX-030');
-                }
-                if (strpos($speaker->getModel(), 'WX-010') !== false) {
+                } elseif (strpos($model, 'WX-010') !== false) {
                     $eqLogic->setConfiguration('model', 'WX-010');
-                }
-                if (strpos($speaker->getModel(), 'ISX') !== false) {
+                } elseif (strpos($model, 'ISX') !== false) {
                     $eqLogic->setConfiguration('model', 'RESTIO');
-                }
-                if (strpos($speaker->getModel(), 'YSP') !== false
-                    || strpos($speaker->getModel(), 'YAS') !== false
-                    || strpos($speaker->getModel(), 'SRT') !== false) {
+                } elseif (strpos($model, 'YSP') !== false
+                    || strpos($model, 'YAS') !== false
+                    || strpos($model, 'SRT') !== false) {
                     $eqLogic->setConfiguration('model', 'SOUNDBAR');
-                }
-                if (strpos($speaker->getModel(), 'CX-A') !== false
-                    || strpos($speaker->getModel(), 'RX-A') !== false
-                    || strpos($speaker->getModel(), 'RX-V') !== false
-                    || strpos($speaker->getModel(), 'RX-S') !== false) {
+                } elseif (strpos($model, 'CX-A') !== false
+                    || strpos($model, 'RX-A') !== false
+                    || strpos($model, 'RX-V') !== false
+                    || strpos($model, 'RX-S') !== false) {
                     $eqLogic->setConfiguration('model', 'AMPLIFIER');
-                }
-                if (strpos($speaker->getModel(), 'WXA-') !== false
-                    || strpos($speaker->getModel(), 'WXC-') !== false
-                    || strpos($speaker->getModel(), 'WXAD-') !== false
-                    || strpos($speaker->getModel(), 'WXC-') !== false) {
+                } elseif (strpos($model, 'WXA-') !== false
+                    || strpos($model, 'WXC-') !== false
+                    || strpos($model, 'WXAD-') !== false
+                    || strpos($model, 'WXC-') !== false) {
                     $eqLogic->setConfiguration('model', 'GATEWAY');
-                }
-                if (strpos($speaker->getModel(), 'R-N') !== false
-                    || strpos($speaker->getModel(), 'CD-N') !== false
-                    || strpos($speaker->getModel(), 'CRX-N') !== false) {
+                } elseif (strpos($model, 'R-N') !== false
+                    || strpos($model, 'CD-N') !== false
+                    || strpos($model, 'CRX-N') !== false) {
                     $eqLogic->setConfiguration('model', 'ELEMENT');
-                }
-                if (strpos($speaker->getModel(), 'MCR-N') !== false
-                    || strpos($speaker->getModel(), 'CD-N') !== false
-                    || strpos($speaker->getModel(), 'CRX-N') !== false) {
+                } elseif (strpos($model, 'MCR-N') !== false
+                    || strpos($model, 'CD-N') !== false
+                    || strpos($model, 'CRX-N') !== false) {
                     $eqLogic->setConfiguration('model', 'SYSTEM');
-                }
-                if (strpos($speaker->getModel(), 'NX-N500') !== false) {
+                } elseif (strpos($model, 'NX-N500') !== false) {
                     $eqLogic->setConfiguration('model', 'NX-N500');
+                } else {
+                    $eqLogic->setConfiguration('model', 'OTHER');
                 }
                 $eqLogic->setEqType_name('musiccast');
                 $eqLogic->setIsVisible(1);
