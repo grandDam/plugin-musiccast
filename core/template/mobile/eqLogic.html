@@ -20,15 +20,15 @@
     <div class="downpart" style="background-color: #sub-background-color# !important;#background-color#;color: #color#;">
         <div style="height: 19px;">
         <nav class="nav">
-            <a class="cmd" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});" title="Aléatoire"
+            <a class="cmd action_playlist" data-cmd_id="#shuffle_id#" onclick="jeedom.cmd.execute({id: #shuffle_id#});" title="Aléatoire"
                 style="color: #sub-icon-color# !important;">
                 <i class="fa fa-random shuffle"></i>
             </a>
-            <a class="cmd" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});" title="Répéter"
+            <a class="cmd action_playlist" data-cmd_id="#repeat_id#" onclick="jeedom.cmd.execute({id: #repeat_id#});" title="Répéter"
                 style="color: #sub-icon-color# !important;">
                 <i class="fa fa-sync repeat"></i>
             </a>
-            <a class="cmd" data-cmd_id="#previous_id#" onClick="jeedom.cmd.execute({id: #previous_id#});" title="Précédent"
+            <a class="cmd action_list" data-cmd_id="#previous_id#" onClick="jeedom.cmd.execute({id: #previous_id#});" title="Précédent"
                 style="color: #sub-icon-color# !important;">
                 <i class="fas fa-step-backward"></i>
             </a>
@@ -44,7 +44,7 @@
                 style="color: #sub-icon-color# !important;">
                 <i class="fas fa-stop"></i>
             </a>
-            <a class="cmd" data-cmd_id="#next_id#" onClick="jeedom.cmd.execute({id: #next_id#});" title="Suivant"
+            <a class="cmd action_list" data-cmd_id="#next_id#" onClick="jeedom.cmd.execute({id: #next_id#});" title="Suivant"
                 style="color: #sub-icon-color# !important;">
                 <i class="fas fa-step-forward"></i>
             </a>
@@ -84,15 +84,6 @@
             $(".musiccast[data-eqLogic_uid=#uid#] .leftpanel .leftRafter").hide();
         }
 
-        function pause_and_play#uid#(ppk)
-        {
-            if (ppk == 0) {
-                $(".musiccast[data-eqLogic_uid=#uid#] .pause_in_cercle").remove();
-            } else if (ppk == 1) {
-                $(".musiccast[data-eqLogic_uid=#uid#] .play_in_cercle").remove();
-            }
-        }
-
         function volume_musiccast#id#(bouton)
         {
             if (bouton == 'bouton') {
@@ -118,7 +109,6 @@
         });
         $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").addClass("importantTransparent");
         $(".musiccast[data-eqLogic_uid=#uid#] .ui-slider-handle").append('<i class="fa fa-volume-up" style="color:#253E5E;font-size:1.2em;margin-top:-5px;cursor:pointer" title="Volume"></i>');
-        pause_and_play#uid#(#state_nb#);
 
         if ('#power_state#' == 1) {
             if ('#repeat_state#' == 1) {
@@ -144,7 +134,15 @@
             } else if ('#input#' == 'bluetooth') {
                 $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
                 .append('<i class="icon techno-bluetooth3 icon_blue fa-10x"></i>');
-            } else if ('#input#' == 'net_radio' || '#input#' == 'spotify') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .action_playlist").hide();
+            } else if ('#input#' == 'net_radio') {
+                $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_front"/>')
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_left_musiccast"/>')
+                .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_right_musiccast"/>');
+                $(".musiccast[data-eqLogic_uid=#uid#] .action_playlist").hide();
+                $(".musiccast[data-eqLogic_uid=#uid#] .action_list").hide();
+            } else if ('#input#' == 'spotify') {
                 $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
                 .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_front"/>')
                 .append('<img src="#thumbnail#" class="jaquette_picture jaquette_picture_back affiche_left_musiccast"/>')
@@ -159,6 +157,13 @@
             $(".musiccast[data-eqLogic_uid=#uid#] .volume").hide();
             $(".musiccast[data-eqLogic_uid=#uid#] .jaquette_musiccast").empty()
             .append('<i class="fa fa-power-off icon_red fa-10x"></i>');
+        }
+
+        if ('#state_nb#' == 1) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .play").hide();
+        } else if ('#state_nb#' == 0) {
+            $(".musiccast[data-eqLogic_uid=#uid#] .stop").hide();
+            $(".musiccast[data-eqLogic_uid=#uid#] .pause").hide();
         }
 
 
