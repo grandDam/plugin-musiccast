@@ -297,7 +297,7 @@ class musiccast extends eqLogic
 
                     $input = $controller->getInput();
                     if ($input == '') {
-                        $input = $aucun
+                        $input = $aucun;
                     }
 
                     if ($controller->getGroup() != Speaker::NO_GROUP) {
