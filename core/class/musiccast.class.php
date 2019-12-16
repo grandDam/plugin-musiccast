@@ -51,6 +51,19 @@ class musiccast extends eqLogic
         ),
     );
 
+    public static $_device_list = array(
+        'WX-010' => array('WX-010', 'WX-010'),
+        'WX-030' => array('WX-030', 'WX-030'),
+        'RESTIO' => array('RESTIO', 'RESTIO'),
+        'NX-N500' => array('NX-N500', 'NX-N500'),
+        'SOUNDBAR' => array('SOUNDBAR', 'Sound Bar'),
+        'AMPLIFIER' => array('AMPLIFIER', 'Home Cinema Amplifier'),
+        'GATEWAY' => array('GATEWAY', 'Gateway'),
+        'ELEMENT' => array('ELEMENT', 'HI-FI Element'),
+        'SYSTEM' => array('SYSTEM', 'HI-FI System'),
+        'OTHER' => array('OTHER', 'Autres')
+    );
+
     private $_controller = null;
     private $_speaker = null;
 
