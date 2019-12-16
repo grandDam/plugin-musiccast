@@ -266,15 +266,16 @@ class musiccast extends eqLogic
                     $is_coordinator = ($controller->isCoordinator() == '') ? 0 : $controller->isCoordinator();
 
                     $track = null;
-                    $title = '';
-                    $album = '';
-                    $artist = '';
+                    $aucun = __('Aucun', __FILE__);
+                    $title = $aucun;
+                    $album = $aucun;
+                    $artist = $aucun;
 
                     if ($controller->isStreaming()) {
                         if (file_exists(dirname(__FILE__) . '/../../../../plugins/musiccast/musiccast_' . $eqLogic->getId() . '.jpg')) {
                             unlink(dirname(__FILE__) . '/../../../../plugins/musiccast/musiccast_' . $eqLogic->getId() . '.jpg');
                         }
-                        $state = '';
+                        $state = $aucun;
                     } else {
                         $track = $state_details->track;
                         if ($track != null) {
@@ -295,24 +296,8 @@ class musiccast extends eqLogic
 
 
                     $input = $controller->getInput();
-
-                    if ($title == '') {
-                        $title = __('Aucun', __FILE__);
-                    }
-                    if ($state == '') {
-                        $state = __('Aucun', __FILE__);
-                    }
-                    if ($album == '') {
-                        $album = __('Aucun', __FILE__);
-                    }
-                    if ($artist == '') {
-                        $artist = __('Aucun', __FILE__);
-                    }
-                    if ($state == '') {
-                        $state = __('Aucun', __FILE__);
-                    }
                     if ($input == '') {
-                        $input = __('Aucun', __FILE__);
+                        $input = $aucun
                     }
 
                     if ($controller->getGroup() != Speaker::NO_GROUP) {
@@ -978,6 +963,7 @@ class musiccast extends eqLogic
     function toHtml($_version = 'dashboard')
     {
         $replace = $this->preToHtml($_version, array('#background-color#' => '#4a89dc'));
+        $aucun = __('Aucun', __FILE__);
         if (!is_array($replace)) {
             return $replace;
         }
@@ -1021,7 +1007,7 @@ class musiccast extends eqLogic
 
         if (is_object($cmd_state)) {
             $replace['#state#'] = $cmd_state->execCmd();
-            if ($replace['#state#'] == __('Aucun', __FILE__)) {
+            if ($replace['#state#'] == $aucun) {
                 if ($this->getConfiguration('strControl', 0) == 0)
                     $replace['#state#'] = '';
                 else
@@ -1038,14 +1024,14 @@ class musiccast extends eqLogic
         $cmd_track_artist = $this->getCmd(null, 'track_artist');
         if (is_object($cmd_track_artist)) {
             $subtitle = $cmd_track_artist->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#subtitle#'] = $cmd_track_artist->execCmd();
         }
 
         $cmd_track_album = $this->getCmd(null, 'track_album');
         if (is_object($cmd_track_album)) {
             $subtitle = $cmd_track_album->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#subtitle#'] .= ' - ' . $cmd_track_album->execCmd();
         }
         $replace['#subtitle#'] = trim(trim(trim($replace['#subtitle#']), ' - '));
@@ -1053,7 +1039,7 @@ class musiccast extends eqLogic
         $cmd_track_title = $this->getCmd(null, 'track_title');
         if (is_object($cmd_track_title)) {
             $subtitle = $cmd_track_title->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#title#'] = $cmd_track_title->execCmd();
         }
         $replace['#title#'] = trim(trim(trim($replace['#title#']), '-'));
@@ -1065,7 +1051,7 @@ class musiccast extends eqLogic
         $cmd_group = $this->getCmd(null, 'group');
         if (is_object($cmd_group)) {
             $subtitle = $cmd_group->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#group#'] = $cmd_group->execCmd();
         }
         $replace['#group#'] = trim(trim(trim($replace['#group#']), '-'));
@@ -1073,7 +1059,7 @@ class musiccast extends eqLogic
         $cmd_track_input = $this->getCmd(null, 'input');
         if (is_object($cmd_track_input)) {
             $subtitle = $cmd_track_input->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#input#'] = $cmd_track_input->execCmd();
         }
 
