@@ -64,9 +64,6 @@ class musiccast extends eqLogic
         'OTHER' => array('OTHER', 'Autres')
     );
 
-    private $_controller = null;
-    private $_speaker = null;
-
     /*     * ***********************Methode static*************************** */
 
     public static function restore()
@@ -567,7 +564,7 @@ class musiccast extends eqLogic
     public
     function getSpeaker()
     {
-        return /*$this->_speaker =*/ self::getSpeakerByIp($this->getLogicalId());
+        return self::getSpeakerByIp($this->getLogicalId());
 
     }
 
@@ -577,7 +574,7 @@ class musiccast extends eqLogic
     public
     function getController()
     {
-        return /*$this->_controller =*/ self::getControllerByIp($this->getLogicalId());
+        return self::getControllerByIp($this->getLogicalId());
     }
 
     public
