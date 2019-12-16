@@ -9,6 +9,9 @@ Modification du widget dashboard et mobile :
  - Ajout d’un paramètre : `sub-icon-color`.
  - Les boutons d’actions utilisent uniquement des icons et plus d’images.
  - Suppression des images du widget.
+Modification du plugin :
+ - Création des types génériques des commandes ACTION et INFO.
+ - Optimisations.
 
 ===
 
