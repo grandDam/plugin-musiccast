@@ -27,7 +27,7 @@ try {
 	ajax::init();
 
 	if (init('action') == 'syncNetwork') {
-        musiccast::syncNetwork();
+		musiccast::syncNetwork();
 		ajax::success();
 	}
 
@@ -40,7 +40,7 @@ try {
 	}
 
 	if (init('action') == 'playTrack') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -48,7 +48,7 @@ try {
 	}
 
 	if (init('action') == 'removeTrack') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -56,7 +56,7 @@ try {
 	}
 
 	if (init('action') == 'emptyQueue') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -64,7 +64,7 @@ try {
 	}
 
 	if (init('action') == 'playPlaylist') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -74,7 +74,7 @@ try {
 	}
 
 	if (init('action') == 'playFavorite') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -84,7 +84,7 @@ try {
 	}
 
 	if (init('action') == 'addSpeaker') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -94,7 +94,7 @@ try {
 	}
 
 	if (init('action') == 'removeSpeaker') {
-        $mcast = musiccast::byId(init('id'));
+		$mcast = musiccast::byId(init('id'));
 		if (!is_object($mcast)) {
 			ajax::success();
 		}
@@ -105,17 +105,17 @@ try {
 
 	if (init('action') == 'getMusicCast') {
 		if (init('object_id') == '') {
-			$object = object::byId($_SESSION['user']->getOptions('defaultDashboardObject'));
+			$object = jeeObject::byId($_SESSION['user']->getOptions('defaultDashboardObject'));
 		} else {
-			$object = object::byId(init('object_id'));
+			$object = jeeObject::byId(init('object_id'));
 		}
 		if (!is_object($object)) {
-			$object = object::rootObject();
+			$object = jeeObject::rootObject();
 		}
 		$return = array();
 		$return['eqLogics'] = array();
 		if (init('object_id') == '') {
-			foreach (object::all() as $object) {
+			foreach (jeeObject::all() as $object) {
 				foreach ($object->getEqLogic(true, false, 'musiccast') as $mcast) {
 					$return['eqLogics'][] = $mcast->toHtml(init('version'));
 				}
@@ -124,8 +124,8 @@ try {
 			foreach ($object->getEqLogic(true, false, 'musiccast') as $mcast) {
 				$return['eqLogics'][] = $mcast->toHtml(init('version'));
 			}
-			foreach (object::buildTree($object) as $child) {
-                $mcasts = $child->getEqLogic(true, false, 'musiccast');
+			foreach (jeeObject::buildTree($object) as $child) {
+				$mcasts = $child->getEqLogic(true, false, 'musiccast');
 				if (count($mcasts) > 0) {
 					foreach ($mcasts as $mcast) {
 						$return['eqLogics'][] = $mcast->toHtml(init('version'));
