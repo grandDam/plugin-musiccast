@@ -159,7 +159,7 @@ class musiccast extends eqLogic
                 $eqLogic = new self();
                 $eqLogic->setLogicalId($speaker->getIp());
                 $eqLogic->setName($speaker->getUuid() . '-' . $speaker->getName());
-                $object = object::byName($speaker->getUuid());
+                $object = jeeObject::byName($speaker->getUuid());
                 if (is_object($object)) {
                     $eqLogic->setObject_id($object->getId());
                     $eqLogic->setName($speaker->getUuid() . '-' . $speaker->getName());
