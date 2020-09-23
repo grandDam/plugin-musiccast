@@ -1,224 +1,94 @@
+.importantTransparent {
+    background-color: transparent !important;
+}
+
 .musiccast_widget {
-    width: 220px;
-    height: 330px;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: black;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+//    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .musiccast_widget .uppart {
-    height: 257px;
-    width: 250px;
+    height: 216px;
+    width: 100%;
     z-index: 2;
 }
 
 .musiccast_widget .downpart {
     height: 70px;
-    width: 250px;
+    width: 100%;
     z-index: 2;
+}
+
+.musiccast_widget .downpart .cmd {
+    margin: 0 3px;
 }
 
 .musiccast_widget .volumeDownpart {
     height: 70px;
-    width: 250px;
+    width: 100%;
     z-index: 2;
 }
-
-.musiccast_widget .power {
+.eqLogic-widget .cmd.power {
+    margin-top: 5px !important;
     position: absolute;
-    top: 2px;
-    right: 5px;
-    cursor: pointer;
-    z-index: 0;
+    left: 0px;
 }
 
-.musiccast_widget .cercle_downpart {
-    width: 52px;
-    height: 52px;
-    position: absolute;
-    margin: 6.5px 99px 6.5px;
-    border: 2px solid black;
-    border-radius: 50%;
-    z-index: 3;
-    opacity: 0.6;
+.eqLogic-widget .cmd.power i {
+    color: var(--eqTitle-color) !important;
+    font-size: 12px !important;
 }
 
-.musiccast_widget .cercle_downpart:hover {
-    border-radius: 20%;
-    border: 2px solid #679403;
-    opacity: 1;
-}
-
-.musiccast_widget .play_in_cercle {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin-left: -11px;
-    margin-top: 9px;
-    cursor: pointer;
-    z-index: 4;
-}
-
-.musiccast_widget .pause_in_cercle {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin-left: -14px;
-    margin-top: 9px;
-    cursor: pointer;
-    z-index: 4;
-}
-
-.musiccast_widget .previous {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-top: 22px;
-    left: 25px;
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-    cursor: pointer;
-    z-index: 4;
-    opacity: 0.6;
-}
-
-.musiccast_widget .previous:hover {
-    opacity: 1;
-}
-
-.musiccast_widget .next {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-top: 22px;
-    right: 25px;
-    cursor: pointer;
-    z-index: 4;
-    opacity: 0.6;
-}
-
-.musiccast_widget .next:hover {
-    opacity: 1;
-}
-
-.musiccast_widget .shuffle {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-top: 16px;
-    left: 48px;
-    cursor: pointer;
-    z-index: 4;
-    opacity: 0.6;
-    color: black;
-    font-size: 1.8em;
-}
-
-.musiccast_widget .shuffle:hover {
-    opacity: 1;
-}
-
-.musiccast_widget .repeat {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-top: 15px;
-    left: 75px;
-    cursor: pointer;
-    z-index: 4;
-    opacity: 0.6;
-    color: black;
-    font-size: 1.8em;
-}
-
-.musiccast_widget .repeat:hover {
-    opacity: 1;
-}
-
-.musiccast_widget .mute {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-top: 12px;
-    left: 180px;
-    cursor: pointer;
-    z-index: 4;
-    opacity: 0.6;
-    color: black;
-    font-size: 2em;
-}
-
-.musiccast_widget .mute:hover {
-    opacity: 1;
+.pull-left {
+  float: left!important;
+  margin-right: 3px;
+  margin-left: 5px;
 }
 
 .musiccast_widget .rightRafter {
-    width: 15px;
-    height: 40px;
     position: absolute;
     top: 143.5px;
     right: 5px;
     cursor: pointer;
     z-index: 4;
-    opacity: 0.1;
+    opacity: 0.5;
 }
 
 .musiccast_widget .rightRafter:hover {
     opacity: 1;
 }
 
-.musiccast_widget .rightpanel .rightRafter {
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
 .musiccast_widget .leftRafter {
-    width: 15px;
-    height: 40px;
     position: absolute;
     top: 143.5px;
     left: 5px;
     cursor: pointer;
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
     z-index: 4;
-    opacity: 0.1;
+    opacity: 0.5;
 }
 
 .musiccast_widget .leftRafter:hover {
     opacity: 1;
 }
 
-.musiccast_widget .leftpanel .leftRafter {
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-}
-
 .musiccast_widget .rightpanel {
     width: 200px;
-    height: 327px;
+    height: 216px;
     float: left;
     position: absolute;
     z-index: 10;
     right: -200px;
-    background-color: #4a89dc;
+    border-bottom: solid 2px;
 }
 
 .musiccast_widget .leftpanel {
     text-align: left;
     width: 200px;
-    height: 327px;
+    height: 216px;
     float: left;
     position: absolute;
     z-index: 10;
     left: -200px;
-    background-color: #4a89dc;
+    border-bottom: solid 2px;
 }
 
 .musiccast_widget .title_downpart {
@@ -236,40 +106,48 @@
     font-size: 0.8em;
 }
 
+.musiccast_widget .jaquette {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    display: flex; /* contexte sur le parent */
+    flex-direction: column; /* direction d'affichage verticale */
+    justify-content: center; /* alignement vertical */
+    float: left;
+}
+
 .musiccast_widget .jaquette_musiccast {
-    width: 250px;
+    margin-top: 10px;
+    width: 100%;
     height: 155px;
 }
 
-.musiccast_widget .affiche_premiere_musiccast {
+.musiccast_widget .jaquette_picture {
+    border-radius: 25%;
+}
+
+.musiccast_widget .jaquette_picture_back {
+    margin-top: 10px;
+    z-index: 6;
+    opacity: 0.22;
+    width: 140px;
+    height: 140px;
+    position:absolute;
+}
+
+.musiccast_widget .jaquette_picture_front {
     width: 150px;
     height: 150px;
-    position: absolute;
-    margin-left: -80px;
     z-index: 7;
-    border-radius: 10%;
+    position: relative;
 }
 
-.musiccast_widget .affiche_deuxieme_musiccast {
-    width: 140px;
-    height: 140px;
-    position: absolute;
-    margin-left: -100px;
-    margin-top: 10px;
-    z-index: 6;
-    opacity: 0.22;
-    border-radius: 10%;
+.musiccast_widget .affiche_left_musiccast {
+    left: 40px;
 }
 
-.musiccast_widget .affiche_troisieme_musiccast {
-    width: 140px;
-    height: 140px;
-    position: absolute;
-    margin-left: -40px;
-    margin-top: 10px;
-    z-index: 6;
-    opacity: 0.22;
-    border-radius: 10%;
+.musiccast_widget .affiche_right_musiccast {
+    right: 40px;
 }
 
 .musiccast_widget .shadow_fenetre_musiccast {
@@ -302,12 +180,6 @@
     font-size: 1em;
     font-weight: bold;
     z-index: 2;
-}
-
-.musiccast_widget .volume_musiccast_widget {
-    position: absolute;
-    width: 250px;
-    bottom: 25px;
 }
 
 .musiccast_widget .bouton_sup_volume {

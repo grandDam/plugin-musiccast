@@ -123,16 +123,9 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                     <div class="col-sm-5">
                                         <select type="text" class="eqLogicAttr configuration form-control"
                                                 data-l1key="configuration" data-l2key="model">
-                                            <option value="WX-010">WX-010</option>
-                                            <option value="WX-030">WX-030</option>
-                                            <option value="RESTIO">RESTIO</option>
-                                            <option value="NX-N500">NX-N500</option>
-                                            <option value="SOUNDBAR">Sound Bar</option>
-                                            <option value="AMPLIFIER">Home Cinema Amplifier</option>
-                                            <option value="GATEWAY">Gateway</option>
-                                            <option value="ELEMENT">HI-FI Element</option>
-                                            <option value="SYSTEM">HI-FI System</option>
-                                            <option value="OTHER">Autres</option>
+                                            <?php foreach (musiccast::$_device_list as $device) { 
+                                                echo '<option value="' . $device[0] . '">' . $device[1] . '</option>';
+                                            } ?>
                                         </select>
                                     </div>
                                 </div>

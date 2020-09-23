@@ -38,7 +38,7 @@ if (!isConnect('admin')) {
             type: "POST", // methode de transmission des données au fichier php
             url: "plugins/musiccast/core/ajax/musiccast.ajax.php", // url du fichier php
             data: {
-            	action: "syncNetwork",
+                action: "syncNetwork",
             },
             dataType: 'json',
             error: function (request, status, error) {
@@ -46,8 +46,8 @@ if (!isConnect('admin')) {
             },
             success: function (data) { // si l'appel a bien fonctionné
             if (data.state != 'ok') {
-            	$('#div_alert').showAlert({message: data.result, level: 'danger'});
-            	return;
+                $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                return;
             }
             $('#div_alert').showAlert({message: '{{Synchronisation réussie}}', level: 'success'});
           }

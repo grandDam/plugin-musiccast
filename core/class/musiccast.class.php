@@ -37,15 +37,32 @@ class musiccast extends eqLogic
             'sub-background-color' => array(
                 'name' => 'Couleur de la barre de contrôle',
                 'type' => 'color',
-                'default' => '#5d9cec',
+                'default' => 'rgba(var(--cat-multimedia-color), var(--opacity))',
+                'allow_transparent' => true,
+                'allow_displayType' => true,
+            ),
+            'sub-icon-color' => array(
+                'name' => 'Couleur des icônes de la barre de contrôle',
+                'type' => 'color',
+                'default' => 'var(--eqTitle-color)',
                 'allow_transparent' => true,
                 'allow_displayType' => true,
             ),
         ),
     );
 
-    private $_controller = null;
-    private $_speaker = null;
+    public static $_device_list = array(
+        'WX-010' => array('WX-010', 'WX-010'),
+        'WX-030' => array('WX-030', 'WX-030'),
+        'RESTIO' => array('RESTIO', 'RESTIO'),
+        'NX-N500' => array('NX-N500', 'NX-N500'),
+        'SOUNDBAR' => array('SOUNDBAR', 'Sound Bar'),
+        'AMPLIFIER' => array('AMPLIFIER', 'Home Cinema Amplifier'),
+        'GATEWAY' => array('GATEWAY', 'Gateway'),
+        'ELEMENT' => array('ELEMENT', 'HI-FI Element'),
+        'SYSTEM' => array('SYSTEM', 'HI-FI System'),
+        'OTHER' => array('OTHER', 'Autres')
+    );
 
     /*     * ***********************Methode static*************************** */
 
@@ -142,50 +159,44 @@ class musiccast extends eqLogic
                 $eqLogic = new self();
                 $eqLogic->setLogicalId($speaker->getIp());
                 $eqLogic->setName($speaker->getUuid() . '-' . $speaker->getName());
-                $object = object::byName($speaker->getUuid());
+                $object = jeeObject::byName($speaker->getUuid());
                 if (is_object($object)) {
                     $eqLogic->setObject_id($object->getId());
                     $eqLogic->setName($speaker->getUuid() . '-' . $speaker->getName());
-                    $eqLogic->setConfiguration('model', 'OTHER');
                 }
-                if (strpos($speaker->getModel(), 'WX-030') !== false) {
+                $model = $speaker->getModel();
+                if (strpos($model, 'WX-030') !== false) {
                     $eqLogic->setConfiguration('model', 'WX-030');
-                }
-                if (strpos($speaker->getModel(), 'WX-010') !== false) {
+                } elseif (strpos($model, 'WX-010') !== false) {
                     $eqLogic->setConfiguration('model', 'WX-010');
-                }
-                if (strpos($speaker->getModel(), 'ISX') !== false) {
+                } elseif (strpos($model, 'ISX') !== false) {
                     $eqLogic->setConfiguration('model', 'RESTIO');
-                }
-                if (strpos($speaker->getModel(), 'YSP') !== false
-                    || strpos($speaker->getModel(), 'YAS') !== false
-                    || strpos($speaker->getModel(), 'SRT') !== false) {
+                } elseif (strpos($model, 'YSP') !== false
+                    || strpos($model, 'YAS') !== false
+                    || strpos($model, 'SRT') !== false) {
                     $eqLogic->setConfiguration('model', 'SOUNDBAR');
-                }
-                if (strpos($speaker->getModel(), 'CX-A') !== false
-                    || strpos($speaker->getModel(), 'RX-A') !== false
-                    || strpos($speaker->getModel(), 'RX-V') !== false
-                    || strpos($speaker->getModel(), 'RX-S') !== false) {
+                } elseif (strpos($model, 'CX-A') !== false
+                    || strpos($model, 'RX-A') !== false
+                    || strpos($model, 'RX-V') !== false
+                    || strpos($model, 'RX-S') !== false) {
                     $eqLogic->setConfiguration('model', 'AMPLIFIER');
-                }
-                if (strpos($speaker->getModel(), 'WXA-') !== false
-                    || strpos($speaker->getModel(), 'WXC-') !== false
-                    || strpos($speaker->getModel(), 'WXAD-') !== false
-                    || strpos($speaker->getModel(), 'WXC-') !== false) {
+                } elseif (strpos($model, 'WXA-') !== false
+                    || strpos($model, 'WXC-') !== false
+                    || strpos($model, 'WXAD-') !== false
+                    || strpos($model, 'WXC-') !== false) {
                     $eqLogic->setConfiguration('model', 'GATEWAY');
-                }
-                if (strpos($speaker->getModel(), 'R-N') !== false
-                    || strpos($speaker->getModel(), 'CD-N') !== false
-                    || strpos($speaker->getModel(), 'CRX-N') !== false) {
+                } elseif (strpos($model, 'R-N') !== false
+                    || strpos($model, 'CD-N') !== false
+                    || strpos($model, 'CRX-N') !== false) {
                     $eqLogic->setConfiguration('model', 'ELEMENT');
-                }
-                if (strpos($speaker->getModel(), 'MCR-N') !== false
-                    || strpos($speaker->getModel(), 'CD-N') !== false
-                    || strpos($speaker->getModel(), 'CRX-N') !== false) {
+                } elseif (strpos($model, 'MCR-N') !== false
+                    || strpos($model, 'CD-N') !== false
+                    || strpos($model, 'CRX-N') !== false) {
                     $eqLogic->setConfiguration('model', 'SYSTEM');
-                }
-                if (strpos($speaker->getModel(), 'NX-N500') !== false) {
+                } elseif (strpos($model, 'NX-N500') !== false) {
                     $eqLogic->setConfiguration('model', 'NX-N500');
+                } else {
+                    $eqLogic->setConfiguration('model', 'OTHER');
                 }
                 $eqLogic->setEqType_name('musiccast');
                 $eqLogic->setIsVisible(1);
@@ -255,15 +266,16 @@ class musiccast extends eqLogic
                     $is_coordinator = ($controller->isCoordinator() == '') ? 0 : $controller->isCoordinator();
 
                     $track = null;
-                    $title = '';
-                    $album = '';
-                    $artist = '';
+                    $aucun = __('Aucun', __FILE__);
+                    $title = $aucun;
+                    $album = $aucun;
+                    $artist = $aucun;
 
                     if ($controller->isStreaming()) {
                         if (file_exists(dirname(__FILE__) . '/../../../../plugins/musiccast/musiccast_' . $eqLogic->getId() . '.jpg')) {
                             unlink(dirname(__FILE__) . '/../../../../plugins/musiccast/musiccast_' . $eqLogic->getId() . '.jpg');
                         }
-                        $state = '';
+                        $state = $aucun;
                     } else {
                         $track = $state_details->track;
                         if ($track != null) {
@@ -284,24 +296,8 @@ class musiccast extends eqLogic
 
 
                     $input = $controller->getInput();
-
-                    if ($title == '') {
-                        $title = __('Aucun', __FILE__);
-                    }
-                    if ($state == '') {
-                        $state = __('Aucun', __FILE__);
-                    }
-                    if ($album == '') {
-                        $album = __('Aucun', __FILE__);
-                    }
-                    if ($artist == '') {
-                        $artist = __('Aucun', __FILE__);
-                    }
-                    if ($state == '') {
-                        $state = __('Aucun', __FILE__);
-                    }
                     if ($input == '') {
-                        $input = __('Aucun', __FILE__);
+                        $input = $aucun;
                     }
 
                     if ($controller->getGroup() != Speaker::NO_GROUP) {
@@ -315,18 +311,18 @@ class musiccast extends eqLogic
                     }
 
 
-                    $changed = $eqLogic->checkAndUpdateCmd('group', $group) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('state', $state) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('volume', $controller->getVolume()) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('shuffle_state', $shuffle) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('mute_state', $mute) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('repeat_state', $repeat) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_title', $title) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_album', $album) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_artist', $artist) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('input', $input) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('power_state', $power) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator) || $changed;
+                    $changed |= $eqLogic->checkAndUpdateCmd('group', $group);
+                    $changed |= $eqLogic->checkAndUpdateCmd('state', $state);
+                    $changed |= $eqLogic->checkAndUpdateCmd('volume', $controller->getVolume());
+                    $changed |= $eqLogic->checkAndUpdateCmd('shuffle_state', $shuffle);
+                    $changed |= $eqLogic->checkAndUpdateCmd('mute_state', $mute);
+                    $changed |= $eqLogic->checkAndUpdateCmd('repeat_state', $repeat);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_title', $title);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_album', $album);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_artist', $artist);
+                    $changed |= $eqLogic->checkAndUpdateCmd('input', $input);
+                    $changed |= $eqLogic->checkAndUpdateCmd('power_state', $power);
+                    $changed |= $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator);
 
                     if ($changed) {
                         log::add('musiccast', 'debug', "Refreshing widget");
@@ -389,15 +385,15 @@ class musiccast extends eqLogic
                     }
 
 
-                    $changed = $eqLogic->checkAndUpdateCmd('group', $group) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('state', $state) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('volume', $speaker->getVolume()) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_title', $title) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_album', $album) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('track_artist', $artist) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('input', $input) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('power_state', $power) || $changed;
-                    $changed = $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator) || $changed;
+                    $changed |= $eqLogic->checkAndUpdateCmd('group', $group);
+                    $changed |= $eqLogic->checkAndUpdateCmd('state', $state);
+                    $changed |= $eqLogic->checkAndUpdateCmd('volume', $speaker->getVolume());
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_title', $title);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_album', $album);
+                    $changed |= $eqLogic->checkAndUpdateCmd('track_artist', $artist);
+                    $changed |= $eqLogic->checkAndUpdateCmd('input', $input);
+                    $changed |= $eqLogic->checkAndUpdateCmd('power_state', $power);
+                    $changed |= $eqLogic->checkAndUpdateCmd('coordinator_state', $is_coordinator);
                     if ($changed) {
                         log::add('musiccast', 'debug', "refreshWidget");
                         $eqLogic->refreshWidget();
@@ -553,7 +549,7 @@ class musiccast extends eqLogic
     public
     function getSpeaker()
     {
-        return /*$this->_speaker =*/ self::getSpeakerByIp($this->getLogicalId());
+        return self::getSpeakerByIp($this->getLogicalId());
 
     }
 
@@ -563,7 +559,7 @@ class musiccast extends eqLogic
     public
     function getController()
     {
-        return /*$this->_controller =*/ self::getControllerByIp($this->getLogicalId());
+        return self::getControllerByIp($this->getLogicalId());
     }
 
     public
@@ -595,6 +591,7 @@ class musiccast extends eqLogic
         }
         $play->setType('action');
         $play->setSubType('other');
+        $play->setGeneric_type('MEDIA_RESUME');
         $play->setEqLogic_id($this->getId());
         $play->save();
 
@@ -606,6 +603,7 @@ class musiccast extends eqLogic
         }
         $stop->setType('action');
         $stop->setSubType('other');
+        $stop->setGeneric_type('MEDIA_STOP');
         $stop->setEqLogic_id($this->getId());
         $stop->save();
 
@@ -617,6 +615,7 @@ class musiccast extends eqLogic
         }
         $pause->setType('action');
         $pause->setSubType('other');
+        $pause->setGeneric_type('MEDIA_PAUSE');
         $pause->setEqLogic_id($this->getId());
         $pause->save();
 
@@ -628,6 +627,7 @@ class musiccast extends eqLogic
         }
         $next->setType('action');
         $next->setSubType('other');
+        $next->setGeneric_type('MEDIA_NEXT');
         $next->setEqLogic_id($this->getId());
         $next->save();
 
@@ -639,6 +639,7 @@ class musiccast extends eqLogic
         }
         $previous->setType('action');
         $previous->setSubType('other');
+        $previous->setGeneric_type('MEDIA_PREVIOUS');
         $previous->setEqLogic_id($this->getId());
         $previous->save();
 
@@ -731,6 +732,7 @@ class musiccast extends eqLogic
         $volume->setUnite('%');
         $volume->setType('info');
         $volume->setSubType('numeric');
+        $volume->setGeneric_type('VOLUME');
         $volume->setConfiguration('repeatEventManagement', 'never');
         $volume->setEqLogic_id($this->getId());
         $volume->save();
@@ -743,6 +745,7 @@ class musiccast extends eqLogic
         }
         $setVolume->setType('action');
         $setVolume->setSubType('slider');
+        $setVolume->setGeneric_type('SET_VOLUME');
         $setVolume->setValue($volume->getId());
         $setVolume->setEqLogic_id($this->getId());
         $setVolume->save();
@@ -877,6 +880,7 @@ class musiccast extends eqLogic
         }
         $power_on->setType('action');
         $power_on->setSubType('other');
+        $power_on->setGeneric_type('ENERGY_ON');
         $power_on->setEqLogic_id($this->getId());
         $power_on->save();
 
@@ -888,6 +892,7 @@ class musiccast extends eqLogic
         }
         $standby->setType('action');
         $standby->setSubType('other');
+        $standby->setGeneric_type('ENERGY_OFF');
         $standby->setEqLogic_id($this->getId());
         $standby->save();
 
@@ -899,6 +904,7 @@ class musiccast extends eqLogic
         }
         $power->setType('info');
         $power->setSubType('binary');
+        $power->setGeneric_type('ENERGY_STATE');
         $power->setEqLogic_id($this->getId());
         $power->save();
 
@@ -957,6 +963,7 @@ class musiccast extends eqLogic
     function toHtml($_version = 'dashboard')
     {
         $replace = $this->preToHtml($_version, array('#background-color#' => '#4a89dc'));
+        $aucun = __('Aucun', __FILE__);
         if (!is_array($replace)) {
             return $replace;
         }
@@ -1000,7 +1007,7 @@ class musiccast extends eqLogic
 
         if (is_object($cmd_state)) {
             $replace['#state#'] = $cmd_state->execCmd();
-            if ($replace['#state#'] == __('Aucun', __FILE__)) {
+            if ($replace['#state#'] == $aucun) {
                 if ($this->getConfiguration('strControl', 0) == 0)
                     $replace['#state#'] = '';
                 else
@@ -1017,14 +1024,14 @@ class musiccast extends eqLogic
         $cmd_track_artist = $this->getCmd(null, 'track_artist');
         if (is_object($cmd_track_artist)) {
             $subtitle = $cmd_track_artist->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#subtitle#'] = $cmd_track_artist->execCmd();
         }
 
         $cmd_track_album = $this->getCmd(null, 'track_album');
         if (is_object($cmd_track_album)) {
             $subtitle = $cmd_track_album->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#subtitle#'] .= ' - ' . $cmd_track_album->execCmd();
         }
         $replace['#subtitle#'] = trim(trim(trim($replace['#subtitle#']), ' - '));
@@ -1032,7 +1039,7 @@ class musiccast extends eqLogic
         $cmd_track_title = $this->getCmd(null, 'track_title');
         if (is_object($cmd_track_title)) {
             $subtitle = $cmd_track_title->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#title#'] = $cmd_track_title->execCmd();
         }
         $replace['#title#'] = trim(trim(trim($replace['#title#']), '-'));
@@ -1044,7 +1051,7 @@ class musiccast extends eqLogic
         $cmd_group = $this->getCmd(null, 'group');
         if (is_object($cmd_group)) {
             $subtitle = $cmd_group->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#group#'] = $cmd_group->execCmd();
         }
         $replace['#group#'] = trim(trim(trim($replace['#group#']), '-'));
@@ -1052,7 +1059,7 @@ class musiccast extends eqLogic
         $cmd_track_input = $this->getCmd(null, 'input');
         if (is_object($cmd_track_input)) {
             $subtitle = $cmd_track_input->execCmd();
-            if ($subtitle != __('Aucun', __FILE__))
+            if ($subtitle != $aucun)
                 $replace['#input#'] = $cmd_track_input->execCmd();
         }
 
